@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
+
 <title>Station meteo</title>
+
 <meta charset="utf-8">
+<link href="style.css" rel="stylesheet"/>
+<script type="text/javascript" src="segment-display.js"></script>
+<script type="text/javascript" src="./scripts/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js" integrity="sha512-a+mx2C3JS6qqBZMZhSI5LpWv8/4UK21XihyLKaFoSbiKQs/3yRdtqCwGuWZGwHKc5amlNN8Y7JlqnWQ6N/MYgA==" crossorigin="anonymous"></script>
+
+
 </head>
-<body style="background-color: #A2A2A2;">
+<div class="sun"></div>
 
 
-<script hr ></script>
-<canvas id="meteoChart"></canvas>
+<body style="background-color: #5a9ddb;">
+    <div class="title">
+        Station Méteo
+
+    </div>
+<body onLoad="initClock()">
+
+    <div id="timedate">
+        <a id="d">1</a>
+        <a id="mon">January</a>
+        <a id="y">0</a></br>
+        <a id="h">12</a> :
+        <a id="m">00</a>:
+        <a id="s">00</a>
+        
+    </div>
+<hr>
+<div style="width: 70%; margin-left: 15%;">
+<canvas id="meteoChart" ></canvas>
+</div>
+
+
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 <script>
 var ctx = document.getElementById('meteoChart').getContext('2d');
 
@@ -20,14 +59,17 @@ var ctx = document.getElementById('meteoChart').getContext('2d');
 var data = {
     labels: ['1h', '50min', '40 min', '30 min', '20 min', '10 min', '5 min', '1 min'],
     datasets: [{
-        backgroundColor: '#4A90B0',
+        backgroundColor: '#00000000',
+        borderColor: '#4A99BB',
         hoverBorderWidth:3,
         label:'Température',
         data: [10,12,15,12,13,16,17,18,16]
     },
     {
+        backgroundColor:"#999999",
         label:'Humidité',
-        backgroundColor: '#B54747',
+        backgroundColor: '#B5474700',
+        borderColor: '#B54747',
         data: [56,75,74,70,68,50,62,45,56]
     }
 ]
@@ -41,9 +83,9 @@ var options = {
         fontSize:25
     },
     legend:{
-        position:'right',
-        labels
+        position:'bottom'
     }
+    
 }
 
 var config = {
