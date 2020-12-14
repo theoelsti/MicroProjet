@@ -7,7 +7,7 @@ def tempupdate() :
             
             repr(var1)	
             fob = open('/var/www/html/index.html', 'w')	
-            fob.write('<html><head><meta charset="UTF-8"></head><body><h1>La temperature est de ' + data[1]+ ' à'+ time.strftime('%l:%M%p le %b %d, %Y') + '</h1></body></html>')
+            fob.write('<html><head><meta charset="UTF-8"></head><body><h1>La temperature est de ' + data[1]+ '<br> L\'humidité est de '+data[0]+'<br> à'+ time.strftime('%l:%M%p le %b %d, %Y') + '</h1></body></html>')
             fob.close()
 
 try:
