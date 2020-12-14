@@ -3,8 +3,14 @@ DHT dht(A0, DHT22);
 float h = dht.readHumidity();
 float t = dht.readTemperature();
 
+
+void setup(){
+
+
+
+}
 void temperature(){
-    
+
 }
 void humidite() {
 
