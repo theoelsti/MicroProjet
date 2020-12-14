@@ -1,7 +1,5 @@
 #include <DHT.h>;
-
 DHT dht(A0, DHT22);
-int chk;
 float hum;  
 float temp;
 void setup()
@@ -14,11 +12,7 @@ void loop()
 {
     hum = dht.readHumidity();
     temp= dht.readTemperature();   
-    Serial.print("hum:");
-    Serial.print(hum);
-    Serial.print(";temp");
-    Serial.print(temp);
+    String payload = String(hum)+":"+String(temp)+"\n";
+    Serial.print(payload);
     delay(2000); 
 }
-
-   
