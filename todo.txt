@@ -1,6 +1,6 @@
-- Toutes les X secondes
-    - Lire la temperature sur l'arduino
-    - Lire l'humidité sur l'arduino
++ Toutes les X secondes
+    + Lire la temperature sur l'arduino
+    + Lire l'humidité sur l'arduino
 - Transmettre les données à la raspberry
 - Afficher les données sur une page web coté raspberry
 - Décider sur la page web le délai de récuperation des informations
