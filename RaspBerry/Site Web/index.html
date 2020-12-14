@@ -14,14 +14,15 @@
 
 
 </head>
+<div class="top">
 <div class="sun"></div>
 
 
-<body style="background-color: #5a9ddb;">
+<body style="background-color: #0b69c0;">
     <div class="title">
         Station Méteo
 
-    </div>
+    </div >
 <body onLoad="initClock()">
 
     <div id="timedate">
@@ -34,6 +35,7 @@
         
     </div>
 <hr>
+</div>
 <div style="width: 70%; margin-left: 15%;">
 <canvas id="meteoChart" ></canvas>
 </div>
@@ -68,6 +70,7 @@ var data = {
     {
         backgroundColor:"#999999",
         label:'Humidité',
+        color:'#FFFFFF',
         backgroundColor: '#B5474700',
         borderColor: '#B54747',
         data: [56,75,74,70,68,50,62,45,56]
@@ -80,7 +83,8 @@ var options = {
     title:{
         display:true,
         text:'Température et Humidité en fonction du temps',
-        fontSize:25
+        fontSize:25,
+        fontColor:'#A6D666'
     },
     legend:{
         position:'bottom'

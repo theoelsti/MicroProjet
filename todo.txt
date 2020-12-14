@@ -8,7 +8,7 @@ Terminé J+0
 
 Commencé J+0
 ~~ Affichage graphique (courbes, histogrammes...) de l’historique par jour (en option par semaine, mois) des données.
-
+    - Changer la couleur du label
 A faire 
 - Pouvoir avoir le choix du jour à afficher dans l’historique l’interface web
 
