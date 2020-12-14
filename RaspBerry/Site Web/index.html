@@ -1,14 +1,57 @@
 <!DOCTYPE html>
+<html>
 <head>
 <title>Station meteo</title>
+<meta charset="utf-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js" integrity="sha512-a+mx2C3JS6qqBZMZhSI5LpWv8/4UK21XihyLKaFoSbiKQs/3yRdtqCwGuWZGwHKc5amlNN8Y7JlqnWQ6N/MYgA==" crossorigin="anonymous"></script>
 </head>
-<body>
+<body style="background-color: #A2A2A2;">
 
-<html>
-<h1>Station Meteo</h1>
+
 <script hr ></script>
-<canvas id="meteoChart" width="400" height="400"></canvas>
-</html>
-
+<canvas id="meteoChart"></canvas>
 
 </body>
+</html>
+<script>
+var ctx = document.getElementById('meteoChart').getContext('2d');
+
+
+var data = {
+    labels: ['1h', '50min', '40 min', '30 min', '20 min', '10 min', '5 min', '1 min'],
+    datasets: [{
+        backgroundColor: '#4A90B0',
+        hoverBorderWidth:3,
+        label:'Température',
+        data: [10,12,15,12,13,16,17,18,16]
+    },
+    {
+        label:'Humidité',
+        backgroundColor: '#B54747',
+        data: [56,75,74,70,68,50,62,45,56]
+    }
+]
+
+}
+
+var options = {
+    title:{
+        display:true,
+        text:'Température et Humidité en fonction du temps',
+        fontSize:25
+    },
+    legend:{
+        position:'right',
+        labels
+    }
+}
+
+var config = {
+
+    type: 'line',
+    data: data,
+    options: options
+}
+let meteoChart = new Chart(ctx, config);
+Chart.defaults.global.defaultFontFamily ='Lato';
+</script>
