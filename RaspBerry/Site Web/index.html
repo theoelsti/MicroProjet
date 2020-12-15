@@ -18,26 +18,25 @@
 <div class="sun"></div>
 
 
-<body style="background-color: #0b69c0;">
+<body style="background-color: #FF3864;">
     <div class="title">
         Station Méteo
-
-    </div >
+    </div>
+    
 <body onLoad="initClock()">
 
     <div id="timedate">
         <a id="d">1</a>
-        <a id="mon">January</a>
+        <a id="mon">Janvier</a>
         <a id="y">0</a></br>
-        <a id="h">12</a> :
-        <a id="m">00</a>:
-        <a id="s">00</a>
-        
+        <a id="h" style="font-size:30px">12</a><a style="font-size: 30px;">  :</a>
+        <a id="m" style="font-size:30px">00</a><a style="font-size: 30px;">  :</a>
+        <a id="s" style="font-size:30px">00</a>
     </div>
 <hr>
 </div>
 <div style="width: 70%; margin-left: 15%;">
-<canvas id="meteoChart" ></canvas>
+<canvas id="meteoChart"></canvas>
 </div>
 
 
@@ -61,10 +60,10 @@ var ctx = document.getElementById('meteoChart').getContext('2d');
 var data = {
     labels: ['1h', '50min', '40 min', '30 min', '20 min', '10 min', '5 min', '1 min'],
     datasets: [{
-        backgroundColor: '#00000000',
-        borderColor: '#4A99BB',
-        hoverBorderWidth:3,
         label:'Température',
+        backgroundColor: '#00000000',
+        borderColor: '#F9C80E',
+        hoverBorderWidth:3,
         data: [10,12,15,12,13,16,17,18,16]
     },
     {
@@ -72,7 +71,7 @@ var data = {
         label:'Humidité',
         color:'#FFFFFF',
         backgroundColor: '#B5474700',
-        borderColor: '#B54747',
+        borderColor: '#023788',
         data: [56,75,74,70,68,50,62,45,56]
     }
 ]
@@ -84,10 +83,20 @@ var options = {
         display:true,
         text:'Température et Humidité en fonction du temps',
         fontSize:25,
-        fontColor:'#A6D666'
+        fontColor:'#2DE2E6',
+        fontFamily:'Arial'
     },
     legend:{
         position:'bottom'
+    },
+    scales:{
+        yAxes:[{
+            ticks:{
+                beginAtZero: true,
+                color: '#455F2'
+            }
+
+        }]
     }
     
 }
