@@ -1,0 +1,73 @@
+<script>
+    var ctx = document.getElementById('meteoChart').getContext('2d');  
+    var data = {
+        labels: timeScale,
+        datasets: [{
+            label:'Température',
+            backgroundColor: '#D4007810',
+            borderColor: '#D40078',
+            pointStrokeColor: "#F6019D",
+            pointHighlightFill: "#F6019D",
+            data: temp
+        },
+        {
+            label:'Humidité',
+            color:'#FFFFFF',
+            backgroundColor: '#2DE2E610',
+            borderColor: '#2DE2E6',
+            data: hum
+        }
+    ]
+    
+    }
+    var options = {
+        title:{
+            display:true,
+            text:'Température et Humidité en fonction du temps',
+            fontSize:25,
+            fontColor:'#2DE2E6',
+            fontFamily:'robot'
+        },
+        legend:{
+            position:'bottom'
+        },
+        scales:{
+            yAxes: [{
+            id: 'A',
+            type: 'linear',
+            position: 'left',
+            ticks: {
+              max: 100,
+              min: 0,
+              fontColor:'#F706CF',
+              fontSize: 15
+            }
+          }, {
+            id: 'B',
+            type: 'linear',
+            position: 'right',
+            ticks: {
+              max: 100,
+              min: 0,
+              fontColor:'#F706CF',
+              fontSize: 15
+            }
+          }],
+          xAxes:[{
+            ticks: {
+              fontColor:'#FD1D53',
+              fontSize: 13
+            }
+          }]
+        }
+        
+    }
+    var config = {
+    
+        type: 'line',
+        data: data,
+        options: options
+    }
+    let meteoChart = new Chart(ctx, config);
+    Chart.defaults.global.defaultFontFamily ='Lato';
+    </script>

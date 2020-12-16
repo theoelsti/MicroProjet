@@ -9,7 +9,7 @@ ser.flush()
 #----Gestion Base Mysql----#
 DB_SERVER ='127.0.0.1' 
 DB_USER='root'     
-DB_PWD=' '          
+DB_PWD='root'          
 DB_BASE='releves'     
 
 def query_db(sql):
