@@ -11,7 +11,7 @@ if($result = mysqli_query($link, $sql)){
         $time;
         $temp;
         $hum;
-        
+
         while($row = mysqli_fetch_array($result)){
                 $time[] = $row['date'];
                 $temp[] = $row['temp'];
@@ -21,7 +21,7 @@ if($result = mysqli_query($link, $sql)){
 
         //echo des temperature
         echo "var temp  = [" ;
-        for($i = 0; $i<sizeof($temp); $i++){
+        for($i = 0; $i<10; $i++){
             echo $temp[$i];
             if($i<9){
                 echo ',';  
@@ -32,7 +32,7 @@ if($result = mysqli_query($link, $sql)){
 
         //echo de l'humidité
         echo "var hum  = [" ;
-        for($i = 0; $i<sizeof($hum); $i++){
+        for($i = 0; $i<10; $i++){
             echo $hum[$i];
             if($i<9){
                 echo ',';  
@@ -43,7 +43,7 @@ if($result = mysqli_query($link, $sql)){
 
         //echo de l'heure
         echo "var timeScale  = [" ;
-        for($i = 0; $i<sizeof($hum); $i++){
+        for($i = 0; $i<10; $i++){
             echo "'";
             echo $time[$i];
             echo "'";

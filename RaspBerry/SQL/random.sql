@@ -1,12 +1,21 @@
- INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 18:58:17','19.4','48.7');
-            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 18:58:18','20.3','52.6');
-            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 18:58:19','19.2','47.7');
-            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 18:58:20','20.1','47.0');
-            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 18:58:21','19.9','52.5');
-            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 18:58:22','19.5','48.6');
-            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 18:58:23','20.7','51.6');
-            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 18:58:24','19.9','52.1');
-            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 18:58:25','19.7','51.2');
-            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 18:58:26','20.1','51.7');
-
+ INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:27','19.9','50.4');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:28','20.2','49.2');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:29','20.9','51.1');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:30','20.6','49.7');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:31','20.3','48.6');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:32','20.1','50.1');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:33','19.9','49.2');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:34','20.0','47.2');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:35','20.9','47.1');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:36','20.0','48.0');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:37','19.2','50.6');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:38','19.4','51.9');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:39','19.5','52.6');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:40','19.5','51.4');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:41','19.9','49.1');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:42','20.3','50.6');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:43','20.7','48.1');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:44','20.5','51.2');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:45','19.5','47.2');
+            INSERT INTO pimeteo (date, temp, hum) VALUES ('2020-12-16 21:38:46','20.3','52.6');
             
