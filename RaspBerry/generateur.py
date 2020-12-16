@@ -5,7 +5,7 @@ import mysql.connector
 empty="TRUNCATE TABLE `pimeteo`;"
 DB_SERVER ='127.0.0.1' 
 DB_USER='root'     
-DB_PWD=' '          
+DB_PWD='root'          
 DB_BASE='releves'  
 
 tempint = 20.00
