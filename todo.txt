@@ -28,4 +28,13 @@ En bonus (jvais le faire quand meme ):
 - Décider sur la page web le délai de récuperation des informations
 
 Pour les données:
-    - 
+    - on recupere la date et l'heure que l'on veut
+    - on fais un for de 10 avec la date: 
+        pour la derniere heure: 
+            where date = date de aujd, 
+            where date.substr(pour l'heure ) = l'heure actuelle
+        pour le jour entier:
+            where date = date d'ajd,
+            i+(length(jourajd/10))
+        pour la derniere année:
+            where année = année actuelle
