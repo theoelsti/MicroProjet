@@ -18,17 +18,17 @@ def reset_file():
 def temp():
     way = random.randint(0, 1)
     if way:
-        newtemp = tempint + random.uniform(0, 0.9)
+        newtemp = tempint + random.uniform(0, 1.5)
     else:
-        newtemp = tempint - random.uniform(0, 0.9)
+        newtemp = tempint - random.uniform(0, 1.5)
     return round(newtemp, 1)
 def hum():
 
     way = random.randint(0, 1)
     if way:
-        newhum = humint + random.uniform(0, 3)
+        newhum = humint + random.uniform(0, 5)
     else:
-        newhum = humint - random.uniform(0, 3)
+        newhum = humint - random.uniform(0, 5)
     return round(newhum, 1)
 def write(query):
     sql_file = open('../SQL/random.sql','a')
