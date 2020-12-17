@@ -42,11 +42,8 @@ def tempget():
     datebuff = time.strftime('%Y-%m-%d %H:%M:%S')
     line = ser.readline().decode('utf-8').rstrip()
     data = line.split(':')
-    jsonPayload = "{" + '"hum":'+ data[0] + ',"temp":'+ data[1] + "}" 
-    print(jsonPayload)
     query_db("""INSERT INTO pimeteo (date, temp, hum) VALUES ('%s','%s','%s');
          """ % (datebuff, data[1], data[0]))
-    print("La requete sql a bien été envoyée.")
          
 #On crée la table si elle n'existe pas
 query_db("""CREATE TABLE IF NOT EXISTS pimeteo (`date` datetime NOT NULL,
@@ -57,7 +54,7 @@ try:
  while ok:
      if ser.in_waiting>0:
          tempget()
-         sleep(60)
+         sleep(2)
          
 except KeyboardInterrupt:
     print("adios.")
