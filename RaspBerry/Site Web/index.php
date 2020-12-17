@@ -21,11 +21,9 @@ function updateSQL(){
                     
             }
             
-            $factor = 5;
+           
             //echo des temperature
             $tempsize = sizeof($temp)-1;
-            echo $tempsize;
-            echo  "\n";
             echo "var tempraw  = [" ;
             for($i = $tempsize; $i>$tempsize-10; $i--){
                 echo $temp[$i];
@@ -35,6 +33,7 @@ function updateSQL(){
                 
             }
             echo "];\n";
+            
 
             //echo de l'humidité
             $humsize = sizeof($hum)-1;
@@ -47,6 +46,7 @@ function updateSQL(){
                 
             }
             echo "];\n";
+
 
             //echo de l'heure
             $timesize = sizeof($time)-1;
@@ -70,5 +70,6 @@ function updateSQL(){
 }
 updateSQL();
 include("./scripts/data_processing.html");
+include("./scripts/mediancalc.html");
 include("./scripts/chart.html"); 
 ?>
