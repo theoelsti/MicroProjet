@@ -26,3 +26,6 @@ A faire
 
 En bonus (jvais le faire quand meme ): 
 - Décider sur la page web le délai de récuperation des informations
+
+Pour les données:
+    - 

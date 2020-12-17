@@ -20,11 +20,11 @@ function updateSQL(){
                     $hum[] = $row['hum'];
                     
             }
-
+            $factor = 5;
             //echo des temperature
             echo "var tempraw  = [" ;
             for($i = 0; $i<10; $i++){
-                echo $temp[$i];
+                echo $temp[$i+$factor];
                 if($i<9){
                     echo ',';  
                 }
@@ -35,7 +35,7 @@ function updateSQL(){
             //echo de l'humidité
             echo "var humraw  = [" ;
             for($i = 0; $i<10; $i++){
-                echo $hum[$i];
+                echo $hum[$i+$factor];
                 if($i<9){
                     echo ',';  
                 }
@@ -47,7 +47,7 @@ function updateSQL(){
             echo "var timeScaleraw  = [" ;
             for($i = 0; $i<10; $i++){
                 echo "'";
-                echo $time[$i];
+                echo $time[$i+$factor];
                 echo "'";
                 if($i<9){
                     echo ',';  
