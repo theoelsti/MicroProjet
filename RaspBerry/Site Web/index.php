@@ -24,7 +24,7 @@ function updateSQL(){
             //echo des temperature
             echo "var tempraw  = [" ;
             for($i = 0; $i<10; $i++){
-                echo $temp[$i+(sizeof($temp)/10)-1];
+                echo $temp[$i+(sizeof($temp)/10)+1];
                 if($i<9){
                     echo ',';  
                 }
