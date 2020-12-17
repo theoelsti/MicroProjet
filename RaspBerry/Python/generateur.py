@@ -12,7 +12,7 @@ tempint = 20.00
 humint = 50.00
 
 def reset_file():
-     sql_file = open('./RaspBerry/SQL/random.sql','w')
+     sql_file = open('../SQL/random.sql','w')
      sql_file.write(" ")
      sql_file.close
 def temp():
@@ -31,7 +31,7 @@ def hum():
         newhum = humint - random.uniform(0, 3)
     return round(newhum, 1)
 def write(query):
-    sql_file = open('./RaspBerry/SQL/random.sql','a')
+    sql_file = open('../SQL/random.sql','a')
     sql_file.write(query)
 def query_db(sql):
     try:
