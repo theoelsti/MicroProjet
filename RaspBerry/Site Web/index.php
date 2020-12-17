@@ -2,7 +2,7 @@
 include("index.html"); 
 
 function updateSQL(){
-    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
+    $link = mysqli_connect("localhost:3306", "root", "", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
@@ -20,12 +20,16 @@ function updateSQL(){
                     $hum[] = $row['hum'];
                     
             }
+            
             $factor = 5;
             //echo des temperature
+            $tempsize = sizeof($temp)-1;
+            echo $tempsize;
+            echo  "\n";
             echo "var tempraw  = [" ;
-            for($i = 0; $i<10; $i++){
-                echo $temp[$i+$factor];
-                if($i<9){
+            for($i = $tempsize; $i>$tempsize-10; $i--){
+                echo $temp[$i];
+                if($i>$tempsize-9){
                     echo ',';  
                 }
                 
@@ -33,10 +37,11 @@ function updateSQL(){
             echo "];\n";
 
             //echo de l'humidité
+            $humsize = sizeof($hum)-1;
             echo "var humraw  = [" ;
-            for($i = 0; $i<10; $i++){
-                echo $hum[$i+$factor];
-                if($i<9){
+            for($i = $humsize; $i>$humsize-10; $i--){
+                echo $hum[$i];
+                if($i>$tempsize-9){
                     echo ',';  
                 }
                 
@@ -44,12 +49,13 @@ function updateSQL(){
             echo "];\n";
 
             //echo de l'heure
+            $timesize = sizeof($time)-1;
             echo "var timeScaleraw  = [" ;
-            for($i = 0; $i<10; $i++){
+            for($i = $timesize; $i>$timesize-10; $i--){
                 echo "'";
-                echo $time[$i+$factor];
+                echo $time[$i];
                 echo "'";
-                if($i<9){
+                if($i>$timesize-9){
                     echo ',';  
                 }
                 
