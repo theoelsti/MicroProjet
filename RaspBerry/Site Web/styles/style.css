@@ -1,20 +1,20 @@
 @font-face {
     font-family: "cloudy";
-    src: url(./fonts/fluffy/FluffyClouds-K11y.ttf) format("truetype");
+    src: url(../fonts/fluffy/FluffyClouds-K11y.ttf) format("truetype");
 }
 @font-face {
     font-family: "coolvetica";
-    src: url(./fonts/coolvetica\ rg.ttf) format("truetype");
+    src: url(../fonts/coolvetica\ rg.ttf) format("truetype");
 }
 @font-face {
     font-family: "robot";
-    src: url(./fonts/Roboto-Thin.ttf) format("truetype");
+    src: url(../fonts/Roboto-Thin.ttf) format("truetype");
 }
 .title{
     text-align: center;
     font-family: cloudy;
     font-size: 100px;
-    color: #FF3864;
+    color: #F9C80E;
     }
  /*
 Style pour le soleil
@@ -73,5 +73,34 @@ Style pour la date
   }
 #mi{
     opacity: 0;
+}
+.mainHello{
+		font-size: 50px;
+		text-align: center;
+		color:#F6019D ;
+}
+.moyenne{
+	font-size: 45px;
+	text-align: center;
+	color:#8712b6 ;
+	font-family: robot;
+}
+#tempid{
+	font-size: 40px;
+	text-align: center;
+	color:#FF6C11 ;
+	font-family: robot;
+}
+#humid{
+	font-size: 40px;
+	text-align: center;
+	color:#0c4ba8 ;
+	font-family: robot;
+}
+
+.lastvalues{
+	font-size: 45px;
+	text-align: center;
+	font-family: robot;
 }
 

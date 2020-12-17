@@ -31,13 +31,11 @@ def generate(nb):
         datebuff = time.strftime('%Y-%m-%d %H:%M:%S')
         query = """INSERT INTO pimeteo (date, temp, hum) VALUES ('%s','%s','%s');
             """ % (datebuff,temp() ,hum() )
-        print(query)
         write(query)
        
         time.sleep(1)
 def setup(nb):
     reset_file()
-   
     generate(nb)
-generatenumber = int(input("Combien de valeurs souhaitez vous générer ?"))
+generatenumber = int(input("Combien de valeurs souhaitez vous générer ? "))
 setup(generatenumber)
