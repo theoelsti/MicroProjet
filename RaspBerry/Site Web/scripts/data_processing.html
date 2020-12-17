@@ -34,10 +34,14 @@ else{
     mainHello.style.color = "#FF6C11"
     mainHello.style.fontFamily = "robot"
 }
-var moyenneField =  document.getElementsByClassName("moyenne")[0];
+var lastField =  document.getElementsByClassName("dataText")[0];
 var lastValuesField = document.getElementsByClassName("lastvalues")[0];
-moyenneField.innerHTML = "les dernieres valeurs relevées sont :"
+var medianField =  document.getElementsByClassName("median")[0];
+lastField.innerHTML = "les dernieres valeurs relevées sont :"
 lastValuesField.innerHTML = " <a id=\"tempid\" >" + temp[9].toString() + "°C</a>" + "  |  <a id=\"humid\" >"+  hum[9].toString() + "% </a>"
+
+let moyennetemp = temp[9]+temp[8]+temp[7]+temp[6]+temp[5]+temp[4]+temp[3]+temp[2]+temp[1]+temp[0];
+moyennetemp = moyennetemp/10;
 
 
 </script>

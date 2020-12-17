@@ -2,7 +2,7 @@
 include("index.html"); 
 
 function updateSQL(){
-    $link = mysqli_connect("localhost:3306", "root", "", "releves");
+    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
