@@ -27,7 +27,7 @@ def write(query):
     sql_file.write(query)
 
 def daterange(start_date, end_date):
-    delta = timedelta(seconds=10)
+    delta = timedelta(hours=1)
     while start_date < end_date:
         yield start_date
         start_date += delta
