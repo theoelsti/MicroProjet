@@ -63,7 +63,7 @@ def empty_base():
     except:
         print("SQL table reset error")
 def daterange(start_date, end_date):
-    delta = timedelta(seconds=10)
+    delta = timedelta(hours=1)
     while start_date < end_date:
         yield start_date
         start_date += delta
