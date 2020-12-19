@@ -3,6 +3,13 @@
 var hum = humraw
 var temp = tempraw
 var timeScale = timeScaleraw
+
+var humday = humrawday
+var tempday = temprawday
+var timeScaleday = timeScalerawday
+
+
+
 // if the day is the same we only show the date on the first value
 if(
         timeScaleraw[0].substring(0, 11) == timeScaleraw[1].substring(0, 11) 
@@ -28,6 +35,10 @@ var hum = hum.reverse();
 var temp = temp.reverse();
 var timeScale = timeScale.reverse();
 
+var humday = humday.reverse();
+var tempday = tempday.reverse();
+var timeScaleday = timeScaleday.reverse();
+
 
 
 var today = new Date();
@@ -50,5 +61,8 @@ lastField.innerHTML = "les dernières valeurs relevées sont :"
 lastValuesField.innerHTML = " <a id=\"tempid\" >" + temp[9].toString() + "°C</a>" + "  |  <a id=\"humid\" >"+  hum[9].toString() + "% </a>"
 
 
+// var humweek 
+// var tempweek
+// var timeScaleweek 
 
 </script>

@@ -10,31 +10,19 @@ Terminé J+2
 
 Commencé J+0
 ~ Affichage graphique (courbes, histogrammes...) de l’historique par jour (en option par semaine, mois) des données.
+    - Pouvoir avoir le choix du jour à afficher dans l’historique l’interface web
     + Changer la couleur du label
 
 commence j+4:
- affichage des moyennes sur la page
- creation d'une page des moyennes par timothée
- creation d'une page d'acceuil par jg
-
+ ~ affichage des moyennes sur la page
+    ~ creation d'une page des moyennes par timothée
+    ~ creation d'une page d'acceuil par jg
+ + Calcul des moyennes des différentes données acquises par jour (en option par semaine par mois)
 A faire 
 
 
-- Pouvoir avoir le choix du jour à afficher dans l’historique l’interface web
 
-- Calcul des moyennes des différentes données acquises par jour (en option par semaine par mois)
+
 
 En bonus (jvais le faire quand meme ): 
 - Décider sur la page web le délai de récuperation des informations
-
-Pour les données:
-    - on recupere la date et l'heure que l'on veut
-    - on fais un for de 10 avec la date: 
-        pour la derniere heure: 
-            where date = date de aujd, 
-            where date.substr(pour l'heure ) = l'heure actuelle
-        pour le jour entier:
-            where date = date d'ajd,
-            i+(length(jourajd/10))
-        pour la derniere année:
-            where année = année actuelle

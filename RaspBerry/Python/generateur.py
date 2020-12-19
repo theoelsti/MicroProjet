@@ -8,8 +8,8 @@ DB_USER='root'
 DB_PWD='root'          
 DB_BASE='releves'  
 
-sdate = datetime(2019, 1, 1, 00, 1, 00)
-edate = datetime(2020, 12, 2, 23, 2, 40) 
+sdate = datetime(2019, 1, 1, 00, 0, 00)
+edate = datetime(2020, 12, 2, 23, 0, 00) 
 tempint = 20.00
 humint = 50.00
 delta = edate - sdate   

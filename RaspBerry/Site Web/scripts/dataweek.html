@@ -1,0 +1,133 @@
+<script>
+
+
+// Moyenne / jour
+var humweek = humrawweek
+var tempweek = temprawweek
+var timeScaleweek = timeScalerawweek
+var humweek = humweek.reverse();
+var tempweek = tempweek.reverse();
+var timeScaleweek = timeScaleweek.reverse();
+let select= 0
+let timeScaleweekdays = []
+for(let weekday=0; weekday<7;weekday++ ){
+timeScaleweekdays[weekday]=timeScaleweek[select]
+timeScaleweekdays[weekday]=timeScaleweekdays[weekday].substring(0,11) 
+select = select+24
+}
+// Faire un tableau/jour
+        let tempday1= []
+        let tempday2= []
+        let tempday3= []
+        let tempday4= []
+        let tempday5= []
+        let tempday6= []
+        let tempday7= []
+        let tempweekaverage = []
+
+        let humday1= []
+        let humday2= []
+        let humday3= []
+        let humday4= []
+        let humday5= []
+        let humday6= []
+        let humday7= []
+        let humweekaverage = []
+
+        // Jour 1
+        for(let tempday1select=0; tempday1select<24;tempday1select++ ){
+            tempday1[tempday1select]=tempweek[tempday1select]
+        }
+        // Jour 2
+        for(let tempday2select=24; tempday2select<48;tempday2select++ ){
+            tempday2[tempday2select-24]=tempweek[tempday2select]
+        }
+        // Jour 3
+        for(let tempday3select=48; tempday3select<72;tempday3select++ ){
+            tempday3[tempday3select-48]=tempweek[tempday3select]
+        }
+        // Jour 4
+        for(let tempday4select=72; tempday4select<96;tempday4select++ ){
+            tempday4[tempday4select-72]=tempweek[tempday4select]
+        }
+        // Jour 5
+        for(let tempday5select=96; tempday5select<120;tempday5select++ ){
+            tempday5[tempday5select-96]=tempweek[tempday5select]
+        }
+        // Jour 6
+        for(let tempday6select=120; tempday6select<144;tempday6select++ ){
+            tempday6[tempday6select-120]=tempweek[tempday6select]
+        }
+        // Jour 7
+        for(let tempday7select=144; tempday7select<168;tempday7select++ ){
+            tempday7[tempday7select-144]=tempweek[tempday7select]
+        }
+
+
+        // Jour 1
+        for(let humday1select=0; humday1select<24;humday1select++ ){
+            humday1[humday1select]=humweek[humday1select]
+        }
+        // Jour 2
+        for(let humday2select=24; humday2select<48;humday2select++ ){
+            humday2[humday2select-24]=humweek[humday2select]
+        }
+        // Jour 3
+        for(let humday3select=48; humday3select<72;humday3select++ ){
+            humday3[humday3select-48]=humweek[humday3select]
+        }
+        // Jour 4
+        for(let humday4select=72; humday4select<96;humday4select++ ){
+            humday4[humday4select-72]=humweek[humday4select]
+        }
+        // Jour 5
+        for(let humday5select=96; humday5select<120;humday5select++ ){
+            humday5[humday5select-96]=humweek[humday5select]
+        }
+        // Jour 6
+        for(let humday6select=120; humday6select<144;humday6select++ ){
+            humday6[humday6select-120]=humweek[humday6select]
+        }
+        // Jour 7
+        for(let humday7select=144; humday7select<168;humday7select++ ){
+            humday7[humday7select-144]=humweek[humday7select]
+        }
+
+
+        const sumday1 = tempday1.reduce((sum, val) => (sum += val));
+        const sumday2 = tempday2.reduce((sum, val) => (sum += val));
+        const sumday3 = tempday3.reduce((sum, val) => (sum += val));
+        const sumday4 = tempday4.reduce((sum, val) => (sum += val));
+        const sumday5 = tempday5.reduce((sum, val) => (sum += val));
+        const sumday6 = tempday6.reduce((sum, val) => (sum += val));
+        const sumday7 = tempday7.reduce((sum, val) => (sum += val));
+
+        const sumhumday1 = humday1.reduce((sum, val) => (sum += val));
+        const sumhumday2 = humday2.reduce((sum, val) => (sum += val));
+        const sumhumday3 = humday3.reduce((sum, val) => (sum += val));
+        const sumhumday4 = humday4.reduce((sum, val) => (sum += val));
+        const sumhumday5 = humday5.reduce((sum, val) => (sum += val));
+        const sumhumday6 = humday6.reduce((sum, val) => (sum += val));
+        const sumhumday7 = humday7.reduce((sum, val) => (sum += val));
+
+
+        const length = 24
+
+        tempweekaverage.push(Number(sumday1 / length).toFixed(2));
+        tempweekaverage.push(Number(sumday2 / length).toFixed(2));
+        tempweekaverage.push(Number(sumday3 / length).toFixed(2));
+        tempweekaverage.push(Number(sumday4 / length).toFixed(2));
+        tempweekaverage.push(Number(sumday5 / length).toFixed(2));
+        tempweekaverage.push(Number(sumday6 / length).toFixed(2));
+        tempweekaverage.push(Number(sumday7 / length).toFixed(2));
+
+
+        humweekaverage.push(Number(sumhumday1 / length).toFixed(2));
+        humweekaverage.push(Number(sumhumday2 / length).toFixed(2));
+        humweekaverage.push(Number(sumhumday3 / length).toFixed(2));
+        humweekaverage.push(Number(sumhumday4 / length).toFixed(2));
+        humweekaverage.push(Number(sumhumday5 / length).toFixed(2));
+        humweekaverage.push(Number(sumhumday6 / length).toFixed(2));
+        humweekaverage.push(Number(sumhumday7 / length).toFixed(2));
+
+</script>
