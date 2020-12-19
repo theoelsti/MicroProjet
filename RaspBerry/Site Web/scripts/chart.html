@@ -1,4 +1,30 @@
 <script>
+
+    var data1 = {
+    labels: ['March', 'Apr', 'May'],
+    
+    datasets: [
+        {
+        fillColor: "rgba(220,220,220,0.2)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: [50,100,140]
+        },
+        {
+        fillColor: "rgba(100,220,220,0.7)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: [40,70,200]
+        }
+    ]
+    };
+
     var ctx = document.getElementById('meteoChart').getContext('2d');  
     var data = {
         labels: timeScale,
@@ -68,7 +94,13 @@
         data: data,
         options: options
     }
-    let meteoChart = new Chart(ctx, config);
-    Chart.defaults.global.defaultFontFamily ='Lato';
+    var config1 = {
+        type: 'line',
+        data: data1,
+        options: options
+    }
+    
+        new Chart(ctx, config);
+        Chart.defaults.global.defaultFontFamily ='Lato';
 
 </script>

@@ -103,4 +103,17 @@ Style pour la date
 	text-align: center;
 	font-family: robot;
 }
+.buttons{
+	display: flex;
+	justify-content: center;
 
+}
+.button{
+	margin: 10px;
+	background-color: #402375;
+	border: solid #650D89 1px;
+	border-radius: 5px;
+	width:100px;
+	height: 50px;
+	font-size: 130%;
+}

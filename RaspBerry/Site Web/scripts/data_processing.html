@@ -16,7 +16,7 @@ if(
         &&timeScaleraw[8].substring(0, 11) == timeScaleraw[9].substring(0, 11)
         )
         {
-        for(let i=9; i>0; i--){
+        for(let i=0; i<9; i++){
             timeScale[i] = timeScaleraw[i].substring(11)
         }
     }
@@ -46,7 +46,7 @@ else{
 var lastField =  document.getElementsByClassName("dataText")[0];
 var lastValuesField = document.getElementsByClassName("lastvalues")[0];
 
-lastField.innerHTML = "les dernieres valeurs relevées sont :"
+lastField.innerHTML = "les dernières valeurs relevées sont :"
 lastValuesField.innerHTML = " <a id=\"tempid\" >" + temp[9].toString() + "°C</a>" + "  |  <a id=\"humid\" >"+  hum[9].toString() + "% </a>"
 
 

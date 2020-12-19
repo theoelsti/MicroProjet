@@ -1,8 +1,85 @@
-<?php 
-include("index.html"); 
+<!DOCTYPE html>
+<html>
+<head>
 
+<title>Station meteo</title>
+
+<meta charset="utf-8">
+<link rel="icon" src="./images/pepe.jpeg">
+<link href="./styles/style.css" rel="stylesheet"/>
+<script src="./scripts/script.js">      </script>
+<script src="./scripts/chartjs.js">     </script>
+<script src="./scripts/jquery-3.5.1.js"></script>
+</head>
+
+<div class="top">
+<div class="sun"></div>
+
+
+<body style="background-color: #261447;">
+    <div class="title">
+        Station Méteo
+    </div>
+    
+<body onLoad="initClock()">
+
+    <div id="timedate">
+        <a id="d">1</a>
+        <a id="mon">Janvier</a>
+        <a id="y">0</a></br>
+        <a id="h" style="font-size:30px">12</a><a style="font-size: 30px;">  :</a>
+        <a id="m" style="font-size:30px">00</a><a style="font-size: 30px;">  :</a>
+        <a id="s" style="font-size:30px">00</a>
+    </div>
+<hr>
+</div>
+
+<div class="mainHello"></div>
+<div class="dataText"></div>
+<!-- A ajouter sur la page des mesures
+<div class="mediantempField"></div>
+<div class="medianhumField"></div>
+-->
+
+<div class="lastvalues"></div>
+<div class="buttons">
+    <input type="submit" id="year" class="button" value="Année" /> 
+    <input type="submit" id="month" class="button" value="Mois" /> 
+    <input type="submit" id="week" class="button" value="Semaine" /> 
+    <input type="submit" id="day" class="button" value="Jour" /> 
+</div>
+<div style="width: 70%; margin-left: 15%;">
+<canvas id="meteoChart"></canvas>
+</div>
+<script>
+    var data1 = {
+    labels: ['March', 'Apr', 'May'],
+    
+    datasets: [
+        {
+        fillColor: "rgba(220,220,220,0.2)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: [50,100,140]
+        },
+        {
+        fillColor: "rgba(100,220,220,0.7)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: [40,70,200]
+        }
+    ]
+    };
+</script>
+<?php 
 function updateSQL(){
-    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
+    $link = mysqli_connect("localhost:3306", "root", "", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
@@ -20,7 +97,7 @@ function updateSQL(){
                     $hum[] = $row['hum'];
                     
             }
-            
+    //Valeurs de l'heure derniere
            
             //echo des temperature
             $tempsize = sizeof($temp)-1;
@@ -67,9 +144,101 @@ function updateSQL(){
             mysqli_free_result($result);
     }
     }
+
+
+
+
+
 }
 updateSQL();
 include("./scripts/data_processing.html");
 include("./scripts/mediancalc.html");
-include("./scripts/chart.html"); 
 ?>
+<script>
+    var ctx = document.querySelector('#meteoChart').getContext('2d');  
+    var data = {
+        labels: timeScale,
+        datasets: [{
+            label:'Température',
+            backgroundColor: '#D4007810',
+            borderColor: '#D40078',
+            pointStrokeColor: "#F6019D",
+            pointHighlightFill: "#F6019D",
+            data: temp
+        },
+        {
+            label:'Humidité',
+            color:'#FFFFFF',
+            backgroundColor: '#2DE2E610',
+            borderColor: '#2DE2E6',
+            data: hum
+        }]
+    }
+    var options = {
+        title:{
+            display:true,
+            text:'Température et Humidité en fonction du temps',
+            fontSize:25,
+            fontColor:'#FFFFFF',
+            fontFamily:'robot'
+        },
+        legend:{
+            position:'bottom'
+        },
+        scales:{
+            yAxes: [{
+            id: 'A',
+            type: 'linear',
+            position: 'left',
+            ticks: {
+              max: 100,
+              min: 0,
+              fontColor:'#F706CF',
+              fontSize: 15
+            }
+          }, {
+            id: 'B',
+            type: 'linear',
+            position: 'right',
+            ticks: {
+              max: 100,
+              min: 0,
+              fontColor:'#F706CF',
+              fontSize: 15
+            }
+          }],
+          xAxes:[{
+            ticks: {
+              fontColor:'#FD1D53',
+              fontSize: 13
+            }
+          }]
+        }
+        
+    }
+    var config = {
+        type: 'line',
+        data: data,
+        options: options
+    }
+    var config1 = {
+        type: 'line',
+        data: data1,
+        options: options
+    }
+    new Chart(ctx, config);
+    //let meteoChart = new Chart(ctx, config);
+    Chart.defaults.global.defaultFontFamily ='Lato';
+$("#year").on("click", function() {
+    var context1 = document.getElementById('meteoChart').getContext('2d');
+    new Chart(context1, config);
+    });
+$("#month").on("click", function() {
+    console.log("click")
+    var context2 = document.getElementById('meteoChart').getContext('2d');
+    new Chart(context2, config1);
+  });
+</script>
+
+</body>
+</html>
