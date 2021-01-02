@@ -7,14 +7,17 @@
 <meta charset="utf-8">
 <link rel="icon" src="./images/pepe.jpeg">
 <link href="./styles/style.css" rel="stylesheet"/>
-<script src="./scripts/script.js">      </script>
-<script src="./scripts/chartjs.js">     </script>
+<script src="./scripts/clock.js"></script>
+<!--Essential-->
+<script src="./scripts/chartjs.js"></script>
 <script src="./scripts/jquery-3.5.1.js"></script>
+
+<script src="./scripts/connectionchecker.js"></script>
+
 </head>
 
 <div class="top">
 <div class="sun"></div>
-
 
 <body style="background-color: #261447;">
     <div class="title">
@@ -62,12 +65,15 @@
 <?php 
 
 
-// http://localhost:4000/index.php?param=x
+// http://localhost:42069/index.php&param=x&year=0&month=1&day=0&last=0
 
 
 function updateSQL(){
     $param = $_GET['param'];
-
+    $year = $_GET['year'];
+    $month = $_GET['month'];
+    $day = $_GET['day'];
+    $last = $_GET['last'];
     $link = mysqli_connect("localhost:3306", "root", "", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -76,7 +82,18 @@ function updateSQL(){
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
             echo "<script language=\"javascript\" type=\"text/javascript\"> \n";
-            echo 'let param = ' . $param . "\n";
+            if($param){
+                echo 'let param = ' . $param . "\n";
+                echo 'let year=' . $year . "\n";
+                echo 'let month=' . $month . "\n";
+                echo 'let day=' . $day . "\n";
+                echo 'let last=' . $last . "\n";
+            }
+            else{
+                echo "let param = 0 \n";
+            }
+            
+            
 
             while($row = mysqli_fetch_array($result)){
                     $time[] = $row['date'];
@@ -294,11 +311,14 @@ function updateSQL(){
        
 }
 updateSQL();
-include("./scripts/data_processing.html");
-include("./scripts/dataweek.html");
-include("./scripts/mediancalc.html");
-include("./scripts/chart.html");
+
 ?>
+<script src="./scripts/data_processing.js"></script>
+<script src="./scripts/dataweek.js"></script>
+<script src="./scripts/chart.js"></script>
+
+
+
 
 </body>
 </html>

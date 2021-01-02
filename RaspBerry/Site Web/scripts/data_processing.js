@@ -1,17 +1,11 @@
-<script>
 
 var hum = humraw
 var temp = tempraw
 var timeScale = timeScaleraw
-
-
 var humday = humrawday
 var tempday = temprawday
 var timeScaleday = timeScalerawday
 
-// var timeScaleMonth = timeScalerawmonth
-// var tempmonth = temprawmonth
-// var hummonth = humrawmonth  
 
 
 // if the day is the same we only show the date on the first value
@@ -38,16 +32,11 @@ if(
 var hum = hum.reverse();
 var temp = temp.reverse();
 var timeScale = timeScale.reverse();
-
-var humday = humday.reverse();
-var tempday = tempday.reverse();
-var timeScaleday = timeScaleday.reverse();
-
-// var hummonth = hummonth.reverse();
-// var tempmonth = tempmonth.reverse();
-// var timeScaleMonth = timeScaleMonth.reverse();
-
-
+// 24h
+    var humday = humday.reverse();
+    var tempday = tempday.reverse();
+    var timeScaleday = timeScaleday.reverse();
+// Jour/soir
 var today = new Date();
 var time = today.getHours();
 var mainHello = document.getElementsByClassName("mainHello")[0]
@@ -61,6 +50,7 @@ else{
     mainHello.style.color = "#FF6C11"
     mainHello.style.fontFamily = "robot"
 }
+// Dernieres valeurs
 var lastField =  document.getElementsByClassName("dataText")[0];
 var lastValuesField = document.getElementsByClassName("lastvalues")[0];
 
@@ -68,8 +58,4 @@ lastField.innerHTML = "les dernières valeurs relevées sont :"
 lastValuesField.innerHTML = " <a id=\"tempid\" >" + temp[9].toString() + "°C</a>" + "  |  <a id=\"humid\" >"+  hum[9].toString() + "% </a>"
 
 
-// var humweek 
-// var tempweek
-// var timeScaleweek 
 
-</script>
