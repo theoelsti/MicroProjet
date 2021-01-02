@@ -5,14 +5,14 @@
 <title>Station meteo</title>
 
 <meta charset="utf-8">
-<link rel="icon" src="./images/pepe.jpeg">
+
 <link href="./styles/style.css" rel="stylesheet"/>
 <script src="./scripts/clock.js"></script>
+<script src="./scripts/connectionchecker.js"></script>
+
 <!--Essential-->
 <script src="./scripts/chartjs.js"></script>
 <script src="./scripts/jquery-3.5.1.js"></script>
-
-<script src="./scripts/connectionchecker.js"></script>
 
 </head>
 
