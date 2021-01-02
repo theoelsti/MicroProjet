@@ -64,36 +64,37 @@ select = select+24
         }
 
 
-        // Jour 1
+        // Hum Jour 1
         for(let humday1select=0; humday1select<24;humday1select++ ){
             humday1[humday1select]=humweek[humday1select]
         }
-        // Jour 2
+        // Hum Jour 2
         for(let humday2select=24; humday2select<48;humday2select++ ){
             humday2[humday2select-24]=humweek[humday2select]
         }
-        // Jour 3
+        // Hum Jour 3
         for(let humday3select=48; humday3select<72;humday3select++ ){
             humday3[humday3select-48]=humweek[humday3select]
         }
-        // Jour 4
+        // HumJour 4
         for(let humday4select=72; humday4select<96;humday4select++ ){
             humday4[humday4select-72]=humweek[humday4select]
         }
-        // Jour 5
+        // Hum Jour 5
         for(let humday5select=96; humday5select<120;humday5select++ ){
             humday5[humday5select-96]=humweek[humday5select]
         }
-        // Jour 6
+        // Hum Jour 6
         for(let humday6select=120; humday6select<144;humday6select++ ){
             humday6[humday6select-120]=humweek[humday6select]
         }
-        // Jour 7
+        // Hum Jour 7
         for(let humday7select=144; humday7select<168;humday7select++ ){
             humday7[humday7select-144]=humweek[humday7select]
         }
 
-
+    //Calcul des moyennes
+       
         const sumday1 = tempday1.reduce((sum, val) => (sum += val));
         const sumday2 = tempday2.reduce((sum, val) => (sum += val));
         const sumday3 = tempday3.reduce((sum, val) => (sum += val));

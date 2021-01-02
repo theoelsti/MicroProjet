@@ -1,106 +1,165 @@
 <script>
+  Chart.defaults.global.defaultFontFamily ='Lato';
 
-    var data1 = {
-    labels: ['March', 'Apr', 'May'],
-    
-    datasets: [
-        {
-        fillColor: "rgba(220,220,220,0.2)",
-        strokeColor: "rgba(220,220,220,1)",
-        pointColor: "rgba(220,220,220,1)",
-        pointStrokeColor: "#fff",
-        pointHighlightFill: "#fff",
-        pointHighlightStroke: "rgba(220,220,220,1)",
-        data: [50,100,140]
-        },
-        {
-        fillColor: "rgba(100,220,220,0.7)",
-        strokeColor: "rgba(220,220,220,1)",
-        pointColor: "rgba(220,220,220,1)",
-        pointStrokeColor: "#fff",
-        pointHighlightFill: "#fff",
-        pointHighlightStroke: "rgba(220,220,220,1)",
-        data: [40,70,200]
-        }
-    ]
-    };
+  var ctx = document.querySelector('#meteoChart').getContext('2d');  
+  
+  var data = {
+      labels: timeScale,
+      datasets: [{
+          label:'Température',
+          backgroundColor: '#D4007810',
+          borderColor: '#D40078',
+          pointStrokeColor: "#F6019D",
+          pointHighlightFill: "#F6019D",
+          data: temp
+      },
+      {
+          label:'Humidité',
+          color:'#FFFFFF',
+          backgroundColor: '#2DE2E610',
+          borderColor: '#2DE2E6',
+          data: hum
+      }]}
+  var data1 = {
+      labels: timeScaleday,
+      datasets: [{
+          label:'Température',
+          backgroundColor: '#D4007810',
+          borderColor: '#D40078',
+          pointStrokeColor: "#F6019D",
+          pointHighlightFill: "#F6019D",
+          data: tempday
+      },
+      {
+          label:'Humidité',
+          color:'#FFFFFF',
+          backgroundColor: '#2DE2E610',
+          borderColor: '#2DE2E6',
+          data: humday
+      }]}
+  var dataweek = {
+      labels: timeScaleweekdays,
+      datasets: [{
+          label:'Température moyenne',
+          backgroundColor: '#D4007810',
+          borderColor: '#D40078',
+          pointStrokeColor: "#F6019D",
+          pointHighlightFill: "#000000",
+          data: tempweekaverage
+      },
+      {
+          label:'Humidité moyenne',
+          color:'#FFFFFF',
+          backgroundColor: '#2DE2E610',
+          borderColor: '#2DE2E6',
+          data: humweekaverage
+      }]}
+  var options = {
+      title:{
+          display:true,
+          text:'Température et Humidité en fonction du temps',
+          fontSize:25,
+          fontColor:'#FFFFFF',
+          fontFamily:'robot'
+      },
+      legend:{
+          position:'bottom'
+      },
+      scales:{
+          yAxes: [{
+          id: 'A',
+          type: 'linear',
+          position: 'left',
+          ticks: {
+            max: 100,
+            min: 0,
+            fontColor:'#F706CF',
+            fontSize: 15
+          }
+        }, {
+          id: 'B',
+          type: 'linear',
+          position: 'right',
+          ticks: {
+            max: 100,
+            min: 0,
+            fontColor:'#F706CF',
+            fontSize: 15
+          }
+        }],
+        xAxes:[{
+          ticks: {
+            fontColor:'#FD1D53',
+            fontSize: 13
+          }
+        }]
+      }}
+var optionsweek = {
+title:{
+  display:true,
+  text:'Température et Humidité moyenne sur 1 semaine',
+  fontSize:25,
+  fontColor:'#FFFFFF',
+  fontFamily:'robot'
+},
+legend:{
+  position:'bottom'
+},
+scales:{
+  yAxes: [{
+  id: 'A',
+  type: 'linear',
+  position: 'left',
+  ticks: {
+      max: 100,
+      min: 0,
+      fontColor:'#F706CF',
+      fontSize: 15
+  }
+  }, {
+  id: 'B',
+  type: 'linear',
+  position: 'right',
+  ticks: {
+      max: 100,
+      min: 0,
+      fontColor:'#F706CF',
+      fontSize: 15
+  }
+  }],
+  xAxes:[{
+  ticks: {
+      fontColor:'#FD1D53',
+      fontSize: 13
+  }
+  }]
+}}   
+  var config = {
+      type: 'line',
+      data: data,
+      options: options}
+  var config1 = {
+      type: 'line',
+      data: data1,
+      options: options}
+  var configweek = {
+      type: 'line',
+      data: dataweek,
+      options: optionsweek}
 
-    var ctx = document.getElementById('meteoChart').getContext('2d');  
-    var data = {
-        labels: timeScale,
-        datasets: [{
-            label:'Température',
-            backgroundColor: '#D4007810',
-            borderColor: '#D40078',
-            pointStrokeColor: "#F6019D",
-            pointHighlightFill: "#F6019D",
-            data: temp
-        },
-        {
-            label:'Humidité',
-            color:'#FFFFFF',
-            backgroundColor: '#2DE2E610',
-            borderColor: '#2DE2E6',
-            data: hum
-        }
-    ]
-    
-    }
-    var options = {
-        title:{
-            display:true,
-            text:'Température et Humidité en fonction du temps',
-            fontSize:25,
-            fontColor:'#FFFFFF',
-            fontFamily:'robot'
-        },
-        legend:{
-            position:'bottom'
-        },
-        scales:{
-            yAxes: [{
-            id: 'A',
-            type: 'linear',
-            position: 'left',
-            ticks: {
-              max: 100,
-              min: 0,
-              fontColor:'#F706CF',
-              fontSize: 15
-            }
-          }, {
-            id: 'B',
-            type: 'linear',
-            position: 'right',
-            ticks: {
-              max: 100,
-              min: 0,
-              fontColor:'#F706CF',
-              fontSize: 15
-            }
-          }],
-          xAxes:[{
-            ticks: {
-              fontColor:'#FD1D53',
-              fontSize: 13
-            }
-          }]
-        }
-        
-    }
-    var config = {
-    
-        type: 'line',
-        data: data,
-        options: options
-    }
-    var config1 = {
-        type: 'line',
-        data: data1,
-        options: options
-    }
-    
-        new Chart(ctx, config);
-        Chart.defaults.global.defaultFontFamily ='Lato';
+  $("#10").on("click", function() {
+      chartmeteo.destroy()
+      var context1 = document.getElementById('meteoChart').getContext('2d');
+      chartmeteo = new Chart(context1, config);});
+  $("#day").on("click", function() {
+      chartmeteo.destroy()
+      var context2 = document.getElementById('meteoChart').getContext('2d');
+      chartmeteo = new Chart(context2, config1);});
+  $("#week").on("click", function() {
+      chartmeteo.destroy()
+      var context3 = document.getElementById('meteoChart').getContext('2d');
+      chartmeteo = new Chart(context3, configweek);});
 
+
+  let chartmeteo = new Chart(ctx, config);
 </script>

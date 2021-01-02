@@ -45,19 +45,24 @@
 <div class="buttons">
     <input type="submit" id="year" class="button" value="Année" /> 
     <input type="submit" id="month" class="button" value="Mois" /> 
-    <input type="submit" id="week" class="button" value="Semaine" /> 
-    <input type="submit" id="day" class="button" value="Jour" /> 
+    <input type="submit" id="week" class="button" value="7 J" /> 
+    <input type="submit" id="day" class="button" value="24 H" /> 
     <input type="submit" id="10" class="button" value="10 last" /> 
+</div>
+<div class="buttons">
+    <input type="submit" id="minus" class="button" value="-1 H" /> 
+    <input type="submit" id="month" class="button" value="+1 H" /> 
 </div>
 <div style="width: 70%; margin-left: 15%;">
 <canvas id="meteoChart"></canvas>
 </div>
 
 <?php 
+
 function updateSQL(){
     $link = mysqli_connect("localhost:3306", "root", "", "releves");
     if ($link->connect_errno) {
-        echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+        echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
     $sql = "SELECT * FROM pimeteo;" ;
     if($result = mysqli_query($link, $sql)){
@@ -73,7 +78,7 @@ function updateSQL(){
                     $hum[] = $row['hum'];
                     
             }
-    //Valeurs de l'heure derniere
+    //10 Dernieres valeurs
            
             //echo des temperature
             $tempsize = sizeof($temp)-1;
@@ -116,264 +121,142 @@ function updateSQL(){
             echo "];\n";
 
 
-
-            //echo de l'heure sur la journée
-            $timesize = sizeof($time)-1;
-            echo "var timeScalerawday  = [" ;
-            for($i = $timesize; $i>$timesize-25; $i--){
-                echo "'";
-                echo $time[$i];
-                echo "'";
-                if($i>$timesize-24){
-                    echo ',';  
-                }
-                
+    // Valeurs de la journée
+        //echo de l'heure sur la journée
+        $timesize = sizeof($time)-1;
+        echo "var timeScalerawday  = [" ;
+        for($i = $timesize; $i>$timesize-25; $i--){
+            echo "'";
+            echo $time[$i];
+            echo "'";
+            if($i>$timesize-24){
+                echo ',';  
             }
-            echo "];\n";
+            
+        }
+        echo "];\n";
 
-            //echo de l'humidité sur la journée
-            $humsize = sizeof($hum)-1;
-            echo "var humrawday  = [" ;
-            for($i = $humsize; $i>$humsize-25; $i--){
-                echo $hum[$i];
-                if($i>$tempsize-24){
-                    echo ',';  
-                }
-                
+        //echo de l'humidité sur la journée
+        $humsize = sizeof($hum)-1;
+        echo "var humrawday  = [" ;
+        for($i = $humsize; $i>$humsize-25; $i--){
+            echo $hum[$i];
+            if($i>$tempsize-24){
+                echo ',';  
             }
-            echo "];\n";
-            //echo de la temperature sur la journée
-            $tempsize = sizeof($temp)-1;
-            echo "var temprawday  = [" ;
-            for($i = $tempsize; $i>$tempsize-25; $i--){
-                echo $temp[$i];
-                if($i>$tempsize-24){
-                    echo ',';  
-                }
-                
+            
+        }
+        echo "];\n";
+        //echo de la temperature sur la journée
+        $tempsize = sizeof($temp)-1;
+        echo "var temprawday  = [" ;
+        for($i = $tempsize; $i>$tempsize-25; $i--){
+            echo $temp[$i];
+            if($i>$tempsize-24){
+                echo ',';  
             }
-            echo "];\n";
+            
+        }
+        echo "];\n";
 
-
-            //echo de l'heure sur la semaine
-            $timesize = sizeof($time)-1;
-            echo "var timeScalerawweek  = [" ;
-            for($i = $timesize; $i>$timesize-168; $i--){
-                echo "'";
-                echo $time[$i];
-                echo "'";
-                if($i>$timesize-167){
-                    echo ',';  
-                }
-                
+    // Valeurs de la semaine (moyennes)
+        //echo de l'heure sur la semaine
+        $timesize = sizeof($time)-1;
+        echo "var timeScalerawweek  = [" ;
+        for($i = $timesize; $i>$timesize-168; $i--){
+            echo "'";
+            echo $time[$i];
+            echo "'";
+            if($i>$timesize-167){
+                echo ',';  
             }
-            echo "];\n";
+            
+        }
+        echo "];\n";
 
-            //echo de l'humidité sur la semaine
-            $humsize = sizeof($hum)-1;
-            echo "var humrawweek  = [" ;
-            for($i = $humsize; $i>$humsize-168; $i--){
-                echo $hum[$i];
-                if($i>$tempsize-167){
-                    echo ',';  
-                }
-                
+        //echo de l'humidité sur la semaine
+        $humsize = sizeof($hum)-1;
+        echo "var humrawweek  = [" ;
+        for($i = $humsize; $i>$humsize-168; $i--){
+            echo $hum[$i];
+            if($i>$tempsize-167){
+                echo ',';  
             }
-            echo "];\n";
-            //echo de la temperature sur la semaine
-            $tempsize = sizeof($temp)-1;
-            echo "var temprawweek  = [" ;
-            for($i = $tempsize; $i>$tempsize-168; $i--){
-                echo $temp[$i];
-                if($i>$tempsize-167){
-                    echo ',';  
-                }
-                
+            
+        }
+        echo "];\n";
+        //echo de la temperature sur la semaine
+        $tempsize = sizeof($temp)-1;
+        echo "var temprawweek  = [" ;
+        for($i = $tempsize; $i>$tempsize-168; $i--){
+            echo $temp[$i];
+            if($i>$tempsize-167){
+                echo ',';  
             }
-            echo "];\n";
+            
+        }
+        echo "];\n";
 
 
 
-            echo "\n</script>";
-            mysqli_free_result($result);
+           
+
+
+    //Valeurs du mois
+
+        $timesize = sizeof($time)-1;
+        echo "var timeScalerawmonth  = [" ;
+        for($i = $timesize; $i>$timesize-720; $i--){
+            echo "'";
+            echo $time[$i];
+            echo "'";
+            if($i>$timesize-719){
+                echo ',';  
+            }
+            
+        }
+        echo "];\n";
+
+        //echo de l'humidité sur la semaine
+        $humsize = sizeof($hum)-1;
+        echo "var humrawmonth  = [" ;
+        for($i = $humsize; $i>$humsize-720; $i--){
+            echo $hum[$i];
+            if($i>$tempsize-719){
+                echo ',';  
+            }
+            
+        }
+        echo "];\n";
+        //echo de la temperature sur la semaine
+        $tempsize = sizeof($temp)-1;
+        echo "var temprawmonth  = [" ;
+        for($i = $tempsize; $i>$tempsize-720; $i--){
+            echo $temp[$i];
+            if($i>$tempsize-719){
+                echo ',';  
+            }
+            
+        }
+        echo "];\n";
+        echo "\n</script>";
+        mysqli_free_result($result);
         }
 
-
     }
-    // valeurs de la semaine : 
-        // echo un tableau avec les valeurs entieres de la semaine, en faire 2 tableaux avec valeur minimale et max, et les ranger dans un tableau
 
+    
+    
+   
+
+       
 }
 updateSQL();
-
 include("./scripts/data_processing.html");
 include("./scripts/dataweek.html");
 include("./scripts/mediancalc.html");
+include("./scripts/chart.html");
 ?>
-<script>
-    Chart.defaults.global.defaultFontFamily ='Lato';
-
-    var ctx = document.querySelector('#meteoChart').getContext('2d');  
-    
-    var data = {
-        labels: timeScale,
-        datasets: [{
-            label:'Température',
-            backgroundColor: '#D4007810',
-            borderColor: '#D40078',
-            pointStrokeColor: "#F6019D",
-            pointHighlightFill: "#F6019D",
-            data: temp
-        },
-        {
-            label:'Humidité',
-            color:'#FFFFFF',
-            backgroundColor: '#2DE2E610',
-            borderColor: '#2DE2E6',
-            data: hum
-        }]}
-    var data1 = {
-        labels: timeScaleday,
-        datasets: [{
-            label:'Température',
-            backgroundColor: '#D4007810',
-            borderColor: '#D40078',
-            pointStrokeColor: "#F6019D",
-            pointHighlightFill: "#F6019D",
-            data: tempday
-        },
-        {
-            label:'Humidité',
-            color:'#FFFFFF',
-            backgroundColor: '#2DE2E610',
-            borderColor: '#2DE2E6',
-            data: humday
-        }]}
-    var dataweek = {
-        labels: timeScaleweekdays,
-        datasets: [{
-            label:'Température moyenne',
-            backgroundColor: '#D4007810',
-            borderColor: '#D40078',
-            pointStrokeColor: "#F6019D",
-            pointHighlightFill: "#F6019D",
-            data: tempweekaverage
-        },
-        {
-            label:'Humidité moyenne',
-            color:'#FFFFFF',
-            backgroundColor: '#2DE2E610',
-            borderColor: '#2DE2E6',
-            data: humweekaverage
-        }]}
-    var options = {
-        title:{
-            display:true,
-            text:'Température et Humidité en fonction du temps',
-            fontSize:25,
-            fontColor:'#FFFFFF',
-            fontFamily:'robot'
-        },
-        legend:{
-            position:'bottom'
-        },
-        scales:{
-            yAxes: [{
-            id: 'A',
-            type: 'linear',
-            position: 'left',
-            ticks: {
-              max: 100,
-              min: 0,
-              fontColor:'#F706CF',
-              fontSize: 15
-            }
-          }, {
-            id: 'B',
-            type: 'linear',
-            position: 'right',
-            ticks: {
-              max: 100,
-              min: 0,
-              fontColor:'#F706CF',
-              fontSize: 15
-            }
-          }],
-          xAxes:[{
-            ticks: {
-              fontColor:'#FD1D53',
-              fontSize: 13
-            }
-          }]
-        }}
-var optionsweek = {
-title:{
-    display:true,
-    text:'Température et Humidité moyenne sur 1 semaine',
-    fontSize:25,
-    fontColor:'#FFFFFF',
-    fontFamily:'robot'
-},
-legend:{
-    position:'bottom'
-},
-scales:{
-    yAxes: [{
-    id: 'A',
-    type: 'linear',
-    position: 'left',
-    ticks: {
-        max: 100,
-        min: 0,
-        fontColor:'#F706CF',
-        fontSize: 15
-    }
-    }, {
-    id: 'B',
-    type: 'linear',
-    position: 'right',
-    ticks: {
-        max: 100,
-        min: 0,
-        fontColor:'#F706CF',
-        fontSize: 15
-    }
-    }],
-    xAxes:[{
-    ticks: {
-        fontColor:'#FD1D53',
-        fontSize: 13
-    }
-    }]
-}}   
-    var config = {
-        type: 'line',
-        data: data,
-        options: options}
-    var config1 = {
-        type: 'line',
-        data: data1,
-        options: options}
-    var configweek = {
-        type: 'line',
-        data: dataweek,
-        options: optionsweek}
-
-    $("#10").on("click", function() {
-        chartmeteo.destroy()
-        var context1 = document.getElementById('meteoChart').getContext('2d');
-        chartmeteo = new Chart(context1, config);});
-    $("#day").on("click", function() {
-        chartmeteo.destroy()
-        var context2 = document.getElementById('meteoChart').getContext('2d');
-        chartmeteo = new Chart(context2, config1);});
-    $("#week").on("click", function() {
-        chartmeteo.destroy()
-        var context3 = document.getElementById('meteoChart').getContext('2d');
-        chartmeteo = new Chart(context3, configweek);});
-
-
-    let chartmeteo = new Chart(ctx, config);</script>
 
 </body>
 </html>
