@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="shortcut icon" href="./images/sun.ico">
 <title>Station meteo</title>
 
 <meta charset="utf-8">
@@ -36,12 +36,14 @@
 
 <div class="mainHello"></div>
 <div class="dataText"></div>
+
 <!-- A ajouter sur la page des mesures
 <div class="mediantempField"></div>
 <div class="medianhumField"></div>
 -->
 
 <div class="lastvalues"></div>
+<div id="location" class="location"> </div>
 <div class="buttons">
     <input type="submit" id="year" class="button" value="Année" /> 
     <input type="submit" id="month" class="button" value="Mois" /> 
@@ -50,8 +52,8 @@
     <input type="submit" id="10" class="button" value="10 last" /> 
 </div>
 <div class="buttons">
-    <input type="submit" id="minus" class="button" value="-1 H" /> 
-    <input type="submit" id="month" class="button" value="+1 H" /> 
+    <input name="minus" type="submit" id="minus" class="button" value="-1 H" /> 
+    <input name="plus" type="submit" id="plus" class="button" value="+1 H" /> 
 </div>
 <div style="width: 70%; margin-left: 15%;">
 <canvas id="meteoChart"></canvas>
@@ -59,7 +61,13 @@
 
 <?php 
 
+
+// http://localhost:4000/index.php?param=x
+
+
 function updateSQL(){
+    $param = $_GET['param'];
+
     $link = mysqli_connect("localhost:3306", "root", "", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -68,7 +76,7 @@ function updateSQL(){
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
             echo "<script language=\"javascript\" type=\"text/javascript\"> \n";
-
+            echo 'let param = ' . $param . "\n";
 
             while($row = mysqli_fetch_array($result)){
                     $time[] = $row['date'];
@@ -110,7 +118,7 @@ function updateSQL(){
             echo "var timeScaleraw  = [" ;
             for($i = $timesize; $i>$timesize-10; $i--){
                 echo "'";
-                echo $time[$i];
+                echo $time[$i-$param];
                 echo "'";
                 if($i>$timesize-9){
                     echo ',';  
@@ -167,7 +175,7 @@ function updateSQL(){
         $day = 24;
         $k = 0;
         while($ok){
-            for($i = $timesize; $i>$timesize-168; $i-=24){
+            for($i = $timesize; $i>$timesize-(168); $i-=24){
                 $timeday1[$tab] = $time[$i];
                 $tab++;
             }

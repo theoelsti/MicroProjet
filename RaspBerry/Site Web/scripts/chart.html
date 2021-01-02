@@ -1,4 +1,6 @@
 <script>
+document.getElementById("location").innerHTML =
+"Connexion: " + window.location.hostname + " sur le port " + window.location.port;
   Chart.defaults.global.defaultFontFamily ='Lato';
 
   var ctx = document.querySelector('#meteoChart').getContext('2d');  
@@ -159,6 +161,23 @@ scales:{
       chartmeteo.destroy()
       var context3 = document.getElementById('meteoChart').getContext('2d');
       chartmeteo = new Chart(context3, configweek);});
+
+  $("#minus").on("click", function() { 
+      url = '?param=' + (parseInt(param)+ 1)
+      window.location.href = url;
+    });
+  $("#plus").on("click", function() {   
+    if(param -1 == -1){
+      alert("Les valeurs affichées sont les plus récentes !")
+    }
+    else{
+      url = '?param=' + (parseInt(param)-1 )
+    window.location.href = url;
+
+    }
+    
+  });
+  
 
 
   let chartmeteo = new Chart(ctx, config);

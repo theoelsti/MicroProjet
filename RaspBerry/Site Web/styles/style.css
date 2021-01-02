@@ -79,6 +79,11 @@ Style pour la date
 		text-align: center;
 		color:#F6019D ;
 }
+.location{
+	font-size: 20px;
+	text-align: center;
+	color:#0cd463 ;
+}
 .dataText{
 	font-size: 45px;
 	text-align: center;
