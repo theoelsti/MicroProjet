@@ -68,9 +68,7 @@ function updateSQL(){
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
             echo "<script language=\"javascript\" type=\"text/javascript\"> \n";
-            $time;
-            $temp;
-            $hum;
+
 
             while($row = mysqli_fetch_array($result)){
                     $time[] = $row['date'];
@@ -108,6 +106,7 @@ function updateSQL(){
 
             //echo de l'heure
             $timesize = sizeof($time)-1;
+           
             echo "var timeScaleraw  = [" ;
             for($i = $timesize; $i>$timesize-10; $i--){
                 echo "'";
@@ -160,85 +159,120 @@ function updateSQL(){
         echo "];\n";
 
     // Valeurs de la semaine (moyennes)
-        //echo de l'heure sur la semaine
-        $timesize = sizeof($time)-1;
+    // Valeurs de l'heure sur la semaine
+        $tempsize = sizeof($time)-1;
         echo "var timeScalerawweek  = [" ;
-        for($i = $timesize; $i>$timesize-168; $i--){
-            echo "'";
-            echo $time[$i];
-            echo "'";
-            if($i>$timesize-167){
-                echo ',';  
+        $ok = TRUE;
+        $tab = 0;
+        $day = 24;
+        $k = 0;
+        while($ok){
+            for($i = $timesize; $i>$timesize-168; $i-=24){
+                $timeday1[$tab] = $time[$i];
+                $tab++;
+            }
+            echo "'" . $timeday1[$k] . "'";
+            $k++;
+            $day += 24;
+            
+            if($day > 168){
+                $ok = !$ok;
+            }
+            else{
+                echo ",";
             }
             
         }
         echo "];\n";
-
+    
         //echo de l'humidité sur la semaine
-        $humsize = sizeof($hum)-1;
-        echo "var humrawweek  = [" ;
-        for($i = $humsize; $i>$humsize-168; $i--){
-            echo $hum[$i];
-            if($i>$tempsize-167){
-                echo ',';  
+            $humsize = sizeof($hum)-1;
+            echo "var humrawweek  = [" ;
+            $ok = TRUE;
+            $tab = 0;
+            $day = 24;
+            $humday1 = [];
+            while($ok){
+                for($i = $humsize; $i>$humsize-$day; $i--){
+                    array_push($humday1,$hum[$i]);
+                    $tab++;
+                }
+                echo bcdiv(array_sum($humday1) / count($humday1), 1, 2);
+                $day += 24;
+                
+                if($day > 168){
+                    $ok = !$ok;
+                }
+                else{
+                    echo ",";
+                }
+                
             }
+            echo "];\n";
             
-        }
-        echo "];\n";
         //echo de la temperature sur la semaine
-        $tempsize = sizeof($temp)-1;
-        echo "var temprawweek  = [" ;
-        for($i = $tempsize; $i>$tempsize-168; $i--){
-            echo $temp[$i];
-            if($i>$tempsize-167){
-                echo ',';  
+            $tempsize = sizeof($temp)-1;
+            echo "var temprawweek  = [" ;
+            $ok = TRUE;
+            $tab = 0;
+            $day = 24;
+            while($ok){
+                for($i = $tempsize; $i>$tempsize-$day; $i--){
+                    $tempday1[$tab] = $temp[$i];
+                    $tab++;
+                }
+                echo bcdiv(array_sum($tempday1) / count($tempday1), 1, 2);
+                $day += 24;
+                
+                if($day > 168){
+                    $ok = !$ok;
+                }
+                else{
+                    echo ",";
+                }
+                
             }
+            echo "];\n";
             
-        }
-        echo "];\n";
 
 
+    // //Valeurs du mois
 
-           
-
-
-    //Valeurs du mois
-
-        $timesize = sizeof($time)-1;
-        echo "var timeScalerawmonth  = [" ;
-        for($i = $timesize; $i>$timesize-720; $i--){
-            echo "'";
-            echo $time[$i];
-            echo "'";
-            if($i>$timesize-719){
-                echo ',';  
-            }
+    //     $timesize = sizeof($time)-1;
+    //     echo "var timeScalerawmonth  = [" ;
+    //     for($i = $timesize; $i>$timesize-720; $i--){
+    //         echo "'";
+    //         echo $time[$i];
+    //         echo "'";
+    //         if($i>$timesize-719){
+    //             echo ',';  
+    //         }
             
-        }
-        echo "];\n";
+    //     }
+    //     echo "];\n";
 
-        //echo de l'humidité sur la semaine
-        $humsize = sizeof($hum)-1;
-        echo "var humrawmonth  = [" ;
-        for($i = $humsize; $i>$humsize-720; $i--){
-            echo $hum[$i];
-            if($i>$tempsize-719){
-                echo ',';  
-            }
+    //     //echo de l'humidité sur la semaine
+    //     $humsize = sizeof($hum)-1;
+    //     echo "var humrawmonth  = [" ;
+    //     for($i = $humsize; $i>$humsize-720; $i--){
+    //         echo $hum[$i];
+    //         if($i>$tempsize-719){
+    //             echo ',';  
+    //         }
             
-        }
-        echo "];\n";
-        //echo de la temperature sur la semaine
-        $tempsize = sizeof($temp)-1;
-        echo "var temprawmonth  = [" ;
-        for($i = $tempsize; $i>$tempsize-720; $i--){
-            echo $temp[$i];
-            if($i>$tempsize-719){
-                echo ',';  
-            }
+    //     }
+    //     echo "];\n";
+    //     //echo de la temperature sur la semaine
+    //     $tempsize = sizeof($temp)-1;
+    //     echo "var temprawmonth  = [" ;
+    //     for($i = $tempsize; $i>$tempsize-720; $i--){
+    //         echo $temp[$i];
+    //         if($i>$tempsize-719){
+    //             echo ',';  
+    //         }
             
-        }
-        echo "];\n";
+    //     }
+    //     echo "];\n";
         echo "\n</script>";
         mysqli_free_result($result);
         }

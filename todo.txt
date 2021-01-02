@@ -1,28 +1,11 @@
-Terminé J+0
-+ Toutes les X secondes
-    + Lire la temperature sur l'arduino
-    + Lire l'humidité sur l'arduino
-+ Transmettre les données à la raspberry
-    
-+ Afficher les données sur une page web coté raspberry
-Terminé J+2
-+ Développement d’un simulateur de données brutes pour les tests
 
-Commencé J+0
-~ Affichage graphique (courbes, histogrammes...) de l’historique par jour (en option par semaine, mois) des données.
-    - Pouvoir avoir le choix du jour à afficher dans l’historique l’interface web
-    + Changer la couleur du label
-
-commence j+4:
- ~ affichage des moyennes sur la page
-    ~ creation d'une page des moyennes par timothée
-    ~ creation d'une page d'acceuil par jg
- + Calcul des moyennes des différentes données acquises par jour (en option par semaine par mois)
-A faire 
+✅	Affichage graphique en « temps réel » du taux d’humidité, de la température et de la température ressentie dans une interface web (toutes les xx minutes) 
+    ⏳ en option passage en paramètre du délai de mesure.
+✅	Affichage graphique (courbes, histogrammes...) de l’historique par jour (en option par semaine, mois) des données.
+⏳	Pourvoir avoir le choix du jour à afficher dans l’historique l’interface web
+✅	Développement d’un simulateur de données brutes pour les tests
+✅	Calcul des moyennes des différentes données acquises par jour (en option par semaine par mois)
 
 
 
 
-
-En bonus (jvais le faire quand meme ): 
-- Décider sur la page web le délai de récuperation des informations
