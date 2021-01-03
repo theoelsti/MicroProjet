@@ -144,7 +144,6 @@ scales:{
       type: 'line',
       data: dataweek,
       options: optionsweek}
-
   $("#10").on("click", function() {
       chartmeteo.destroy()
       var context1 = document.getElementById('meteoChart').getContext('2d');
@@ -159,28 +158,28 @@ scales:{
       chartmeteo = new Chart(context3, configweek);});
 
   $("#minus").on("click", function() { 
-      url = '?param=' + (parseInt(param)+ 1) + "&year=0&month=1&day=0"
+      url = '?param=' + (parseInt(param)+ 1)
       window.location.href = url;
     });
   $("#plus").on("click", function() {   
-    if(param -1 == -1){
+    if(param -1 <= -1){
       alert("Les valeurs affichées sont les plus récentes !")
     }
     else{
-      url = '?param=' + (parseInt(param)-1 ) + "&year=0&month=0&day=0"
+      url = '?param=' + (parseInt(param)-1 )
     window.location.href = url;
 
     }
   });
   $("#plusday").on("click", function() { 
-    url = '?param=' + (parseInt(param)) + "&year=0&month=0&day=" +(parseInt(day) - 1)
-    window.location.href = url;
-    if(day -1 == -1){
+    url = '?param=' + (parseInt(param) -24)
+    if(param -24 <= -1){
       alert("Les valeurs affichées sont les plus récentes !")
     }
+    else window.location.href = url;
   });
   $("#minusday").on("click", function() { 
-    url = '?param=' + (parseInt(param)) + "&year=0&month=0&day=" + (parseInt(day) + 1)
+    url = '?param=' + (parseInt(param) + 24)
     window.location.href = url;
   });
   

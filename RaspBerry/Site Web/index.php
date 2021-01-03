@@ -65,9 +65,7 @@
 
 function updateSQL(){
     $param = $_GET['param'];
-    $year = $_GET['year'];
-    $month = $_GET['month'];
-    $day = $_GET['day'];
+
     $link = mysqli_connect("localhost:3306", "root", "", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -78,26 +76,19 @@ function updateSQL(){
             echo "<script language=\"javascript\" type=\"text/javascript\"> \n";
             if($param){echo 'let param ='  . $param . "\n";}
             else{echo "let param = 0 \n"; }
-            if($year){echo 'let year  ='  . $year  . "\n";}
-            else{echo "let year = 0 \n";}
-            if($month){echo 'let month ='  . $month . "\n";}
-            else{ echo "let month = 0 \n";}
-            if($day){echo 'let day   ='  . $day   . "\n";} 
-            else{ echo "let day   = 0 \n";}
             while($row = mysqli_fetch_array($result)){
                     $time[] = $row['date'];
                     $temp[] = $row['temp'];
                     $hum[] = $row['hum'];
                     
             }
-    $changement = $year*8760 + $month*720 + $day*24 + $param;
     //10 Dernieres valeurs
            
             //echo des temperature
             $tempsize = sizeof($temp)-1;
             echo "var tempraw  = [" ;
             for($i = $tempsize; $i>$tempsize-10; $i--){
-                echo $temp[$i-$changement];
+                echo $temp[$i-$param];
                 if($i>$tempsize-9){
                     echo ',';  
                 }
@@ -108,7 +99,7 @@ function updateSQL(){
             $humsize = sizeof($hum)-1;
             echo "var humraw  = [" ;
             for($i = $humsize; $i>$humsize-10; $i--){
-                echo $hum[$i-$changement];
+                echo $hum[$i-$param];
                 if($i>$tempsize-9){
                     echo ',';  
                 }
@@ -121,7 +112,7 @@ function updateSQL(){
             echo "var timeScaleraw  = [" ;
             for($i = $timesize; $i>$timesize-10; $i--){
                 echo "'";
-                echo $time[$i-$changement];
+                echo $time[$i-$param];
                 echo "'";
                 if($i>$timesize-9){
                     echo ',';  
@@ -135,7 +126,7 @@ function updateSQL(){
         echo "var timeScalerawday  = [" ;
         for($i = $timesize; $i>$timesize-25; $i--){
             echo "'";
-            echo $time[$i-$changement];
+            echo $time[$i-$param];
             echo "'";
             if($i>$timesize-24){
                 echo ',';  
@@ -148,7 +139,7 @@ function updateSQL(){
         $humsize = sizeof($hum)-1;
         echo "var humrawday  = [" ;
         for($i = $humsize; $i>$humsize-25; $i--){
-            echo $hum[$i-$changement];
+            echo $hum[$i-$param];
             if($i>$tempsize-24){
                 echo ',';  
             }
@@ -159,7 +150,7 @@ function updateSQL(){
         $tempsize = sizeof($temp)-1;
         echo "var temprawday  = [" ;
         for($i = $tempsize; $i>$tempsize-25; $i--){
-            echo $temp[$i-$changement];
+            echo $temp[$i-$param];
             if($i>$tempsize-24){
                 echo ',';  
             }
@@ -177,7 +168,7 @@ function updateSQL(){
             $k = 0;
             while($ok){
                 for($i = $timesize; $i>$timesize-(168); $i-=24){
-                    $timeday1[$tab] = $time[$i];
+                    $timeday1[$tab] = $time[$i-$param];
                     $tab++;
                 }
                 echo "'" . $timeday1[$k] . "'";
@@ -203,7 +194,7 @@ function updateSQL(){
             $humday1 = [];
             while($ok){
                 for($i = $humsize; $i>$humsize-$day; $i--){
-                    array_push($humday1,$hum[$i]);
+                    array_push($humday1,$hum[$i-$param]);
                     $tab++;
                 }
                 echo bcdiv(array_sum($humday1) / count($humday1), 1, 2);
@@ -227,7 +218,7 @@ function updateSQL(){
             $day = 24;
             while($ok){
                 for($i = $tempsize; $i>$tempsize-$day; $i--){
-                    $tempday1[$tab] = $temp[$i];
+                    $tempday1[$tab] = $temp[$i-$param];
                     $tab++;
                 }
                 echo bcdiv(array_sum($tempday1) / count($tempday1), 1, 2);
