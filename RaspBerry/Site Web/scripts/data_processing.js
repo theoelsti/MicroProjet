@@ -6,8 +6,6 @@ var humday = humrawday
 var tempday = temprawday
 var timeScaleday = timeScalerawday
 
-
-
 // if the day is the same we only show the date on the first value
 if(
         timeScaleraw[0].substring(0, 11) == timeScaleraw[1].substring(0, 11) 
@@ -55,7 +53,7 @@ var lastField =  document.getElementsByClassName("dataText")[0];
 var lastValuesField = document.getElementsByClassName("lastvalues")[0];
 
 lastField.innerHTML = "les dernières valeurs relevées sont :"
-lastValuesField.innerHTML = " <a id=\"tempid\" >" + temp[9].toString() + "°C</a>" + "  |  <a id=\"humid\" >"+  hum[9].toString() + "% </a>"
+lastValuesField.innerHTML = " <a id=\"tempid\" >" + lasttemp + "°C</a>" + "  |  <a id=\"humid\" >"+  lasthum + "% </a>"
 
 
 

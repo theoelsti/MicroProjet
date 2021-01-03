@@ -5,7 +5,6 @@ function doesConnectionExist() {
     var file = `http://${ip}:${port}/nothing.txt`;
     xhr.open('HEAD', file , true);
     xhr.send();
-    console.log("Checking connexion...")
     xhr.addEventListener("readystatechange", processRequest, false);
     function processRequest(e) {
       if (xhr.readyState == 4) {

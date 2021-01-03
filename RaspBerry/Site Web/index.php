@@ -32,7 +32,11 @@
         <a id="s" style="font-size:30px">00</a>
     </div>
 <hr>
-
+<div class="toolsbuttons">
+<button type = "submit" name="refresh"class="buttonl" id="refresh">
+<img src="./images/refresh.png" class="refreshico"/>
+</button>
+</div>
 
 <div class="mainHello"></div>
 <div class="dataText"></div>
@@ -108,7 +112,8 @@ function updateSQL(){
                     
             }
     //10 Dernieres valeurs
-           
+            echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
+            echo 'let lasthum = ' . $hum[sizeof($hum)-1] . "\n";
             //echo des temperature
             $tempsize = sizeof($temp)-1;
             echo "var tempraw  = [" ;
