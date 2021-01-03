@@ -159,7 +159,7 @@ scales:{
       chartmeteo = new Chart(context3, configweek);});
 
   $("#minus").on("click", function() { 
-      url = '?param=' + (parseInt(param)+ 1) + "&year=0&month=1&day=0&last=0"
+      url = '?param=' + (parseInt(param)+ 1) + "&year=0&month=1&day=0"
       window.location.href = url;
     });
   $("#plus").on("click", function() {   
@@ -167,11 +167,21 @@ scales:{
       alert("Les valeurs affichées sont les plus récentes !")
     }
     else{
-      url = '?param=' + (parseInt(param)-1 ) + "&year=0&month=1&day=0&last=0"
+      url = '?param=' + (parseInt(param)-1 ) + "&year=0&month=0&day=0"
     window.location.href = url;
 
     }
-    
+  });
+  $("#plusday").on("click", function() { 
+    url = '?param=' + (parseInt(param)) + "&year=0&month=0&day=" +(parseInt(day) - 1)
+    window.location.href = url;
+    if(day -1 == -1){
+      alert("Les valeurs affichées sont les plus récentes !")
+    }
+  });
+  $("#minusday").on("click", function() { 
+    url = '?param=' + (parseInt(param)) + "&year=0&month=0&day=" + (parseInt(day) + 1)
+    window.location.href = url;
   });
   
 
