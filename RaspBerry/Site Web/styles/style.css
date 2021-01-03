@@ -177,19 +177,24 @@ Style pour la date
 .toolsbuttons{
 	text-align: right;
 }
-.refreshico{
-	width: 65%;
+
+
+.buttonl:hover .refreshico {
+    transform: rotate(360deg) scale(1);
+}
+.buttonl .refreshico {
+	width: 55%;
+    transition: all 0.4s ease-in-out;
 }
 
-  .openbtn {
+.openbtn {
 	font-size: 20px;
 	cursor: pointer;
 	background-color: #2E2157;
 	color: white;
 	padding: 10px 15px;
 	border: none;
-	
-  }
+}
   
   .openbtn:hover {
 	background-color: #444;
