@@ -4,3 +4,6 @@ added php for future jquery and slq usage
 16/12/20
 Started and finished the generator with sql support
 
+03/01/21
+finished daily and weekly data, with +1 and -1 buttons
+Added a text field to ensure connection

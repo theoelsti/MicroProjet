@@ -1,8 +1,11 @@
-<script>
 
 var hum = humraw
 var temp = tempraw
 var timeScale = timeScaleraw
+var humday = humrawday
+var tempday = temprawday
+var timeScaleday = timeScalerawday
+
 // if the day is the same we only show the date on the first value
 if(
         timeScaleraw[0].substring(0, 11) == timeScaleraw[1].substring(0, 11) 
@@ -16,11 +19,22 @@ if(
         &&timeScaleraw[8].substring(0, 11) == timeScaleraw[9].substring(0, 11)
         )
         {
-        for(let i=9; i>0; i--){
+        for(let i=0; i<9; i++){
             timeScale[i] = timeScaleraw[i].substring(11)
         }
     }
 
+/*
+    Reverse des tableaux car on recupere les valeurs a l'envers
+*/
+var hum = hum.reverse();
+var temp = temp.reverse();
+var timeScale = timeScale.reverse();
+// 24h
+    var humday = humday.reverse();
+    var tempday = tempday.reverse();
+    var timeScaleday = timeScaleday.reverse();
+// Jour/soir
 var today = new Date();
 var time = today.getHours();
 var mainHello = document.getElementsByClassName("mainHello")[0]
@@ -34,10 +48,12 @@ else{
     mainHello.style.color = "#FF6C11"
     mainHello.style.fontFamily = "robot"
 }
-var moyenneField =  document.getElementsByClassName("moyenne")[0];
+// Dernieres valeurs
+var lastField =  document.getElementsByClassName("dataText")[0];
 var lastValuesField = document.getElementsByClassName("lastvalues")[0];
-moyenneField.innerHTML = "les dernieres valeurs relevées sont :"
-lastValuesField.innerHTML = " <a id=\"tempid\" >" + temp[9].toString() + "°C</a>" + "  |  <a id=\"humid\" >"+  hum[9].toString() + "% </a>"
+
+lastField.innerHTML = "les dernières valeurs relevées sont :"
+lastValuesField.innerHTML = " <a id=\"tempid\" >" + lasttemp + "°C</a>" + "  |  <a id=\"humid\" >"+  lasthum + "% </a>"
 
 
-</script>
+
