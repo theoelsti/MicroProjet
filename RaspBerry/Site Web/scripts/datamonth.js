@@ -1,9 +1,9 @@
 
     // Moyenne / jour
-   // var humweek = humrawweek
-    var tempweek = temprawweek
-    var timeScaleweek = timeScalerawweek
-    //var humweek = humweek.reverse();
-    var tempweek = tempweek.reverse();
-    var timeScaleweek = timeScaleweek.reverse();
+    var hummonth = humrawmonth
+    var tempmonth = temprawmonth 
+    var timeScalemonth  = timeScalerawmonth 
+    var hummonth  = hummonth.reverse();
+    var tempmonth  = tempmonth .reverse();
+    var timeScalemonth  = timeScalemonth .reverse();
     let timeScaleweekdays = []

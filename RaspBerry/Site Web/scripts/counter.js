@@ -1,12 +1,15 @@
-let value = 45
 let i = 0
-document.getElementsByClassName('counter')[0].innerHTML = "0"; // el vaudra null !
-
+var lastValuesField = document.getElementsByClassName("lastvalues")[0];
+let t = 0.0;
+let h = 0.0;
+let humdone = false;
 setInterval(function(){
-    if(i != value+1){
-        document.getElementsByClassName('counter')[0].innerHTML = i;
+    if(h <= lasthum){
+        if(t < lasttemp) t += 0.1;
+        if(h < lasthum)  h += 0.1;
+        lastValuesField.innerHTML = " <a id=\"tempid\" >" + t.toFixed(1) + "°C</a>" + "  |  <a id=\"humid\" >"+  h.toFixed(1) + "% </a>";
     i++;}
     else{
         return
     }
-},10)
+},5)
