@@ -91,12 +91,14 @@ function updateSQL(){
             echo "<script language=\"javascript\" type=\"text/javascript\"> \n";
             if($param){echo 'let param ='  . $param . "\n";}
             else{echo "let param = 0 \n"; }
+
             while($row = mysqli_fetch_array($result)){
                     $time[] = $row['date'];
                     $temp[] = $row['temp'];
                     $hum[] = $row['hum'];
                     
             }
+            echo 'let totalvalues = ' . sizeof($length) . "; \n";
     //10 Dernieres valeurs
             echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
             echo 'let lasthum = ' . $hum[sizeof($hum)-1] . "\n";
