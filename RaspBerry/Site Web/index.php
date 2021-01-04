@@ -69,8 +69,10 @@
 <div id="main">
   <button class="openbtn" onclick="openNav()">Affichage Temporel</button>
 </div>
-<div class="counter">
-
+<div class="buttons">
+    <div class="buttonl">
+        <a class="counter"></a>
+    </div>
 </div>
 <script src="./scripts/counter.js"></script>
 <canvas id="meteoChart"></canvas>
@@ -83,7 +85,6 @@
 
 function updateSQL(){
     $param = $_GET['param'];
-
     $link = mysqli_connect("localhost:3306", "root", "root", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -261,8 +262,8 @@ function updateSQL(){
     
     
             //     $timesize = sizeof($time)-1;
-    ###
-        // Valeurs du mois (moyennes)
+
+    // Valeurs du mois (moyennes)
         // Valeurs de l'heure sur le mois
         $tempsize = sizeof($time)-1;
         echo "var timeScalerawweek  = [" ;

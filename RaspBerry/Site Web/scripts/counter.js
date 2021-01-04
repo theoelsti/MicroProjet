@@ -1,4 +1,4 @@
-let value = 45
+let value = 1000
 let i = 0
 document.getElementsByClassName('counter')[0].innerHTML = "0"; // el vaudra null !
 
