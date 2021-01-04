@@ -11,6 +11,7 @@
 <script src="./scripts/clock.js"></script>
 <script src="./scripts/connectionchecker.js"></script>
 <script src="./scripts/sidemenu.js"></script>
+
 <!--Essential-->
 <script src="./scripts/chartjs.js"></script>
 <script src="./scripts/jquery-3.5.1.js"></script>
@@ -23,6 +24,7 @@
     <div class="title">
         Station Méteo
     </div>
+
     <div id="timedate">
         <a id="d">1</a>
         <a id="mon">Janvier</a>
@@ -67,6 +69,10 @@
 <div id="main">
   <button class="openbtn" onclick="openNav()">Affichage Temporel</button>
 </div>
+<div class="counter">
+
+</div>
+<script src="./scripts/counter.js"></script>
 <canvas id="meteoChart"></canvas>
 </div>
 

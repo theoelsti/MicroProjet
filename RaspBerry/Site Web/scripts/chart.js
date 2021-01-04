@@ -144,6 +144,10 @@ scales:{
       type: 'line',
       data: dataweek,
       options: optionsweek}
+
+      let chartmeteo = new Chart(ctx, config);
+
+
   $("#10").on("click", function() {
       chartmeteo.destroy()
       var context1 = document.getElementById('meteoChart').getContext('2d');
@@ -197,5 +201,3 @@ scales:{
     window.location.href = '?param=0';
   });
 
-
-  let chartmeteo = new Chart(ctx, config);
