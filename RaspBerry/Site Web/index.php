@@ -69,8 +69,7 @@
 <div id="main">
   <button class="openbtn" onclick="openNav()">Affichage Temporel</button>
 </div>
-
-        <a class="counter"></a>
+<a class="counter"></a>
 <script src="./scripts/counter.js"></script>
 <canvas id="meteoChart"></canvas>
 </div>
