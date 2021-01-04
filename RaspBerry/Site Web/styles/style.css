@@ -134,8 +134,21 @@ Style pour la date
 	font-size: 130%;
 	cursor: pointer;
 }
+.buttonre{
+	margin: 10px;
+	background-color: #FF4365;
+	border: solid #650D89 1px;
+	border-radius: 5px;
+	width:50px;
+	height: 50px;
+	font-size: 130%;
+	cursor: pointer;
+}
 .buttonl:hover{
 	background-color: #40237522;
+}
+.buttonre:hover{
+	background-color: #FF436544;
 }
 
 /* CSS de la sidebar parce que c'est trop style*/
@@ -178,7 +191,7 @@ Style pour la date
 	margin-left: 50px;
   }
 .toolsbuttons{
-	text-align: right;
+	float: right;
 }
 .menubuttons{
 	padding-top: 160%;
@@ -187,8 +200,11 @@ Style pour la date
 .buttonl:hover .refreshico {
     transform: rotate(360deg) scale(1);
 }
-.buttonl .refreshico {
-	width: 55%;
+.buttonre:hover .refreshico {
+    transform: rotate(360deg) scale(1);
+}
+.buttonre .refreshico {
+	width: 45%;
     transition: all 0.4s ease-in-out;
 }
 

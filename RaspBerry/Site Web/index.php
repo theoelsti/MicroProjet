@@ -35,7 +35,7 @@
     </div>
 <hr>
 <div class="toolsbuttons">
-<button type = "submit" name="refresh"class="buttonl" id="refresh">
+<button type = "submit" name="refresh"class="buttonre" id="refresh">
 <img src="./images/refresh.png" class="refreshico"/>
 </button>
 </div>
@@ -50,7 +50,6 @@
     <input name="plusday" type="submit" id="plusday" class="buttonl" value="+1 J" /> 
     <input name="plusmonth" type="submit" id="plusmonth" class="buttonl" value="+1 M" /> 
 </div>
-
 
 <div style="width: 70%; margin-left: 15%;">
 <div id="mySidebar" class="sidebar">
@@ -69,7 +68,6 @@
 <div id="main">
   <button class="openbtn" onclick="openNav()">Affichage Temporel</button>
 </div>
-<a class="counter"></a>
 <script src="./scripts/counter.js"></script>
 <canvas id="meteoChart"></canvas>
 </div>
@@ -99,6 +97,7 @@ function updateSQL(){
                     
             }
             echo 'let totalvalues = ' . sizeof($time) . "; \n";
+            echo 'let mostRecentDate = "' . $time[$param] . '"; ' . "\n";
     //10 Dernieres valeurs
             echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
             echo 'let lasthum = ' . $hum[sizeof($hum)-1] . "\n";
@@ -263,22 +262,23 @@ function updateSQL(){
 
     // Valeurs du mois (moyennes)
         // Valeurs de l'heure sur le mois
+
         $tempsize = sizeof($time)-1;
-        echo "var timeScalerawweek  = [" ;
+        echo "var timeScalerawmonth  = [" ;
         $ok = TRUE;
-        $tab = 0;
-        $day = 24;
+        $tab = 0;   
+        $day = 48;
         $k = 0;
         while($ok){
-            for($i = $timesize; $i>$timesize-(168); $i-=24){
-                $timeday1[$tab] = $time[$i];
+            for($i = $timesize; $i>$timesize-(744); $i-=48){
+                $timeday1[$tab] = substr($time[$i-$param], 0, -8);
                 $tab++;
             }
             echo "'" . $timeday1[$k] . "'";
             $k++;
-            $day += 24;
+            $day += 48;
             
-            if($day > 168){
+            if($day > 744){
                 $ok = !$ok;
             }
             else{
@@ -288,46 +288,47 @@ function updateSQL(){
         }
         echo "];\n";
     
-    // //echo de l'humidité sur le mois
-    //     $humsize = sizeof($hum)-1;
-    //     echo "var humrawweek  = [" ;
-    //     $ok = TRUE;
-    //     $tab = 0;
-    //     $day = 24;
-    //     $humday1 = [];
-    //     while($ok){
-    //         for($i = $humsize; $i>$humsize-$day; $i--){
-    //             array_push($humday1,$hum[$i]);
-    //             $tab++;
-    //         }
-    //         echo bcdiv(array_sum($humday1) / count($humday1), 1, 2);
-    //         $day += 24;
+    //echo de l'humidité sur le mois
+        $humsize = sizeof($hum)-1;
+        echo "var humrawmonth  = [" ;
+        $ok = TRUE;
+        $tab = 0;
+        $day = 48;
+        $humday1 = [];
+        while($ok){
+            for($i = $humsize; $i>$humsize-$day; $i--){
+                array_push($humday1,$hum[$i]);
+                $tab++;
+            }
+            echo bcdiv(array_sum($humday1) / count($humday1), 1, 2);
+            $day += 24;
             
-    //         if($day > 168){
-    //             $ok = !$ok;
-    //         }
-    //         else{
-    //             echo ",";
-    //         }
+            if($day > 744){
+                $ok = !$ok;
+            }
+            else{
+                echo ",";
+            }
             
-    //     }
-    //     echo "];\n";
+        }
+        echo "];\n";
         
     // //echo de la temperature sur le mois
         $tempsize = sizeof($temp)-1;
-        echo "var temprawweek  = [" ;
+        echo "var temprawmonth  = [" ;
         $ok = TRUE;
         $tab = 0;
-        $day = 24;
+        $day = 48;
         while($ok){
             for($i = $tempsize; $i>$tempsize-$day; $i--){
                 $tempday1[$tab] = $temp[$i];
                 $tab++;
             }
             echo bcdiv(array_sum($tempday1) / count($tempday1), 1, 2);
-            $day += 24;
+            $day += 48;
             
-            if($day > 168){
+            if($day > 745.5){
+                echo $day;
                 $ok = !$ok;
             }
             else{
@@ -355,6 +356,7 @@ updateSQL();
 ?>
 <script src="./scripts/data_processing.js"></script>
 <script src="./scripts/dataweek.js"></script>
+<script src="./scripts/datamonth.js"></script>
 <script src="./scripts/chart.js"></script>
 
 

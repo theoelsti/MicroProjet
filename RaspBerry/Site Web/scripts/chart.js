@@ -18,7 +18,7 @@
           borderColor: '#2DE2E6',
           data: hum
       }]}
-  var data1 = {
+  var dataday = {
       labels: timeScaleday,
       datasets: [{
           label:'Température',
@@ -52,6 +52,23 @@
           borderColor: '#2DE2E6',
           data: humweek.reverse()
       }]}
+var datamonth = {
+  labels: timeScalemonth.reverse(),
+  datasets: [{
+      label:'Température moyenne',
+      backgroundColor: '#D4007810',
+      borderColor: '#D40078',
+      pointStrokeColor: "#F6019D",
+      pointHighlightFill: "#000000",
+      data: tempmonth.reverse()
+  },
+  {
+      label:'Humidité moyenne',
+      color:'#FFFFFF',
+      backgroundColor: '#2DE2E610',
+      borderColor: '#2DE2E6',
+      data: hummonth.reverse()
+  }]}
   var options = {
       title:{
           display:true,
@@ -92,58 +109,103 @@
           }
         }]
       }}
-  var optionsweek = {
-title:{
-  display:true,
-  text:'Température et Humidité moyenne sur 1 semaine',
-  fontSize:25,
-  fontColor:'#FFFFFF',
-  fontFamily:'robot'
-},
-legend:{
-  position:'bottom'
-},
-scales:{
-  yAxes: [{
-  id: 'A',
-  type: 'linear',
-  position: 'left',
-  ticks: {
-      max: 100,
-      min: 0,
-      fontColor:'#F706CF',
-      fontSize: 15
-  }
-  }, {
-  id: 'B',
-  type: 'linear',
-  position: 'right',
-  ticks: {
-      max: 100,
-      min: 0,
-      fontColor:'#F706CF',
-      fontSize: 15
-  }
-  }],
-  xAxes:[{
-  ticks: {
-      fontColor:'#FD1D53',
-      fontSize: 13
-  }
+var optionsweek = {
+  title:{
+    display:true,
+    text:'Température et Humidité moyenne sur 1 semaine',
+    fontSize:25,
+    fontColor:'#FFFFFF',
+    fontFamily:'robot'
+  },
+  legend:{
+    position:'bottom'
+  },
+  scales:{
+    yAxes: [{
+    id: 'A',
+    type: 'linear',
+    position: 'left',
+    ticks: {
+        max: 100,
+        min: 0,
+        fontColor:'#F706CF',
+        fontSize: 15
+    }
+    }, {
+    id: 'B',
+    type: 'linear',
+    position: 'right',
+    ticks: {
+        max: 100,
+        min: 0,
+        fontColor:'#F706CF',
+        fontSize: 15
+    }
+    }],
+    xAxes:[{
+    ticks: {
+        fontColor:'#FD1D53',
+        fontSize: 13
+    }
   }]
 }}   
+
+var optionsmonth = {
+  title:{
+    display:true,
+    text:'Température et Humidité moyenne sur 1 mois (1 jour/2)',
+    fontSize:25,
+    fontColor:'#FFFFFF',
+    fontFamily:'robot'
+  },
+  legend:{
+    position:'bottom'
+  },
+  scales:{
+    yAxes: [{
+    id: 'A',
+    type: 'linear',
+    position: 'left',
+    ticks: {
+        max: 100,
+        min: 0,
+        fontColor:'#F706CF',
+        fontSize: 15
+    }
+    }, {
+    id: 'B',
+    type: 'linear',
+    position: 'right',
+    ticks: {
+        max: 100,
+        min: 0,
+        fontColor:'#F706CF',
+        fontSize: 15
+    }
+    }],
+    xAxes:[{
+    ticks: {
+        fontColor:'#FD1D53',
+        fontSize: 13
+    }
+  }]
+}}
   var config = {
       type: 'line',
       data: data,
       options: options}
   var config1 = {
       type: 'line',
-      data: data1,
+      data: dataday,
       options: options}
   var configweek = {
       type: 'line',
       data: dataweek,
       options: optionsweek}
+  var configmonth = {
+    type: 'line',
+    data: datamonth,
+    options: optionsmonth}
 
       let chartmeteo = new Chart(ctx, config);
 
@@ -160,6 +222,10 @@ scales:{
       chartmeteo.destroy()
       var context3 = document.getElementById('meteoChart').getContext('2d');
       chartmeteo = new Chart(context3, configweek);});
+  $("#month").on("click", function() {
+    chartmeteo.destroy()
+    var context3 = document.getElementById('meteoChart').getContext('2d');
+    chartmeteo = new Chart(context3, configmonth);});
 
   $("#minus").on("click", function() { 
       url = '?param=' + (parseInt(param)+ 1)

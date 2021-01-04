@@ -1,13 +1,4 @@
 let i = 0
-
-setInterval(function(){
-    if(i <= totalvalues+1){
-        document.getElementsByClassName('counter')[0].innerHTML = i;
-    i++;}
-    else{
-        return
-    }
-},70)
 var lastValuesField = document.getElementsByClassName("lastvalues")[0];
 let t = 0.0;
 let h = 0.0;
