@@ -75,10 +75,11 @@
 <?php 
 
 
-// http://localhost:42069/index.php&param=0
+// http://localhost:42069/index.php&param=0&show=0
 
 function updateSQL(){
     $param = $_GET['param'];
+    $show = $_GET['show'];
     $link = mysqli_connect("localhost:3306", "root", "", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -87,8 +88,10 @@ function updateSQL(){
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
             echo "<script language=\"javascript\" type=\"text/javascript\"> \n";
+            echo "// Variables essentielles au fonctionnement des moyennes etc\n";
             if($param){echo 'let param ='  . $param . "\n";}
             else{echo "let param = 0 \n"; }
+            echo "let show = " . $show . ";\n";
 
             while($row = mysqli_fetch_array($result)){
                     $time[] = $row['date'];
@@ -102,6 +105,7 @@ function updateSQL(){
             echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
             echo 'let lasthum = ' . $hum[sizeof($hum)-1] . "\n";
             //echo des temperature
+            echo "//Stockage des resultats \n";
             $tempsize = sizeof($temp)-1;
             echo "var tempraw  = [" ;
             for($i = $tempsize; $i>$tempsize-10; $i--){

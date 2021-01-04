@@ -21,7 +21,7 @@ Style pour le soleil
 */
 .sun {
     width: 100px;
-    float: left;
+	float: left;
 	height: 100px;
 	background-color: #F9C80E;
 	border-radius: 50%;
@@ -201,7 +201,7 @@ Style pour la date
     transform: rotate(360deg) scale(1);
 }
 .buttonre:hover .refreshico {
-    transform: rotate(360deg) scale(1);
+    transform: rotate(520deg) scale(1);
 }
 .buttonre .refreshico {
 	width: 45%;

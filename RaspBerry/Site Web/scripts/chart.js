@@ -207,28 +207,49 @@ var optionsmonth = {
     data: datamonth,
     options: optionsmonth}
 
-      let chartmeteo = new Chart(ctx, config);
+  let chartmeteo = new Chart(ctx, config);
 
-
+  switch(show){
+    case 1:
+      chartmeteo.destroy()
+      var context2 = document.getElementById('meteoChart').getContext('2d');
+      chartmeteo = new Chart(context2, config1);
+      break;
+    case 2:
+      chartmeteo.destroy()
+      var context3 = document.getElementById('meteoChart').getContext('2d');
+      chartmeteo = new Chart(context3, configweek);
+      break;
+    case 3:
+      chartmeteo.destroy()
+      var context3 = document.getElementById('meteoChart').getContext('2d');
+      chartmeteo = new Chart(context3, configmonth);
+    default:
+      break
+  }
   $("#10").on("click", function() {
       chartmeteo.destroy()
       var context1 = document.getElementById('meteoChart').getContext('2d');
+      show = 0;
       chartmeteo = new Chart(context1, config);});
   $("#day").on("click", function() {
       chartmeteo.destroy()
       var context2 = document.getElementById('meteoChart').getContext('2d');
+      show = 1;
       chartmeteo = new Chart(context2, config1);});
   $("#week").on("click", function() {
       chartmeteo.destroy()
       var context3 = document.getElementById('meteoChart').getContext('2d');
+      show = 2;
       chartmeteo = new Chart(context3, configweek);});
   $("#month").on("click", function() {
     chartmeteo.destroy()
     var context3 = document.getElementById('meteoChart').getContext('2d');
+    show = 3;
     chartmeteo = new Chart(context3, configmonth);});
 
   $("#minus").on("click", function() { 
-      url = '?param=' + (parseInt(param)+ 1)
+      url = '?param=' + (parseInt(param)+ 1) + '&show=' + parseInt(show)
       window.location.href = url;
     });
   $("#plus").on("click", function() {   
@@ -236,34 +257,35 @@ var optionsmonth = {
       alert("Les valeurs affichées sont les plus récentes !")
     }
     else{
-      url = '?param=' + (parseInt(param)-1 )
+      console.log(parseInt(show))
+      url = '?param=' + (parseInt(param)-1 )+ '&show=' + parseInt(show)
     window.location.href = url;
 
     }
   });
   $("#plusday").on("click", function() { 
-    url = '?param=' + (parseInt(param) -24)
+    url = '?param=' + (parseInt(param) -24)+ '&show=' + parseInt(show)
     if(param -24 <= -1){
       alert("Les valeurs affichées sont les plus récentes !")
     }
     else window.location.href = url;
   });
   $("#minusday").on("click", function() { 
-    url = '?param=' + (parseInt(param) + 24)
+    url = '?param=' + (parseInt(param) + 24)+ '&show=' + parseInt(show)
     window.location.href = url;
   });
   $("#plusmonth").on("click", function() { 
-    url = '?param=' + (parseInt(param) -744)
+    url = '?param=' + (parseInt(param) -744)+ '&show=' + parseInt(show)
     if(param -744 <= -1){
       alert("Les valeurs affichées sont les plus récentes !")
     }
     else window.location.href = url;
   });
   $("#minusmonth").on("click", function() { 
-    url = '?param=' + (parseInt(param) + 744)
+    url = '?param=' + (parseInt(param) + 744)+ '&show=' + parseInt(show)
     window.location.href = url;
   });
   $("#refresh").on("click", function() { 
-    window.location.href = '?param=0';
+    window.location.href = '?param=0'+ '&show=' + parseInt(show);
   });
 
