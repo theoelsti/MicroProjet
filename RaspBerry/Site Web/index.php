@@ -69,9 +69,7 @@
 <div id="main">
   <button class="openbtn" onclick="openNav()">Affichage Temporel</button>
 </div>
-<div class="counter">
-
-</div>
+<a class="counter"></a>
 <script src="./scripts/counter.js"></script>
 <canvas id="meteoChart"></canvas>
 </div>
@@ -83,7 +81,6 @@
 
 function updateSQL(){
     $param = $_GET['param'];
-
     $link = mysqli_connect("localhost:3306", "root", "root", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -94,12 +91,14 @@ function updateSQL(){
             echo "<script language=\"javascript\" type=\"text/javascript\"> \n";
             if($param){echo 'let param ='  . $param . "\n";}
             else{echo "let param = 0 \n"; }
+
             while($row = mysqli_fetch_array($result)){
                     $time[] = $row['date'];
                     $temp[] = $row['temp'];
                     $hum[] = $row['hum'];
                     
             }
+            echo 'let totalvalues = ' . sizeof($length) . "; \n";
     //10 Dernieres valeurs
             echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
             echo 'let lasthum = ' . $hum[sizeof($hum)-1] . "\n";
@@ -261,8 +260,8 @@ function updateSQL(){
     
     
             //     $timesize = sizeof($time)-1;
-    ###
-        // Valeurs du mois (moyennes)
+
+    // Valeurs du mois (moyennes)
         // Valeurs de l'heure sur le mois
         $tempsize = sizeof($time)-1;
         echo "var timeScalerawweek  = [" ;
