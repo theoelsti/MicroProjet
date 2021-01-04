@@ -81,7 +81,7 @@
 
 function updateSQL(){
     $param = $_GET['param'];
-    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
+    $link = mysqli_connect("localhost:3306", "root", "", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
@@ -98,7 +98,7 @@ function updateSQL(){
                     $hum[] = $row['hum'];
                     
             }
-            echo 'let totalvalues = ' . sizeof($length) . "; \n";
+            echo 'let totalvalues = ' . sizeof($time) . "; \n";
     //10 Dernieres valeurs
             echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
             echo 'let lasthum = ' . $hum[sizeof($hum)-1] . "\n";
