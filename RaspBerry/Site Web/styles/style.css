@@ -177,7 +177,9 @@ Style pour la date
 .toolsbuttons{
 	text-align: right;
 }
-
+.menubuttons{
+	padding-top: 160%;
+}
 
 .buttonl:hover .refreshico {
     transform: rotate(360deg) scale(1);

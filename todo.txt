@@ -9,7 +9,7 @@
 ❌ Page d'accueil
 ❌ Page des moyennes (very epic)
 Bonus :
-❌  Psassage en paramètre du délai de mesure
+❌  Psassage en paramètre du délai de mesure (relou)
 ✅  Bouton de refresh
 ✅  Infos de connexion
 ✅  Sidebar pour les echelles

@@ -10,7 +10,7 @@
 <link href="./styles/style.css" rel="stylesheet"/>
 <script src="./scripts/clock.js"></script>
 <script src="./scripts/connectionchecker.js"></script>
-
+<script src="./scripts/sidemenu.js"></script>
 <!--Essential-->
 <script src="./scripts/chartjs.js"></script>
 <script src="./scripts/jquery-3.5.1.js"></script>
@@ -39,11 +39,7 @@
 </div>
 
 <div class="mainHello"></div>
-<div class="dataText"></div>
-
-    <div class="lastvalues"></div>
-
-</div>
+<div class="dataText"></div><div class="lastvalues"></div></div>
 <div class="buttons">
     <input name="minusmonth" type="submit" id="minusmonth" class="buttonl" value="-1 M" /> 
     <input name="plusday" type="submit" id="minusday" class="buttonl" value="-1 J" /> 
@@ -57,28 +53,15 @@
 <div style="width: 70%; margin-left: 15%;">
 <div id="mySidebar" class="sidebar">
 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
 
 
+<div class="menubuttons">
 <div class="buttons"><input type="submit" id="year" class="button" value="Année" /></div>
 <div class="buttons"><input type="submit" id="month" class="button" value="Mois" /></div>
 <div class="buttons"><input type="submit" id="week" class="button" value="7 J" /></div>
 <div class="buttons"><input type="submit" id="day" class="button" value="24 H" /> </div>
 <div class="buttons">  <input type="submit" id="10" class="button" value="10 last" /> </div>
+</div>
 </div>
 
 <div id="main">
