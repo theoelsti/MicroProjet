@@ -10,57 +10,63 @@
     font-family: "robot";
     src: url(../fonts/Roboto-Thin.ttf) format("truetype");
 }
+@font-face {
+	font-family: 'Baloo Paaji 2';
+
+	src: url(../fonts/cards.woff2) format('woff2');
+	  }
 .title{
-    text-align: center;
-    font-family: cloudy;
-    font-size: 100px;
-    color: #F9C80E;
-    }
+text-align: center;
+font-family: cloudy;
+font-size: 100px;
+color: #F9C80E;
+}
  /*
 Style pour le soleil
 */
-.sun {
-    width: 100px;
-    float: left;
-	height: 100px;
-	background-color: #F9C80E;
-	border-radius: 50%;
-	box-shadow:
-		0 0 0 20px #F9C80E80,
-		0 0 0 40px #F9C80E40,
-		0 0 0 60px #F9C80E20,
-		0 0 0 80px #F9C80E10,
-		0 0 0 100px #F9C80E00,
-		0 0 40px 100px #F9C80E10;
-	animation:
-		sunrise 2s infinite linear forwards,
-		rays 2s 2s infinite linear;
-}
-@keyframes sunrise {
-	0% {
-		box-shadow: none;
+
+	.sun {
+		width: 100px;
+		float: left;
+		height: 100px;
+		background-color: #F9C80E;
+		border-radius: 50%;
+		box-shadow:
+			0 0 0 20px #F9C80E80,
+			0 0 0 40px #F9C80E40,
+			0 0 0 60px #F9C80E20,
+			0 0 0 80px #F9C80E10,
+			0 0 0 100px #F9C80E00,
+			0 0 40px 100px #F9C80E10;
+		animation:
+			sunrise 2s infinite linear forwards,
+			rays 2s 2s infinite linear;
 	}
-}
-@keyframes rays {
-	0% {
-		box-shadow: 
-		0 0 0 0 #F9C80E80,
-		0 0 0 20px #F9C80E80,
-		0 0 0 40px #F9C80E40,
-		0 0 0 60px #F9C80E20,
-		0 0 0 80px #F9C80E10,
-		0 0 40px 100px #F9C80E10;
+	@keyframes sunrise {
+		0% {
+			box-shadow: none;
+		}
 	}
-	100% {
-		box-shadow: 
-		0 0 0 20px #F9C80E80,
-		0 0 0 40px #F9C80E40,
-		0 0 0 60px #F9C80E20,
-		0 0 0 80px #F9C80E10,
-		0 0 0 100px #F9C80E00,
-		0 0 40px 100px #F9C80E10;
+	@keyframes rays {
+		0% {
+			box-shadow: 
+			0 0 0 0 #F9C80E80,
+			0 0 0 20px #F9C80E80,
+			0 0 0 40px #F9C80E40,
+			0 0 0 60px #F9C80E20,
+			0 0 0 80px #F9C80E10,
+			0 0 40px 100px #F9C80E10;
+		}
+		100% {
+			box-shadow: 
+			0 0 0 20px #F9C80E80,
+			0 0 0 40px #F9C80E40,
+			0 0 0 60px #F9C80E20,
+			0 0 0 80px #F9C80E10,
+			0 0 0 100px #F9C80E00,
+			0 0 40px 100px #F9C80E10;
+		}
 	}
-}
 
 /*
 Style pour la date
@@ -74,69 +80,100 @@ Style pour la date
 #mi{
     opacity: 0;
 }
-.mainHello{
-		font-size: 50px;
-		text-align: center;
-		color:#F6019D ;
-}
-.moyenne{
-	font-size: 45px;
-	text-align: center;
-	color:#8712b6 ;
-	font-family: robot;
-}
-#tempid{
-	font-size: 40px;
-	text-align: center;
-	color:#FF6C11 ;
-	font-family: robot;
-}
-#humid{
-	font-size: 40px;
-	text-align: center;
-	color:#2067d1 ;
-	font-family: robot;
-}
 
-.lastvalues{
-	font-size: 45px;
-	text-align: center;
-	font-family: robot;
-}
+
 
 /*
-cadre1
+cadres
 */
-.cadre1 {
-	border: 3px;
-	border-style: solid;
-	margin-right: 1000px;
+.link{
+	color: inherit;
+}
+.button{
+	margin: 10px;
+	background-color: #402375;
+	border: solid #650D89 1px;
+	border-radius: 5px;
+	width:400px;
+	height: auto;
+	font-size: 130%;
+	cursor: pointer;
 	text-align: center;
-	color: #F9C80E;
+	
+}
+.bouttons{
+	display: flex;
+	justify-content: center;
+	
 }
 
-/*
-cadre2
-*/
-.cadre2{
-	border: 3px;
-	border-style: solid;
-	margin-left: 1000px;
-	text-align: center;
-	color: #F9C80E;
-}
 
 /*
 img
 */
+.github{
+	text-align: center;
+}
 .github img {
-    width: 200px;
-	height: 200px;
+    width: 50px;
+	height: 50px;
 }
 
 .gitimg2 {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
 	width: 20%;
 }
+
+/*
+Cartes
+*/
+.titlecard{
+	text-align: center;
+	font-family: robot;
+	font-size: 100px;
+	color: #F9C80E;
+	}
+  .container {
+	display: grid;
+	grid-template-columns: 300px 300px 300px;
+	grid-gap: 50px;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f5f5f500;
+	font-family: 'Baloo Paaji 2', cursive;
+  }
+  
+  .card {
+	background-color: #222831;
+	height: 37rem;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;	
+	box-shadow: rgba(0, 0, 0, 0.7);
+	color: white;
+  }
+  
+  .cardname {
+	margin-top: 15px;
+	font-size: 1.5em;
+  }
+  
+  .cardimage {
+	height: 160px;
+	width: 160px;
+	border-radius: 50%;
+	border: 5px solid #272133;
+	margin-top: 20px;
+	box-shadow: 0 10px 50px #66ca8e;
+  }
+  .role{
+	padding: 10px;
+	text-align: center;
+}
+  .textcontainer {
+	text-align: center;
+	font-size: 1.2em;
+  }
+  

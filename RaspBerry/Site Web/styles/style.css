@@ -165,31 +165,29 @@ Style pour la date
 	overflow-x: hidden; 
 	padding-top: 60px; 
 	transition: 0.5s; /*c trop style ca*/
-  }
+}
   
+.sidebar a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #020D21;
+display: block;
+transition: 0.3s;
+}
 
-  .sidebar a {
-	padding: 8px 8px 8px 32px;
-	text-decoration: none;
-	font-size: 25px;
-	color: #020D21;
-	display: block;
-	transition: 0.3s;
-  }
-  
+.sidebar a:hover {
+color: #f1f1f1;
+}
 
-  .sidebar a:hover {
-	color: #f1f1f1;
-  }
-  
 
-  .sidebar .closebtn {
-	position: absolute;
-	top: 0;
-	right: 25px;
-	font-size: 36px;
-	margin-left: 50px;
-  }
+.sidebar .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
 .toolsbuttons{
 	float: right;
 }
@@ -207,7 +205,6 @@ Style pour la date
 	width: 45%;
     transition: all 0.4s ease-in-out;
 }
-
 .openbtn {
 	font-size: 20px;
 	cursor: pointer;
@@ -216,20 +213,20 @@ Style pour la date
 	padding: 10px 15px;
 	border: none;
 }
-  
-  .openbtn:hover {
-	background-color: #444;
-  }
+ 
+.openbtn:hover {
+background-color: #444;
+}
   
 
-  #main {
-	transition: margin-left .5s;
-	padding: 20px;
-	text-align: center;
-  }
+#main {
+transition: margin-left .5s;
+padding: 20px;
+text-align: center;
+}
   
  
-  @media screen and (max-height: 450px) {
-	.sidebar {padding-top: 15px;}
-	.sidebar a {font-size: 18px;}
-  }
+@media screen and (max-height: 450px) {
+.sidebar {padding-top: 15px;}
+.sidebar a {font-size: 18px;}
+}

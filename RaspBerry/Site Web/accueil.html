@@ -7,8 +7,6 @@
 
 <meta charset="utf-8">
 <link href="./styles/accueil.css" rel="stylesheet"/>
-<script type="text/javascript" src="./scripts/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js" integrity="sha512-a+mx2C3JS6qqBZMZhSI5LpWv8/4UK21XihyLKaFoSbiKQs/3yRdtqCwGuWZGwHKc5amlNN8Y7JlqnWQ6N/MYgA==" crossorigin="anonymous"></script>
 <script src="./scripts/clock.js"></script>
 
 </head>
@@ -33,35 +31,79 @@
     </div>
 <hr>
 </div>
-
-<div class="mainHello"></div>
-<div class="moyenne">
 </div>
 
-<div class="lastvalues"></div>
 
 
-<div style="width: 70%; margin-left: 15%;">
 
-    
-<canvas id="meteoChart"></canvas>
-</div>
-
-<div class="boutton1">
-    <div class="cadre1">
-        <h1><a href="./index.php?param=0" style="text-decoration: unset; color: #F9C80E;"> Truc n°1  </a></h1>
+<div class="bouttons">
+    <div class="buttons">
+        
+        <div class="button" >
+        
+            <p class="titrecategorie">Repository Github</p>
+            <hr>
+            Ici, vous trouverez le code source de notre projet ! #yolo
+            <br>
+            <br>
+            <a href="https://github.com/theoelsti/MicroProjet" target="_blank"><img src="./Image Acceuil/GitHub-Mark.png" height="120px"></a>
+            <br><br>
+        </div>
+    </div>
+    <div class="buttons">
+        
+        <div class="button" >
+        
+            <p class="titrecategorie">Mesures</p>
+            <hr>
+           rediger
+            <br>
+            <br>
+            <a class="link" href="index.php?param=0&show=0"><b>Acceder aux mesures</b></a>
+        </div>
     </div>
 </div>
 
-<div class="cadre2">
-    <h1><a href="./median.html" style="text-decoration: unset; color: #F9C80E;"> Valeurs </a> </h1>
-</div>
 
-<div class="github">
-    
-    <a href="./featuring.html"><img src="./Image Acceuil/GitHub-Mark.png" class="gitimg2"></a>
 
+
+<hr>
+<h1 class="titlecard">A propos de nous...</h1>
+
+<!--Cartes-->
+
+<div class="container">
+    <div class="card">
+      <img src="./images/theo.png" alt="Person" class="cardimage">
+      <p class="cardname">Theophile</p>
+      <div class="textcontainer">
+  
+           156 Commits
+          <hr>
+          <div class="role">Theophile a eu pour role de répartir les taches et d'engueler les 2 mecs a droite quand ca avancait pas</div>
+      </div>
+      
+    </div>
+    <div class="card">
+      <img src="" alt="Person" class="cardimage">
+      <p class="cardname">Jean-Gabriel</p>
+      <div class="textcontainer">
+          Il a la santé au moins
+          <hr>
+      </div>
+    </div>
+    <div class="card">
+      <img src="" alt="Person" class="cardimage">
+      <p class="cardname">Timothée</p>
+      <div class="textcontainer">
+            Il fait bien à manger au moins
+            <hr>
+      </div>
+      
+    </div>
 </div>
+  
+
 
 
 </body>

@@ -56,13 +56,13 @@
 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 
 
-<div class="menubuttons">
-<div class="buttons"><input type="submit" id="year" class="button" value="Année" /></div>
-<div class="buttons"><input type="submit" id="month" class="button" value="Mois" /></div>
-<div class="buttons"><input type="submit" id="week" class="button" value="7 J" /></div>
-<div class="buttons"><input type="submit" id="day" class="button" value="24 H" /> </div>
-<div class="buttons">  <input type="submit" id="10" class="button" value="10 last" /> </div>
-</div>
+    <div class="menubuttons">
+        <div class="buttons"><input type="submit" id="year" class="button" value="Année" /></div>
+        <div class="buttons"><input type="submit" id="month" class="button" value="Mois" /></div>
+        <div class="buttons"><input type="submit" id="week" class="button" value="7 J" /></div>
+        <div class="buttons"><input type="submit" id="day" class="button" value="24 H" /> </div>
+        <div class="buttons">  <input type="submit" id="10" class="button" value="10 last" /> </div>
+    </div>
 </div>
 
 <div id="main">
