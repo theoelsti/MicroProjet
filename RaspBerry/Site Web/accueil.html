@@ -9,7 +9,7 @@
 <link href="./styles/accueil.css" rel="stylesheet"/>
 <script type="text/javascript" src="./scripts/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js" integrity="sha512-a+mx2C3JS6qqBZMZhSI5LpWv8/4UK21XihyLKaFoSbiKQs/3yRdtqCwGuWZGwHKc5amlNN8Y7JlqnWQ6N/MYgA==" crossorigin="anonymous"></script>
-
+<script src="./scripts/clock.js"></script>
 
 </head>
 <div class="top">
@@ -64,40 +64,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-<script>
-    // START CLOCK SCRIPT
-Number.prototype.pad = function(n) {
-    for (var r = this.toString(); r.length < n; r = 0 + r);
-    return r;
-  };
-  
-  function updateClock() {
-    var now = new Date();
-    var milli = now.getMilliseconds(),
-      sec = now.getSeconds(),
-      min = now.getMinutes(),
-      hou = now.getHours(),
-      mo = now.getMonth(),
-      dy = now.getDate(),
-      yr = now.getFullYear();
-    var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-    var tags = ["mon", "d", "y", "h", "m", "s"],
-      corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2)];
-    for (var i = 0; i < tags.length; i++)
-      document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
-  }
-  
-  function initClock() {
-    updateClock();
-    window.setInterval("updateClock()", 10);
-  }
-  
-  // END CLOCK SCRIPT
-</script>
