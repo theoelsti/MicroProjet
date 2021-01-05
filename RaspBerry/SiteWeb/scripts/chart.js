@@ -332,7 +332,10 @@ $("#minusmonth").on("click", function() {
   window.location.href = url;
 });
 $("#refresh").on("click", function() { 
+  document.getElementsByClassName("buttonre")[0].style.cursor = "not-allowed";
+  document.getElementsByClassName("buttonre")[0].style.backgroundColor = "#FF4365";
   window.location.href = '?param=0'+ '&show=' + parseInt(show);
+
 });
 
 function showHoursButtons(){
