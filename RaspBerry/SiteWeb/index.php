@@ -128,7 +128,7 @@
 <div class="gauges">
     
         <div title="Température" class="display">
-            <div  id="gaugetemp" class="gauge-container two">       </div>
+            <div  id="gaugetemp" class="gauge-container two">      </div>
         </div>
 
         <div title="Humidité" class="display">
@@ -170,7 +170,6 @@
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <div class="menubuttons">
-            <div class="buttons"><input type="submit" id="year" class="button" value="Année" /> </div>
             <div class="buttons"><input type="submit" id="month" class="button" value="Mois" /> </div>
             <div class="buttons"><input type="submit" id="week" class="button" value="7 J" />   </div>
             <div class="buttons"><input type="submit" id="day" class="button" value="24 H" />   </div>
