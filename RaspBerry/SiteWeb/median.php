@@ -9,13 +9,37 @@
 <meta charset="utf-8">
 <link href="./styles/stylemedian.css" rel="stylesheet"/>
 <script src="./scripts/clock.js"></script>
-
+<link rel="stylesheet" href="./styles/topnav.css"      />
 </head>
-<div class="top">
-<div class="sun"></div>
+
+
 
 
 <body style="background-color: #1c0c28;">
+
+
+
+<div style=" width:100%; height: 50px; display: flex;justify-content: center; text-align: center">
+    <a href="./accueil.html">
+    <div class="menubutton" >
+        <img src="./images/home.png" style="width: 40px">
+    </div>
+    </a>
+    <a href="index.php?param=0&show=0">
+    <div class="menubutton ">
+        <img src="./images/chart.png" style="width: 40px">
+    </div>
+    </a>
+    <a href="#">
+        <div class="menubutton active">
+            <img src="./images/eye.png" style="width: 40px">
+        </div>
+    </a>
+</div>
+
+<div class="top">
+<div class="sun"></div>
+
     <div class="title">
         Valeurs et données
     </div> 

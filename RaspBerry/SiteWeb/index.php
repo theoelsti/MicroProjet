@@ -2,24 +2,27 @@
 <html>
 
 <head>
-<link rel="shortcut icon" href="./images/sun.ico">
+
 
 <title>Station meteo</title>
 
-<meta charset="utf-8">
-<!--Feuilles de style-->
-<link rel="stylesheet" href="./styles/sidebar.css">
-<link href="./styles/style.css" rel="stylesheet"/>
-<link rel="stylesheet" href="./styles/notifs.css">
-<link href="./styles/sun.css" rel="stylesheet"/>
+<meta charset="utf-8"                                  />
+<link rel="shortcut icon" href="./images/sun.ico"      />
+<!--    Feuilles de style-->
+<link rel="stylesheet" href="./styles/sidebar.css"     />
+<link href="./styles/style.css" rel="stylesheet"       />
+<link rel="stylesheet" href="./styles/notifs.css"      />
+<link href="./styles/sun.css" rel="stylesheet"         />
+<link rel="stylesheet" href="./styles/topnav.css"      />
 <!--    Scripts     -->
-<script src="./scripts/clock.js"></script>
-<script src="./scripts/connectionchecker.js"></script>
-<script src="./scripts/sidemenu.js"></script>
+<script src="./scripts/clock.js">               </script>
+<script src="./scripts/notifs.js"></script>
+<script src="./scripts/connectionchecker.js">   </script>
+<script src="./scripts/sidemenu.js">            </script>
 
 <!--    Essential    -->
-<script src="./scripts/chartjs.js"></script>
-<script src="./scripts/jquery-3.5.1.js"></script>
+<script src="./scripts/chartjs.js">             </script>
+<script src="./scripts/jquery-3.5.1.js">        </script>
 
 <!--
   o__ __o                         o              
@@ -39,57 +42,65 @@
 </head>
 
 <body style="background-color: #261447;" onLoad="initClock()">
-<script src="./scripts/notifs.js"></script>
+
 
 <div style=" width:100%; height: 50px; display: flex;justify-content: center; text-align: center">
-
-    <div class="menubutton">
-    <img src="./images/home.png" style="width: 40px">
+    <a href="./accueil.html">
+    <div class="menubutton" >
+        <img src="./images/home.png" style="width: 40px">
     </div>
-
-    <div class="menubutton">
-    <img src="./images/chart.png" style="width: 40px">
+    </a>
+    <a href="#meteoChart">
+    <div class="menubutton active">
+        <img src="./images/chart.png" style="width: 40px">
     </div>
-
-
+    </a>
+    <a href="median.php">
+        <div class="menubutton">
+            <img src="./images/eye.png" style="width: 40px">
+        </div>
+    </a>
 </div>
 
 
 <div class="top">
-<div class="sun"></div>
-<!--        
-      o         o                                                    
- <|>       <|>                                                   
- < >       < >                                                   
-  |         |     o__  __o    o       o   \o__ __o     o__  __o  
-  o__/_ _\__o    /v      |>  <|>     <|>   |     |>   /v      |> 
-  |         |   />      //   < >     < >  / \   < >  />      //  
- <o>       <o>  \o    o/      |       |   \o/        \o    o/    
-  |         |    v\  /v __o   o       o    |          v\  /v __o 
- / \       / \    <\/> __/>   <\__ __/>   / \          <\/> __/> 
-                                                                 
-       -->
-<div id="location" class="state"> </div>
-    <div class="title">
-        Station Méteo
-    </div>
+    <div class="sun"></div>
+    <!--        
+        o         o                                                    
+    <|>       <|>                                                   
+    < >       < >                                                   
+    |         |     o__  __o    o       o   \o__ __o     o__  __o  
+    o__/_ _\__o    /v      |>  <|>     <|>   |     |>   /v      |> 
+    |         |   />      //   < >     < >  / \   < >  />      //  
+    <o>       <o>  \o    o/      |       |   \o/        \o    o/    
+    |         |    v\  /v __o   o       o    |          v\  /v __o 
+    / \       / \    <\/> __/>   <\__ __/>   / \          <\/> __/> 
+                                                                    
+        -->
+    <div id="location" class="state"> </div>
+        <div class="title">
+            Station Méteo
+        </div>
 
-    <div id="timedate">
-        <a id="d">1</a>
-        <a id="mon">Janvier</a>
-        <a id="y">0</a></br>
-        <a id="h" style="font-size:30px">12</a><a style="font-size: 30px;">  :</a>
-        <a id="m" style="font-size:30px">00</a><a style="font-size: 30px;">  :</a>
-        <a id="s" style="font-size:30px">00</a>
-    </div>
-<hr>
+        <div id="timedate">
+            <a id="d">1                         </a>
+            <a id="mon">Janvier                 </a>
+            <a id="y">0                         </a>
+            </br>
+            <a id="h" style="font-size:30px">12</a>
+            <a style="font-size: 30px;">  :    </a>
+            <a id="m" style="font-size:30px">00</a>
+            <a style="font-size: 30px;">  :    </a>
+            <a id="s" style="font-size:30px">00</a>
+        </div>
+    <hr>
 
 
-<div class="toolsbuttons">
+    <div class="toolsbuttons">
 
-<button type = "submit" name="refresh"class="buttonre" id="refresh">
-    <img src="./images/refresh.png" class="refreshico"/>
-</button>
+    <button type = "submit" name="refresh"class="buttonre" id="refresh">
+        <img src="./images/refresh.png" class="refreshico"/>
+    </button>
 
 </div>
 <!--
@@ -108,25 +119,25 @@
                                                           
 
 -->
-<div class="mainHello"></div>
+<div class="mainHello">                                            </div>
 
-<div class="dataText"></div>
+<div class="dataText">                                             </div>
 
-<div class="lastvalues"></div>
+<div class="lastvalues">                                           </div>
 
 <div class="gauges">
     
         <div class="display">
-            <div id="gaugetemp" class="gauge-container two"></div>
+            <div id="gaugetemp" class="gauge-container two">       </div>
         </div>
 
         <div class="display">
-            <div id="gaugehum" class="gauge-container two"></div>
+            <div id="gaugehum" class="gauge-container two">        </div>
         </div>
 </div>
 <div style="display:flex; justify-content:center">
 <div id="main">
-  <button class="openbtn" onclick="openNav()">Affichage</button>
+  <button class="openbtn" onclick="openNav()">Affichage            </button>
 </div>
 <div id="main">
   <button class="openbtn jaugebutton" onclick="lastValues()">Jauges</button>
@@ -148,29 +159,26 @@
 -->
 <div class="buttons">
     <input name="minusmonth" type="submit" id="minusmonth" class="buttonl" value="-1 M" /> 
-    <input name="plusday" type="submit" id="minusday" class="buttonl" value="-1 J" /> 
-    <input name="minus" type="submit" id="minus" class="buttonl" value="-1 H" /> 
-    <input name="plus" type="submit" id="plus" class="buttonl" value="+1 H" /> 
-    <input name="plusday" type="submit" id="plusday" class="buttonl" value="+1 J" /> 
-    <input name="plusmonth" type="submit" id="plusmonth" class="buttonl" value="+1 M" /> 
+    <input name="plusday" type="submit" id="minusday" class="buttonl" value="-1 J"      /> 
+    <input name="minus" type="submit" id="minus" class="buttonl" value="-1 H"           /> 
+    <input name="plus" type="submit" id="plus" class="buttonl" value="+1 H"             /> 
+    <input name="plusday" type="submit" id="plusday" class="buttonl" value="+1 J"       /> 
+    <input name="plusmonth" type="submit" id="plusmonth" class="buttonl" value="+1 M"   /> 
 </div>
 
 <div style="width: 70%; margin-left: 15%;">
-<div id="mySidebar" class="sidebar">
-<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-
-
-    <div class="menubuttons">
-        <div class="buttons"><input type="submit" id="year" class="button" value="Année" /></div>
-        <div class="buttons"><input type="submit" id="month" class="button" value="Mois" /></div>
-        <div class="buttons"><input type="submit" id="week" class="button" value="7 J" /></div>
-        <div class="buttons"><input type="submit" id="day" class="button" value="24 H" /> </div>
-        <div class="buttons">  <input type="submit" id="10" class="button" value="10 last" /> </div>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <div class="menubuttons">
+            <div class="buttons"><input type="submit" id="year" class="button" value="Année" /> </div>
+            <div class="buttons"><input type="submit" id="month" class="button" value="Mois" /> </div>
+            <div class="buttons"><input type="submit" id="week" class="button" value="7 J" />   </div>
+            <div class="buttons"><input type="submit" id="day" class="button" value="24 H" />   </div>
+            <div class="buttons"><input type="submit" id="10" class="button" value="10 last" /> </div>
+        </div>
     </div>
-</div>
+    <canvas id="meteoChart"></canvas>
 
-
-<canvas id="meteoChart"></canvas>
 </div>
 
 <!--
