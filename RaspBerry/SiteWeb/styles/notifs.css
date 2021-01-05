@@ -1,4 +1,9 @@
 
+@font-face {
+    font-family: "widelatin";
+    src: url(../fonts/Nexus_Font.TTF) format("truetype");
+}
+
 .inverted {
     -webkit-filter: invert(1);
     filter: invert(1);
@@ -24,7 +29,7 @@
     align-items: center;
     box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
     width: 100%;
-    font-family: inherit;
+    font-family: widelatin;
 }
 .toaster-container.top-right {
     right: 1%;
@@ -37,7 +42,7 @@
 }
 
 .toaster-close {
-    font-size: 20px;
+    font-size: 10px;
     background-color: transparent;
     border: none;
     color: #fff;

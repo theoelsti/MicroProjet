@@ -15,13 +15,15 @@ function doesConnectionExist() {
           if(lastState == 0){
             lastState = 1
             // document.getElementById("location").innerHTML = `Connecté à ${window.location.hostname} sur le port ${window.location.port}`;
+            if(window.location.hostname == "localhost") msg = `<b>Connecté</b> au localhost `
+            else `<b>Connecté</b> à ${window.location.hostname}`
             new ToasterBox({
-              msg: `<b>Connecté</b> à ${window.location.hostname} sur le port ${window.location.port}`,
+              msg: msg,
               html: true,
               time: 5000,
               className: null,
               closeButton: false,
-              maxWidth: 250,
+              maxWidth: 300,
               autoOpen: true,
               position: 'top-right', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
               backgroundColor: "#338204",
@@ -37,7 +39,7 @@ function doesConnectionExist() {
               time: 5000,
               className: null,
               closeButton: false,
-              maxWidth: 50,
+              maxWidth: 350,
               autoOpen: true,
               position: 'top-right', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
               backgroundColor: null,

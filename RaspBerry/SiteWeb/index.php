@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    
+
 <head>
 <link rel="shortcut icon" href="./images/sun.ico">
 
@@ -8,8 +8,10 @@
 
 <meta charset="utf-8">
 <!--Feuilles de style-->
+<link rel="stylesheet" href="./styles/sidebar.css">
 <link href="./styles/style.css" rel="stylesheet"/>
 <link rel="stylesheet" href="./styles/notifs.css">
+<link href="./styles/sun.css" rel="stylesheet"/>
 <!--    Scripts     -->
 <script src="./scripts/clock.js"></script>
 <script src="./scripts/connectionchecker.js"></script>

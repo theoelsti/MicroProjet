@@ -1,0 +1,45 @@
+ /*
+Style pour le soleil
+*/
+.sun {
+    width: 100px;
+	float: left;
+	height: 100px;
+	background-color: #F9C80E;
+	border-radius: 50%;
+	box-shadow:
+		0 0 0 20px #F9C80E80,
+		0 0 0 40px #F9C80E40,
+		0 0 0 60px #F9C80E20,
+		0 0 0 80px #F9C80E10,
+		0 0 0 100px #F9C80E00,
+		0 0 40px 100px #F9C80E10;
+	animation:
+		sunrise 2s infinite linear forwards,
+		rays 2s 2s infinite linear;
+}
+@keyframes sunrise {
+	0% {
+		box-shadow: none;
+	}
+}
+@keyframes rays {
+	0% {
+		box-shadow: 
+		0 0 0 0 #F9C80E80,
+		0 0 0 20px #F9C80E80,
+		0 0 0 40px #F9C80E40,
+		0 0 0 60px #F9C80E20,
+		0 0 0 80px #F9C80E10,
+		0 0 40px 100px #F9C80E10;
+	}
+	100% {
+		box-shadow: 
+		0 0 0 20px #F9C80E80,
+		0 0 0 40px #F9C80E40,
+		0 0 0 60px #F9C80E20,
+		0 0 0 80px #F9C80E10,
+		0 0 0 100px #F9C80E00,
+		0 0 40px 100px #F9C80E10;
+	}
+}

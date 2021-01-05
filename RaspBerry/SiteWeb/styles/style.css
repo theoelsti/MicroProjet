@@ -16,51 +16,6 @@
     font-size: 100px;
     color: #F9C80E;
     }
- /*
-Style pour le soleil
-*/
-.sun {
-    width: 100px;
-	float: left;
-	height: 100px;
-	background-color: #F9C80E;
-	border-radius: 50%;
-	box-shadow:
-		0 0 0 20px #F9C80E80,
-		0 0 0 40px #F9C80E40,
-		0 0 0 60px #F9C80E20,
-		0 0 0 80px #F9C80E10,
-		0 0 0 100px #F9C80E00,
-		0 0 40px 100px #F9C80E10;
-	animation:
-		sunrise 2s infinite linear forwards,
-		rays 2s 2s infinite linear;
-}
-@keyframes sunrise {
-	0% {
-		box-shadow: none;
-	}
-}
-@keyframes rays {
-	0% {
-		box-shadow: 
-		0 0 0 0 #F9C80E80,
-		0 0 0 20px #F9C80E80,
-		0 0 0 40px #F9C80E40,
-		0 0 0 60px #F9C80E20,
-		0 0 0 80px #F9C80E10,
-		0 0 40px 100px #F9C80E10;
-	}
-	100% {
-		box-shadow: 
-		0 0 0 20px #F9C80E80,
-		0 0 0 40px #F9C80E40,
-		0 0 0 60px #F9C80E20,
-		0 0 0 80px #F9C80E10,
-		0 0 0 100px #F9C80E00,
-		0 0 40px 100px #F9C80E10;
-	}
-}
 
 /*
 Style pour la date
@@ -152,85 +107,6 @@ Style pour la date
 	background-color: #FF436544;
 }
 
-/* CSS de la sidebar parce que c'est trop style*/
-
-
-.sidebar {
-	height: 100%;
-	width: 0; /* ca change avec le js */
-	position: fixed; 
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-color: #0D022166; 
-	overflow-x: hidden; 
-	padding-top: 60px; 
-	transition: 0.5s; /*c trop style ca*/
-}
-  
-.sidebar a {
-padding: 8px 8px 8px 32px;
-text-decoration: none;
-font-size: 25px;
-color: #020D21;
-display: block;
-transition: 0.3s;
-}
-
-.sidebar a:hover {
-color: #f1f1f1;
-}
-
-
-.sidebar .closebtn {
-position: absolute;
-top: 0;
-right: 25px;
-font-size: 36px;
-margin-left: 50px;
-}
-.toolsbuttons{
-	float: right;
-}
-.menubuttons{
-	padding-top: 160%;
-}
-
-.buttonl:hover .refreshico {
-    transform: rotate(360deg) scale(1);
-}
-.buttonre:hover .refreshico {
-    transform: rotate(520deg) scale(1);
-}
-.buttonre .refreshico {
-	width: 45%;
-    transition: all 0.4s ease-in-out;
-}
-.openbtn {
-	font-size: 20px;
-	cursor: pointer;
-	background-color: #2E2157;
-	color: white;
-	padding: 10px 15px;
-	border: none;
-}
- 
-.openbtn:hover {
-background-color: #444;
-}
-  
-
-#main {
-transition: margin-left .5s;
-padding: 20px;
-text-align: center;
-}
-  
- 
-@media screen and (max-height: 450px) {
-.sidebar {padding-top: 15px;}
-.sidebar a {font-size: 18px;}
-}
 /*
 gauges
 */
