@@ -87,7 +87,8 @@
       gaugeClass: "gauge",
       showValue: true,
       gaugeColor: null,
-      label: function(val) {return Math.round(val);}
+      labelValue: "",
+      label: function(val) {return (val.toFixed(1) + this.labelValue);}
     };
 
     function shallowCopy(/* source, ...targets*/) {

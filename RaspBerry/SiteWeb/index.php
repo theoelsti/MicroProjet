@@ -7,7 +7,7 @@
 <title>Station meteo</title>
 
 <meta charset="utf-8"                                  />
-<link rel="shortcut icon" href="./images/sun.ico"      />
+
 <!--    Feuilles de style-->
 <link rel="stylesheet" href="./styles/sidebar.css"     />
 <link href="./styles/style.css" rel="stylesheet"       />
@@ -40,7 +40,7 @@
 
     -->
 </head>
-
+<link rel="shortcut icon" href="./images/sun.ico"      />
 <body style="background-color: #261447;" onLoad="initClock()">
 
 
@@ -127,11 +127,11 @@
 
 <div class="gauges">
     
-        <div class="display">
-            <div id="gaugetemp" class="gauge-container two">       </div>
+        <div title="Température" class="display">
+            <div  id="gaugetemp" class="gauge-container two">       </div>
         </div>
 
-        <div class="display">
+        <div title="Humidité" class="display">
             <div id="gaugehum" class="gauge-container two">        </div>
         </div>
 </div>

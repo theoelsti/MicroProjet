@@ -9,6 +9,7 @@ document.getElementById("gaugetemp"),
     dialEndAngle: 0,
     value: 1,
     viewBox: "0 0 100 57",
+    labelValue: " °C",
     color: function(value) {
     if(value<10){
         return "#2DE2E6";
@@ -34,6 +35,7 @@ var gaugehum = Gauge(
         dialStartAngle: 180,
         dialEndAngle: 0,
         viewBox: "0 0 100 57",
+        labelValue: " %",
         color: function(value) {
         if(value<90){
             return "#2067d1";
