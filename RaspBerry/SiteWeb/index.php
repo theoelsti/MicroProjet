@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 
 <link href="./styles/style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="./styles/notifs.css">
 <script src="./scripts/clock.js"></script>
 <script src="./scripts/connectionchecker.js"></script>
 <script src="./scripts/sidemenu.js"></script>
@@ -18,6 +19,7 @@
 
 </head>
 <body style="background-color: #261447;" onLoad="initClock()">
+<script src="./scripts/notifs.js"></script>
 
 <div style=" width:100%; height: 50px; display: flex;justify-content: center; text-align: center">
 
