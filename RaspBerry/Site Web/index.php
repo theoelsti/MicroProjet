@@ -383,12 +383,12 @@ updateSQL();
 
 ?>
 <script src="./scripts/data_processing.js"></script>
-<script src="./scripts/dataweek.js"></script>
-<script src="./scripts/datamonth.js"></script>
-<script src="./scripts/chart.js"></script>
-<script src="./scripts/counter.js"></script>
-<script type="text/javascript" src="./scripts/gauge.js"> </script>
-<script  type="text/javascript" src="./scripts/jauges.js"> </script>
+<script src="./scripts/dataweek.js">       </script>
+<script src="./scripts/datamonth.js">      </script>
+<script src="./scripts/chart.js">          </script>
+<script src="./scripts/counter.js">        </script>
+<script src="./scripts/gauge.js">          </script>
+<script src="./scripts/jauges.js">         </script>
 
 </body>
 </html>

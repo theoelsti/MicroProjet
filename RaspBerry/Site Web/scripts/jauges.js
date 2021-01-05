@@ -14,9 +14,9 @@ document.getElementById("gaugetemp"),
         return "#2DE2E6";
     }
     else if(value < 20) {
-        return "#5ee432";
+        return "#CC6C11";
     }else if(value < 30) {
-        return "#fffa50";
+        return "#FF6C11";
     }else if(value < 60) {
         return "#f7aa38";
     }else {
@@ -44,14 +44,15 @@ var gaugehum = Gauge(
         }
     }
     );
-gaugehum.setValueAnimated(lasthum, 3);
-gaugetemp.setValueAnimated(lasttemp, 3);
+
 function lastValues(){
     if(digits) showGauges()
     else showDigits()
     digits = !digits
 }
 function showGauges(){
+    gaugehum.setValueAnimated(lasthum, 3);
+    gaugetemp.setValueAnimated(lasttemp, 3);
     document.getElementsByClassName("jaugebutton")[0].innerHTML = "Valeurs numériques";
     document.getElementsByClassName("gauges")[0].style.display = "flex";
     document.getElementsByClassName("lastvalues")[0].style.display = "none";
