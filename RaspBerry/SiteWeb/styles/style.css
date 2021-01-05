@@ -112,6 +112,7 @@ Style pour la date
 .buttons{
 	display: flex;
 	justify-content: center;
+	
 
 }
 .button{
@@ -255,3 +256,19 @@ stroke-width: 10;
 	stroke-width: 13;
 }
 
+
+/*
+TopNav
+*/
+.menubutton{
+	background-color: #523883c3; 
+	width:50px;
+	height: 40px; 
+	margin-left:10px; 
+	border-radius: 5px; 
+	border: 1px solid black;
+	font-size: 20px;
+}
+.menubutton:hover{
+	cursor: pointer;
+}

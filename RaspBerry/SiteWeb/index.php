@@ -18,6 +18,21 @@
 
 </head>
 <body style="background-color: #261447;" onLoad="initClock()">
+
+<div style=" width:100%; height: 50px; display: flex;justify-content: center; text-align: center">
+
+    <div class="menubutton">
+    <img src="./images/home.png" style="width: 40px">
+    </div>
+
+    <div class="menubutton">
+    <img src="./images/chart.png" style="width: 40px">
+    </div>
+
+
+</div>
+
+
 <div class="top">
 <div class="sun"></div>
 <div id="location" class="state"> </div>
