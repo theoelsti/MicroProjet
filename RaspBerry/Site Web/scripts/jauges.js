@@ -45,6 +45,9 @@ var gaugehum = Gauge(
     }
     );
 
+
+
+    
 function lastValues(){
     if(digits) showGauges()
     else showDigits()
