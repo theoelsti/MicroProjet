@@ -72,7 +72,7 @@ var datamonth = {
 var options = {
       title:{
           display:true,
-          text:'Température et Humidité des 10 dernieres relèves',
+          text:'Température et Humidité des 10 derniers relevés',
           fontSize:25,
           fontColor:'#FFFFFF',
           fontFamily:'robot'

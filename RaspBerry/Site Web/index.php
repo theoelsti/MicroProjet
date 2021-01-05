@@ -34,14 +34,41 @@
         <a id="s" style="font-size:30px">00</a>
     </div>
 <hr>
+
+
 <div class="toolsbuttons">
+
 <button type = "submit" name="refresh"class="buttonre" id="refresh">
-<img src="./images/refresh.png" class="refreshico"/>
+    <img src="./images/refresh.png" class="refreshico"/>
 </button>
+
 </div>
 
 <div class="mainHello"></div>
-<div class="dataText"></div><div class="lastvalues"></div></div>
+
+<div class="dataText"></div>
+
+<div class="lastvalues"></div>
+
+<div class="gauges">
+    
+        <div class="display">
+            <div id="gaugetemp" class="gauge-container two"></div>
+        </div>
+
+        <div class="display">
+            <div id="gaugehum" class="gauge-container two"></div>
+        </div>
+</div>
+<div style="display:flex; justify-content:center">
+<div id="main">
+  <button class="openbtn" onclick="openNav()">Affichage</button>
+</div>
+<div id="main">
+  <button class="openbtn jaugebutton" onclick="lastValues()">Jauges</button>
+</div>
+</div>
+
 <div class="buttons">
     <input name="minusmonth" type="submit" id="minusmonth" class="buttonl" value="-1 M" /> 
     <input name="plusday" type="submit" id="minusday" class="buttonl" value="-1 J" /> 
@@ -65,10 +92,7 @@
     </div>
 </div>
 
-<div id="main">
-  <button class="openbtn" onclick="openNav()">Affichage Temporel</button>
-</div>
-<script src="./scripts/counter.js"></script>
+
 <canvas id="meteoChart"></canvas>
 </div>
 
@@ -362,9 +386,9 @@ updateSQL();
 <script src="./scripts/dataweek.js"></script>
 <script src="./scripts/datamonth.js"></script>
 <script src="./scripts/chart.js"></script>
-
-
-
+<script src="./scripts/counter.js"></script>
+<script type="text/javascript" src="./scripts/gauge.js"> </script>
+<script  type="text/javascript" src="./scripts/jauges.js"> </script>
 
 </body>
 </html>

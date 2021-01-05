@@ -230,3 +230,28 @@ text-align: center;
 .sidebar {padding-top: 15px;}
 .sidebar a {font-size: 18px;}
 }
+/*
+gauges
+*/
+.gauges{
+display: flex;
+justify-content: center;
+}
+.gauge-container {
+	width: 150px;
+	height: 50px;
+
+  }
+.gauge-container.two {
+    height: auto;
+
+}
+.gauge-container.two > .gauge > .dial {
+stroke: #334455;
+stroke-width: 10;
+}
+.gauge-container.two > .gauge > .value {
+	stroke-dasharray: none;
+	stroke-width: 13;
+}
+
