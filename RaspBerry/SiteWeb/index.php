@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html>
+    
 <head>
 <link rel="shortcut icon" href="./images/sun.ico">
 
 <title>Station meteo</title>
 
 <meta charset="utf-8">
-
+<!--Feuilles de style-->
 <link href="./styles/style.css" rel="stylesheet"/>
 <link rel="stylesheet" href="./styles/notifs.css">
+<!--    Scripts     -->
 <script src="./scripts/clock.js"></script>
 <script src="./scripts/connectionchecker.js"></script>
 <script src="./scripts/sidemenu.js"></script>
 
-<!--Essential-->
+<!--    Essential    -->
 <script src="./scripts/chartjs.js"></script>
 <script src="./scripts/jquery-3.5.1.js"></script>
 
+<!--
+  o__ __o                         o              
+ <|     v\                       <|>             
+ / \     <\                      < \             
+ \o/     o/    o__ __o      o__ __o/   o      o  
+  |__  _<|    /v     v\    /v     |   <|>    <|> 
+  |       \  />       <\  />     / \  < >    < > 
+ <o>      /  \         /  \      \o/   \o    o/  
+  |      o    o       o    o      |     v\  /v   
+ / \  __/>    <\__ __/>    <\__  / \     <\/>    
+                                          /      
+                                         o       
+                                      __/>       
+
+    -->
 </head>
+
 <body style="background-color: #261447;" onLoad="initClock()">
 <script src="./scripts/notifs.js"></script>
 
@@ -37,6 +55,18 @@
 
 <div class="top">
 <div class="sun"></div>
+<!--        
+      o         o                                                    
+ <|>       <|>                                                   
+ < >       < >                                                   
+  |         |     o__  __o    o       o   \o__ __o     o__  __o  
+  o__/_ _\__o    /v      |>  <|>     <|>   |     |>   /v      |> 
+  |         |   />      //   < >     < >  / \   < >  />      //  
+ <o>       <o>  \o    o/      |       |   \o/        \o    o/    
+  |         |    v\  /v __o   o       o    |          v\  /v __o 
+ / \       / \    <\/> __/>   <\__ __/>   / \          <\/> __/> 
+                                                                 
+       -->
 <div id="location" class="state"> </div>
     <div class="title">
         Station Méteo
@@ -60,7 +90,22 @@
 </button>
 
 </div>
+<!--
 
+ ____o__ __o____                       o                  
+  /   \   /   \                       <|>                 
+       \o/                            < >                 
+        |        o__  __o   \o    o/   |        o__  __o  
+       < >      /v      |>   v\  /v    o__/_   /v      |> 
+        |      />      //     <\/>     |      />      //  
+        o      \o    o/       o/\o     |      \o    o/    
+       <|       v\  /v __o   /v  v\    o       v\  /v __o 
+       / \       <\/> __/>  />    <\   <\__     <\/> __/> 
+                                                          
+                                                          
+                                                          
+
+-->
 <div class="mainHello"></div>
 
 <div class="dataText"></div>
@@ -85,7 +130,20 @@
   <button class="openbtn jaugebutton" onclick="lastValues()">Jauges</button>
 </div>
 </div>
-
+<!--
+  o__ __o                               o                                        
+ <|     v\                             <|>                                       
+ / \     <\                            < >                                       
+ \o/     o/    o__ __o     o       o    |        o__ __o    \o__ __o       __o__ 
+  |__  _<|    /v     v\   <|>     <|>   o__/_   /v     v\    |     |>     />  \  
+  |       \  />       <\  < >     < >   |      />       <\  / \   / \     \o     
+ <o>      /  \         /   |       |    |      \         /  \o/   \o/      v\    
+  |      o    o       o    o       o    o       o       o    |     |        <\   
+ / \  __/>    <\__ __/>    <\__ __/>    <\__    <\__ __/>   / \   / \  _\o__</   
+                                                                                 
+                                                                                 
+                                                                                 
+-->
 <div class="buttons">
     <input name="minusmonth" type="submit" id="minusmonth" class="buttonl" value="-1 M" /> 
     <input name="plusday" type="submit" id="minusday" class="buttonl" value="-1 J" /> 
@@ -112,6 +170,23 @@
 
 <canvas id="meteoChart"></canvas>
 </div>
+
+<!--
+
+  o__ __o     o         o    o__ __o   
+ <|     v\   <|>       <|>  <|     v\  
+ / \     <\  < >       < >  / \     <\ 
+ \o/     o/   |         |   \o/     o/ 
+  |__  _<|/   o__/_ _\__o    |__  _<|/ 
+  |           |         |    |         
+ <o>         <o>       <o>  <o>        
+  |           |         |    |         
+ / \         / \       / \  / \        
+                                       
+                                       
+                                       
+
+-->
 
 <?php 
 
@@ -399,6 +474,7 @@ function updateSQL(){
 updateSQL();
 
 ?>
+
 <script src="./scripts/data_processing.js"></script>
 <script src="./scripts/dataweek.js">       </script>
 <script src="./scripts/datamonth.js">      </script>
