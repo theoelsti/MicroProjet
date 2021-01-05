@@ -13,7 +13,3 @@ Bonus :
 ✅  Infos de connexion
 ✅  Sidebar pour les echelles
 ✅ Choix Valeurs numeriques / jauge
-
-
-
-
