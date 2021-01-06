@@ -161,7 +161,7 @@
     <input name="minusmonth" type="submit" id="minusmonth" class="buttonl" value="-1 M" /> 
     <input name="plusday" type="submit" id="minusday" class="buttonl" value="-1 J"      /> 
     <input name="minus" type="submit" id="minus" class="buttonl" value="-1 H"           /> 
-    <input name="minusminute" type="submit" id="minusminute" class="buttonl" value="-1 M"     /> 
+    <input name="minusminute" type="submit" id="minusminute" class="buttonl" value="-10 M"     /> 
     <input name="plusminute" type="submit" id="plusminute" class="buttonl" value="+10 M"      /> 
     <input name="plus" type="submit" id="plus" class="buttonl" value="+1 H"             /> 
     <input name="plusday" type="submit" id="plusday" class="buttonl" value="+1 J"       /> 

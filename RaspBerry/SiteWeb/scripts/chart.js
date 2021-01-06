@@ -329,6 +329,21 @@ $("#minusmonth").on("click", function() {
 url = '?param=' + (parseInt(param) + 4464)+ '&show=' + parseInt(show)
 window.location.href = url; 
 });
+
+$("#minusminute").on("click", function() { 
+  url = '?param=' + (parseInt(param)+ 1) + '&show=' + parseInt(show)
+  window.location.href = url;
+});
+$("#plusminute").on("click", function() {   
+if(param -1 <= -1){
+  alert("Les valeurs affichées sont les plus récentes !")
+}
+else{
+  url = '?param=' + (parseInt(param) - 1 )+ '&show=' + parseInt(show)
+  window.location.href = url;
+
+}
+});
 $("#refresh").on("click", function() { 
 document.getElementsByClassName("buttonre")[0].style.cursor = "not-allowed";
 document.getElementsByClassName("buttonre")[0].style.backgroundColor = "#FF4365";
