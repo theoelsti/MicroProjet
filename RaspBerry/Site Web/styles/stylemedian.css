@@ -1,6 +1,6 @@
 @font-face {
     font-family: "cloudy";
-    src: url(../fonts/FluffyClouds-K11y.ttf) format("truetype");
+    src: url(../fonts/fluffy/FluffyClouds-K11y.ttf) format("truetype");
 }
 @font-face {
     font-family: "coolvetica";
@@ -11,27 +11,17 @@
     src: url(../fonts/Roboto-Thin.ttf) format("truetype");
 }
 .title{
-	height: 10vh;
-		size: cover;
-		position: center;
-	margin-bottom: 50px;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-
+    margin-left: 15%;
     font-family: cursive;
     font-size: 100px;
-    color: #F60D82;
+    color: #c75164;
     }
  /*
 Style pour le soleil
 */
 .sun {
     width: 100px;
-    float: right;
+    float: left;
 	height: 100px;
 	background-color: #ffffff;
 	border-radius: 50%;
@@ -72,14 +62,13 @@ Style pour le soleil
 	}
 }
 
-
-
 /*
 Style pour la date
 */
 #timedate {
-	text-align: center;
     font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    margin-left: 80%;
+    margin-top: -7%;
     color :#3afefc;
   }
 #mi{
@@ -163,37 +152,21 @@ Style pour la date
 
 
 .buttonX{
-	position: center;
 	display: flex;
-	text-size-adjust: 69%;
 	text-align: center;	
-	margin-left: 30%;
+	margin-left: 12%;
 }
 
 .buttonY{
-	position: center;
 	display: flex;
-	text-size-adjust: 69%;
 	text-align: center;	
-	margin-left: 30%;
-}
-
-.buttonX--collapsed {
-	width: 200px;
-	height: 60px;
-}
-
-.buttonY--collapsed {
-	width: 200px;
-	height: 60px;
+	margin-left: 12%;
 }
 
 .buttonl{
-	justify-content: center;
-	position: center;
-    margin: 25px;
-    background-color: #6A1585;
-    border: solid #74FCF8 1px;
+    margin: 10px;
+    background-color: #40237588;
+    border: solid #650D89 1px;
     border-radius: 5px;
     width:470px;
     height: 150px;
@@ -201,8 +174,7 @@ Style pour la date
     cursor: pointer;
 }
 
-
-
 .notbutton{
 	text-align: center;	
 }
+
