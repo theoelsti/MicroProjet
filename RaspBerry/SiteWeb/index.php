@@ -469,9 +469,12 @@ function updateSQL(){
         
             echo "\n</script>";
         mysqli_free_result($result);
+        $tempday1  = array();
+        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = 0;
+                     
+                    
         }
-
-    
+        
     }
 
     
