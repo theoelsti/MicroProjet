@@ -310,8 +310,8 @@ window.location.href = url;
 }
 });
 $("#plusday").on("click", function() { 
-url = '?param=' + (parseInt(param) -24)+ '&show=' + parseInt(show)
-if(param -24 <= -1){
+url = '?param=' + (parseInt(param) -1440)+ '&show=' + parseInt(show)
+if(param -1440 <= -1){
   alert("Les valeurs affichées sont les plus récentes !")
 }
 else window.location.href = url;
