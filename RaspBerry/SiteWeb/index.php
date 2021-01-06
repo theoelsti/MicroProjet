@@ -225,7 +225,7 @@ function updateSQL(){
                     
             }
             echo 'let totalvalues = ' . sizeof($time) . "; \n";
-            echo 'let mostRecentDate = "' . $time[$param] . '"; ' . "\n";
+            echo 'let mostRecentDate = "' . $time[sizeof($time)-1] . '"; ' . "\n";
     //10 Dernieres valeurs
             echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
             echo 'let lasthum = ' . $hum[sizeof($hum)-1] . "\n";
@@ -275,7 +275,7 @@ function updateSQL(){
             $day = 6;
             $k = 0;
             while($ok){
-                for($i = $timesize; $i>$timesize-144; $i-=6){
+                for($i = $timesize; $i>$timesize-150; $i-=6){
                     $timeday1[$tab] = $time[$i-$param];
                     $tab++;
                 }
@@ -283,7 +283,7 @@ function updateSQL(){
                 $k++;
                 $day += 6;
                 
-                if($day > 144){
+                if($day > 150){
                     $ok = !$ok;
                 }
                 else{
@@ -296,33 +296,21 @@ function updateSQL(){
         //echo de l'humidité sur la journée
         $humsize = sizeof($hum)-1;
         echo "var humrawday  = [" ;
-        for($i = $humsize; $i>$humsize-1441; $i--){
+        for($i = $humsize; $i>$humsize-150; $i-=6){
             echo $hum[$i-$param];
-            if($i>$tempsize-1440){
+            if($i>$tempsize-150){
                 echo ',';  
             }
             
         }
         echo "];\n";
         //echo de la temperature sur la journée
-        $tempsize = sizeof($temp)-1;
+        $tempsize = sizeof($hum)-1;
             echo "var temprawday  = [" ;
-            $ok = TRUE;
-            $tab = 0;
-            $day = 1440;
-            while($ok){
-                for($i = $tempsize; $i>$tempsize-$day; $i--){
-                    $tempday1[$tab] = $temp[$i-$param];
-                    $tab++;
-                }
-                echo bcdiv(array_sum($tempday1) / count($tempday1), 1, 2);
-                $day += 1440;
-                
-                if($day > 10080){
-                    $ok = !$ok;
-                }
-                else{
-                    echo ",";
+            for($i = $tempsize; $i>$tempsize-150; $i-=6){
+                echo $temp[$i-$param];
+                if($i>$tempsize-150){
+                    echo ',';  
                 }
                 
             }
