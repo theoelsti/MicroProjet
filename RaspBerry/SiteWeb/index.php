@@ -161,6 +161,8 @@
     <input name="minusmonth" type="submit" id="minusmonth" class="buttonl" value="-1 M" /> 
     <input name="plusday" type="submit" id="minusday" class="buttonl" value="-1 J"      /> 
     <input name="minus" type="submit" id="minus" class="buttonl" value="-1 H"           /> 
+    <input name="minusminute" type="submit" id="minusminute" class="buttonl" value="-1 M"     /> 
+    <input name="plusminute" type="submit" id="plusminute" class="buttonl" value="+10 M"      /> 
     <input name="plus" type="submit" id="plus" class="buttonl" value="+1 H"             /> 
     <input name="plusday" type="submit" id="plusday" class="buttonl" value="+1 J"       /> 
     <input name="plusmonth" type="submit" id="plusmonth" class="buttonl" value="+1 M"   /> 
@@ -222,118 +224,117 @@ function updateSQL(){
                     $time[] = $row['date'];
                     $temp[] = $row['temp'];
                     $hum[] = $row['hum'];
-                    
             }
             echo 'let totalvalues = ' . sizeof($time) . "; \n";
             echo 'let mostRecentDate = "' . $time[sizeof($time)-1] . '"; ' . "\n";
-    //10 Dernieres valeurs
-            echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
-            echo 'let lasthum = ' . $hum[sizeof($hum)-1] . "\n";
-            //echo des temperature
-            echo "//Stockage des resultats \n";
-            $tempsize = sizeof($temp)-1;
-            echo "var tempraw  = [" ;
-            for($i = $tempsize; $i>$tempsize-10; $i--){
-                echo $temp[$i-$param];
-                if($i>$tempsize-9){
-                    echo ',';  
+        //10 Dernieres valeurs
+                echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
+                echo 'let lasthum = ' . $hum[sizeof($hum)-1] . "\n";
+                //echo des temperature
+                echo "//Stockage des resultats \n";
+                $tempsize = sizeof($temp)-1;
+                echo "var tempraw  = [" ;
+                for($i = $tempsize; $i>$tempsize-10; $i--){
+                    echo $temp[$i-$param];
+                    if($i>$tempsize-9){
+                        echo ',';  
+                    }
+                    
                 }
-                
-            }
-            echo "];\n";
-            //echo de l'humidité
-            $humsize = sizeof($hum)-1;
-            echo "var humraw  = [" ;
-            for($i = $humsize; $i>$humsize-10; $i--){
-                echo $hum[$i-$param];
-                if($i>$tempsize-9){
-                    echo ',';  
+                echo "];\n";
+                //echo de l'humidité
+                $humsize = sizeof($hum)-1;
+                echo "var humraw  = [" ;
+                for($i = $humsize; $i>$humsize-10; $i--){
+                    echo $hum[$i-$param];
+                    if($i>$tempsize-9){
+                        echo ',';  
+                    }
+                    
                 }
-                
-            }
-            echo "];\n";
-            //echo de l'heure
-            $timesize = sizeof($time)-1;
-           
-            echo "var timeScaleraw  = [" ;
-            for($i = $timesize; $i>$timesize-10; $i--){
-                echo "'";
-                echo $time[$i-$param];
-                echo "'";
-                if($i>$timesize-9){
-                    echo ',';  
-                }
-                
-            }
-            echo "];\n";
-    // Valeurs de la journée
-        //echo de l'heure sur la journée
-        $tempsize = sizeof($time)-1;
-            echo "var timeScalerawday  = [" ;
-            $ok = TRUE;
-            $tab = 0;
-            $day = 6;
-            $k = 0;
-            while($ok){
-                for($i = $timesize; $i>$timesize-150; $i-=6){
-                    $timeday1[$tab] = $time[$i-$param];
-                    $tab++;
-                }
-                echo "'" . $timeday1[$k] . "'";
-                $k++;
-                $day += 6;
-                
-                if($day > 150){
-                    $ok = !$ok;
-                }
-                else{
-                    echo ",";
-                }
-                
-            }
-            echo "];\n";
-
-        //echo de l'humidité sur la journée
-        $humsize = sizeof($hum)-1;
-        echo "var humrawday  = [" ;
-        for($i = $humsize; $i>$humsize-150; $i-=6){
-            echo $hum[$i-$param];
-            if($i>$tempsize-150){
-                echo ',';  
-            }
+                echo "];\n";
+                //echo de l'heure
+                $timesize = sizeof($time)-1;
             
-        }
-        echo "];\n";
-        //echo de la temperature sur la journée
-        $tempsize = sizeof($hum)-1;
-            echo "var temprawday  = [" ;
-            for($i = $tempsize; $i>$tempsize-150; $i-=6){
-                echo $temp[$i-$param];
+                echo "var timeScaleraw  = [" ;
+                for($i = $timesize; $i>$timesize-10; $i--){
+                    echo "'";
+                    echo $time[$i-$param];
+                    echo "'";
+                    if($i>$timesize-9){
+                        echo ',';  
+                    }
+                    
+                }
+                echo "];\n";
+        // Valeurs de la journée
+            //echo de l'heure sur la journée
+            $tempsize = sizeof($time)-1;
+                echo "var timeScalerawday  = [" ;
+                $ok = TRUE;
+                $tab = 0;
+                $day = 6;
+                $k = 0;
+                while($ok){
+                    for($i = $timesize; $i>$timesize-150; $i-=6){
+                        $timeday1[$tab] = $time[$i-$param];
+                        $tab++;
+                    }
+                    echo "'" . $timeday1[$k] . "'";
+                    $k++;
+                    $day += 6;
+                    
+                    if($day > 150){
+                        $ok = !$ok;
+                    }
+                    else{
+                        echo ",";
+                    }
+                    
+                }
+                echo "];\n";
+
+            //echo de l'humidité sur la journée
+            $humsize = sizeof($hum)-1;
+            echo "var humrawday  = [" ;
+            for($i = $humsize; $i>$humsize-150; $i-=6){
+                echo $hum[$i-$param];
                 if($i>$tempsize-150){
                     echo ',';  
                 }
                 
             }
             echo "];\n";
+            //echo de la temperature sur la journée
+            $tempsize = sizeof($hum)-1;
+                echo "var temprawday  = [" ;
+                for($i = $tempsize; $i>$tempsize-150; $i-=6){
+                    echo $temp[$i-$param];
+                    if($i>$tempsize-150){
+                        echo ',';  
+                    }
+                    
+                }
+                echo "];\n";
 
-    // Valeurs de la semaine (moyennes)
+        // Valeurs de la semaine (moyennes)
         // Valeurs de l'heure sur la semaine
             $tempsize = sizeof($time)-1;
             echo "var timeScalerawweek  = [" ;
             $ok = TRUE;
             $tab = 0;
-            $day = 24;
+            $day = 144;
             $k = 0;
             while($ok){
-                for($i = $timesize; $i>$timesize-(168); $i-=24){
+                for($i = $timesize; $i>$timesize-(1008); $i-=144){
                     $timeday1[$tab] = $time[$i-$param];
                     $tab++;
                 }
                 echo "'" . $timeday1[$k] . "'";
                 $k++;
-                $day += 24;
+                $day += 144;
                 
-                if($day > 168){
+                if($day > 1008){
                     $ok = !$ok;
                 }
                 else{
@@ -373,16 +374,16 @@ function updateSQL(){
             echo "var temprawweek  = [" ;
             $ok = TRUE;
             $tab = 0;
-            $day = 24;
+            $day = 144;
             while($ok){
-                for($i = $tempsize; $i>$tempsize-$day; $i--){
+                for($i = $tempsize; $i>$tempsize-$day; $i-=144){
                     $tempday1[$tab] = $temp[$i-$param];
                     $tab++;
                 }
                 echo bcdiv(array_sum($tempday1) / count($tempday1), 1, 2);
-                $day += 24;
-                
-                if($day > 168){
+                $day += 144;
+
+                if($day > 1008){
                     $ok = !$ok;
                 }
                 else{

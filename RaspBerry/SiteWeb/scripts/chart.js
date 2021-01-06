@@ -273,7 +273,6 @@ $("#10").on("click", function() {
   chartmeteo.destroy()
   var context1 = document.getElementById('meteoChart').getContext('2d');
   showHoursButtons()
-
   show = 0;
   chartmeteo = new Chart(context1, config);});
 $("#day").on("click", function() {
@@ -289,47 +288,46 @@ $("#week").on("click", function() {
   show = 2;
   chartmeteo = new Chart(context3, configweek);});
 $("#month").on("click", function() {
-chartmeteo.destroy()
-hideHoursButtons()
-var context3 = document.getElementById('meteoChart').getContext('2d');
-show = 3;
-chartmeteo = new Chart(context3, configmonth);});
+  chartmeteo.destroy()
+  hideHoursButtons()
+  var context3 = document.getElementById('meteoChart').getContext('2d');
+  show = 3;
+  chartmeteo = new Chart(context3, configmonth);});
 $("#minus").on("click", function() { 
-  url = '?param=' + (parseInt(param)+ 1) + '&show=' + parseInt(show)
+  url = '?param=' + (parseInt(param)+ 6) + '&show=' + parseInt(show)
   window.location.href = url;
 });
 $("#plus").on("click", function() {   
-if(param -1 <= -1){
+if(param -6 <= -1){
   alert("Les valeurs affichées sont les plus récentes !")
 }
 else{
-  console.log(parseInt(show))
-  url = '?param=' + (parseInt(param)-1 )+ '&show=' + parseInt(show)
-window.location.href = url;
+  url = '?param=' + (parseInt(param) - 6 )+ '&show=' + parseInt(show)
+  window.location.href = url;
 
 }
 });
 $("#plusday").on("click", function() { 
-url = '?param=' + (parseInt(param) -1440)+ '&show=' + parseInt(show)
-if(param -1440 <= -1){
+url = '?param=' + (parseInt(param) -144)+ '&show=' + parseInt(show)
+if(param -144 <= -1){
   alert("Les valeurs affichées sont les plus récentes !")
 }
 else window.location.href = url;
 });
 $("#minusday").on("click", function() { 
-url = '?param=' + (parseInt(param) + 24)+ '&show=' + parseInt(show)
+url = '?param=' + (parseInt(param) + 144)+ '&show=' + parseInt(show)
 window.location.href = url;
 });
 $("#plusmonth").on("click", function() { 
-url = '?param=' + (parseInt(param) -744)+ '&show=' + parseInt(show)
-if(param -744 <= -1){
+url = '?param=' + (parseInt(param) - 4464)+ '&show=' + parseInt(show)
+if(param - 4464 <= -1){
   alert("Les valeurs affichées sont les plus récentes !")
 }
 else window.location.href = url;
 });
 $("#minusmonth").on("click", function() { 
-url = '?param=' + (parseInt(param) + 744)+ '&show=' + parseInt(show)
-window.location.href = url;
+url = '?param=' + (parseInt(param) + 4464)+ '&show=' + parseInt(show)
+window.location.href = url; 
 });
 $("#refresh").on("click", function() { 
 document.getElementsByClassName("buttonre")[0].style.cursor = "not-allowed";
