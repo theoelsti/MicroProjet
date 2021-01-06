@@ -92,8 +92,7 @@ echo "seks";
 <br><br><br>
 
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLhLMYB8Um23XZlFXEuCjil1p6LJKTrd0v">
-    <img alt="Qries" src="1200px-Octicons-mark-github.svg-ConvertImage.png"
-    width="70" height="70">
+    <img alt="Qries" src="./images/github.png" width="70" height="70">
     
 </body>
 </html>
