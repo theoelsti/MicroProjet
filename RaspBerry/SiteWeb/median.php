@@ -86,15 +86,15 @@
     <input name="plusday" type="submit" id="plusday" class="buttonl" value="les 100 derniers jours" /> 
 </div>  
 </div>
-
+<?php
+echo "seks";
+?>
 <br><br><br>
 
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLhLMYB8Um23XZlFXEuCjil1p6LJKTrd0v">
     <img alt="Qries" src="1200px-Octicons-mark-github.svg-ConvertImage.png"
     width="70" height="70">
-    <?php
     
-    ?>
 </body>
 </html>
 
