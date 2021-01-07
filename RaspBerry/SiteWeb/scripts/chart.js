@@ -1,6 +1,16 @@
 Chart.defaults.global.defaultFontFamily ='Lato';
 var ctx = document.querySelector('#meteoChart').getContext('2d');  
-
+/*
+  o__ __o                   o                  
+ <|     v\                 <|>                 
+ / \     <\                < >                 
+ \o/       \o    o__ __o/   |         o__ __o/ 
+  |         |>  /v     |    o__/_    /v     |  
+ / \       //  />     / \   |       />     / \ 
+ \o/      /    \      \o/   |       \      \o/ 
+  |      o      o      |    o        o      |  
+ / \  __/>      <\__  / \   <\__     <\__  / \ 
+*/
 var data = {
     labels: timeScale,
     datasets: [{
@@ -52,6 +62,7 @@ var dataweek = {
         borderColor: '#2DE2E6',
         data: humweek.reverse()
     }]}
+if(param + 4464 < ((totalvalues-2) - 4464)){
 var datamonth = {
 labels: timeScalerawmonth.reverse(),
 datasets: [{
@@ -69,6 +80,21 @@ datasets: [{
     borderColor: '#2DE2E6',
     data: hummonth.reverse()
 }]}
+}
+/*
+      o__ __o                   o        o                                      
+     /v     v\                 <|>     _<|>_                                    
+    />       <\                < >                                              
+  o/           \o   \o_ __o     |        o      o__ __o    \o__ __o       __o__ 
+ <|             |>   |    v\    o__/_   <|>    /v     v\    |     |>     />  \  
+  \\           //   / \    <\   |       / \   />       <\  / \   / \     \o     
+    \         /     \o/     /   |       \o/   \         /  \o/   \o/      v\    
+     o       o       |     o    o        |     o       o    |     |        <\   
+     <\__ __/>      / \ __/>    <\__    / \    <\__ __/>   / \   / \  _\o__</   
+                    \o/                                                         
+                     |                                                          
+                    / \                                                         
+*/
 var options = {
     title:{
         display:true,
@@ -192,7 +218,7 @@ scales:{
 var optionsmonth = {
 title:{
   display:true,
-  text:'Température et Humidité moyenne sur 1 mois (1 jour/2)',
+  text:'Température et Humidité moyenne sur 31 jours',
   fontSize:25,
   fontColor:'#FFFFFF',
   fontFamily:'robot'
@@ -229,6 +255,20 @@ scales:{
   }
 }]
 }}
+/*
+      o__ __o                              o__ __o      o                          
+     /v     v\                            /v     v\   _<|>_                        
+    />       <\                          />       <\                               
+  o/               o__ __o    \o__ __o   \o             o      o__ __o/      __o__ 
+ <|               /v     v\    |     |>   |>_          <|>    /v     |      />  \  
+  \\             />       <\  / \   / \   |            / \   />     / \     \o     
+    \         /  \         /  \o/   \o/  <o>           \o/   \      \o/      v\    
+     o       o    o       o    |     |    |             |     o      |        <\   
+     <\__ __/>    <\__ __/>   / \   / \  / \           / \    <\__  < >  _\o__</   
+                                                                     |             
+                                                             o__     o             
+                                                             <\__ __/>             
+*/
 var config = {
   type: 'line',
   data: data,
@@ -271,6 +311,20 @@ case 3:
 default:
   break
 }
+/*
+         o            o__ __o      o__ __o      o                o                                               
+        <|>          /v     v\    /v     v\   _<|>_             <|>                                              
+        / \         />       <\  />       <\                    / >                                              
+      o/   \o       \o           \o             o        __o__  \o__ __o       o__ __o/    o__ __o/    o__  __o  
+     <|__ __|>       |>_          |>_          <|>      />  \    |     v\     /v     |    /v     |    /v      |> 
+     /       \       |            |            / \    o/        / \     <\   />     / \  />     / \  />      //  
+   o/         \o    <o>          <o>           \o/   <|         \o/     o/   \      \o/  \      \o/  \o    o/    
+  /v           v\    |            |             |     \\         |     <|     o      |    o      |    v\  /v __o 
+ />             <\  / \          / \           / \     _\o__</  / \    / \    <\__  / \   <\__  < >    <\/> __/> 
+                                                                                                 |               
+                                                                                         o__     o               
+                                                                                         <\__ __/>               
+*/
 $("#10").on("click", function() {
   chartmeteo.destroy()
   var context1 = document.getElementById('meteoChart').getContext('2d');
@@ -294,16 +348,39 @@ $("#week").on("click", function() {
   show = 2;
   chartmeteo = new Chart(context3, configweek);});
 $("#month").on("click", function() {
-  chartmeteo.destroy()
-  hideHoursButtons()
-  hideMinutesButtons()
-  var context3 = document.getElementById('meteoChart').getContext('2d');
-  show = 3;
-  chartmeteo = new Chart(context3, configmonth);});
+  if((document.getElementById("month").style.cursor != "not-allowed")){
+    chartmeteo.destroy()
+    hideHoursButtons()
+    hideMinutesButtons()
+    var context3 = document.getElementById('meteoChart').getContext('2d');
+    show = 3;
+    chartmeteo = new Chart(context3, configmonth)
+  }
+  else{
+    forbidAction()
+  }
+})
+/* 
+ ____o__ __o____    o                                     o__ __o                             o               
+  /   \   /   \   _<|>_                                  /v     v\                           <|>              
+       \o/                                              />       <\                          / \              
+        |           o    \o__ __o__ __o     o__  __o   _\o____            __o__    o__ __o/  \o/    o__  __o  
+       < >         <|>    |     |     |>   /v      |>       \_\__o__     />  \    /v     |    |    /v      |> 
+        |          / \   / \   / \   / \  />      //              \    o/        />     / \  / \  />      //  
+        o          \o/   \o/   \o/   \o/  \o    o/      \         /   <|         \      \o/  \o/  \o    o/    
+       <|           |     |     |     |    v\  /v __o    o       o     \\         o      |    |    v\  /v __o 
+       / \         / \   / \   / \   / \    <\/> __/>    <\__ __/>      _\o__</   <\__  / \  / \    <\/> __/>                                                                                              
+*/
+
+
+
 $("#minus").on("click", function() { 
-  url = '?param=' + (parseInt(param)+ 6) + '&show=' + parseInt(show)
-  window.location.href = url;
+  if(checkminus(6)){
+    url = '?param=' + (parseInt(param)+ 6) + '&show=' + parseInt(show)
+    window.location.href = url;
+  }
 });
+
 $("#plus").on("click", function() {   
 if(param -6 <= -1){
   alert("Les valeurs affichées sont les plus récentes !")
@@ -314,6 +391,8 @@ else{
 
 }
 });
+
+
 $("#plusday").on("click", function() { 
 url = '?param=' + (parseInt(param) -144)+ '&show=' + parseInt(show)
 if(param -144 <= -1){
@@ -322,9 +401,15 @@ if(param -144 <= -1){
 else window.location.href = url;
 });
 $("#minusday").on("click", function() { 
-url = '?param=' + (parseInt(param) + 144)+ '&show=' + parseInt(show)
-window.location.href = url;
+if(checkminus(144)){
+  url = '?param=' + (parseInt(param) + 144)+ '&show=' + parseInt(show)
+  window.location.href = url;
+}
+
 });
+
+
+
 $("#plusmonth").on("click", function() { 
 url = '?param=' + (parseInt(param) - 4464)+ '&show=' + parseInt(show)
 if(param - 4464 <= -1){
@@ -333,13 +418,18 @@ if(param - 4464 <= -1){
 else window.location.href = url;
 });
 $("#minusmonth").on("click", function() { 
-url = '?param=' + (parseInt(param) + 4464)+ '&show=' + parseInt(show)
-window.location.href = url; 
+  if(checkminus(4464)){
+  url = '?param=' + (parseInt(param) + 4464)+ '&show=' + parseInt(show)
+  window.location.href = url; 
+  }
 });
 
+
 $("#minusminute").on("click", function() { 
+  if(checkminus(1)){
   url = '?param=' + (parseInt(param)+ 1) + '&show=' + parseInt(show)
   window.location.href = url;
+  }
 });
 $("#plusminute").on("click", function() {   
 if(param -1 <= -1){
@@ -348,14 +438,31 @@ if(param -1 <= -1){
 else{
   url = '?param=' + (parseInt(param) - 1 )+ '&show=' + parseInt(show)
   window.location.href = url;
-
 }
 });
+
+
+
+
+
 $("#refresh").on("click", function() { 
 document.getElementsByClassName("buttonre")[0].style.cursor = "not-allowed";
 document.getElementsByClassName("buttonre")[0].style.backgroundColor = "#FF4365";
 window.location.href = '?param=0'+ '&show=' + parseInt(show);
 });
+
+/*
+  o__ __o__/_                                 o        o                                      
+ <|    v                                     <|>     _<|>_                                    
+ < >                                         < >                                              
+  |         o__ __o    \o__ __o       __o__   |        o      o__ __o    \o__ __o       __o__ 
+  o__/_    /v     v\    |     |>     />  \    o__/_   <|>    /v     v\    |     |>     />  \  
+  |       />       <\  / \   / \   o/         |       / \   />       <\  / \   / \     \o     
+ <o>      \         /  \o/   \o/  <|          |       \o/   \         /  \o/   \o/      v\    
+  |        o       o    |     |    \\         o        |     o       o    |     |        <\   
+ / \       <\__ __/>   / \   / \    _\o__</   <\__    / \    <\__ __/>   / \   / \  _\o__</   
+                                                                                              
+*/
 
 function showHoursButtons(){
 document.getElementById("plus").style.display = "block";
@@ -374,4 +481,29 @@ function hideMinutesButtons(){
 function showMinutesButtons(){
   document.getElementById("plusminute").style.display = "block";
   document.getElementById("minusminute").style.display = "block";
+}
+
+function checkminus(minusValue){
+  if(param + minusValue > ((totalvalues-2) - minusValue)){
+    alert("Les valeurs affichées sont les plus anciennes !")
+    return 0
+  }
+  else return 1
+}
+if(param + 4464 > ((totalvalues-2) - 4464)){
+document.getElementById("month").style.cursor = "not-allowed  ";
+}
+function forbidAction(){
+  new ToasterBox({
+    msg: `⚠️ Action impossible !`,
+    html: true,
+    time: 5000,
+    className: null,
+    closeButton: false,
+    maxWidth: 350,
+    autoOpen: true,
+    position: 'top-right', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+    backgroundColor: null,
+    closeIcon: null
+  })
 }

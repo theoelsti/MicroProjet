@@ -44,7 +44,7 @@
 <body style="background-color: #261447;" onLoad="initClock()">
 
 
-<div style=" width:100%; height: 50px; display: flex;justify-content: center; text-align: center">
+<div style=" width:100%; height: 50px; display: flex;justify-content: center; text-align: center"> 
     <a href="./accueil.html">
     <div class="menubutton" >
         <img src="./images/home.png" style="width: 40px">
@@ -203,11 +203,24 @@
 
 
 // http://localhost:42069/index.php&param=0&show=0
-
-function updateSQL(){
+function getTotalValues(){
+    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
+    if ($link->connect_errno) {
+        echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    $sql = "SELECT * FROM pimeteo;" ;
+    if($result = mysqli_query($link, $sql)){
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+                $time[] = $row['date'];
+        }
+    }}
+    return sizeof($time);
+}
+function updateSQL(){ 
     $param = $_GET['param'];
     $show = $_GET['show'];  
-    $link = mysqli_connect("localhost:3306", "root", "", "releves");
+    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
@@ -226,6 +239,7 @@ function updateSQL(){
                     $hum[] = $row['hum'];
             }
             echo 'let totalvalues = ' . sizeof($time) . "; \n";
+            $totalvalues = sizeof($time);
             echo 'let mostRecentDate = "' . $time[sizeof($time)-1] . '"; ' . "\n";
         // 10 Dernieres valeurs
                 echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
@@ -485,10 +499,11 @@ function updateSQL(){
        
 }
 updateSQL();
+
 function month(){
     $param = $_GET['param'];
     $show = $_GET['show'];  
-    $link = mysqli_connect("localhost:3306", "root", "", "releves");
+    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
@@ -587,8 +602,11 @@ function month(){
     
    
 }
+$param = $_GET['param'];
+if($param + 4464 < getTotalValues()-2 - 4464){
+    month();
+}
 
-month();
 ?>
 
 <script src="./scripts/data_processing.js"></script>
