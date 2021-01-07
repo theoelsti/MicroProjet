@@ -395,7 +395,7 @@ function updateSQL(){
     // Valeurs du mois
         // Echo de l'heure sur le mois
             $tempsize = sizeof($time)-1;
-            echo "var timeScalerawmonth  = [" ;
+            echo "var timeScalerawmonthtest  = [" ;
             $ok = TRUE;
             $tab = 0;   
             $day = 144;
@@ -445,7 +445,7 @@ function updateSQL(){
         
         // Echo de la temperature sur le mois
             $tempsize = sizeof($temp)-1;
-            echo "var temprawmonth  = [" ;
+            echo "var temprawmonthtest  = [" ;
             $ok = TRUE;
             $tab = 0;
             $day = 48;
@@ -508,47 +508,86 @@ function month(){
         $i = 0;
         $coma = 0;
         $oldstamp = "";
-        echo "<script>";
-        
-        echo "temprawMonth = [";
+        $datesok = [];
+       
         for($d = sizeof($date)-1; $d > sizeof($date)-4464; $d--){
-           
-            
             if($oldstamp == substr($date[$d-$param], 0, -9)){
-               $oldstamp = substr($date[$d-$param], 0, -9);
+                $oldstamp = substr($date[$d-$param], 0, -9);
             }
-            else{ //1 nouveau jour unique
-                    $oldstamp = substr($date[$d-$param], 0, -9); // Nouvelle date
-                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . substr($date[$d-$param], 0, -9) . "%\";";
+            else{
+                $oldstamp = substr($date[$d-$param], 0, -9); // Nouvelle date
+                array_push($datesok, $oldstamp);
+            }
+        }
+        $datesize = sizeof($datesok)-1;
+        echo "<script>";
+        echo "timeScalerawmonth = ["; 
+        for($da = $datesize; $da > 0; $da--){
+            echo '"';
+            echo $datesok[$da];
+            echo '"';
+            $coma++;
+            if($coma < 31){
+                echo ",";
+            }
+            
+
+        }
+        echo "]";
+        $coma = 0;
+        echo "\n";
+        echo "temprawmonth   = [";
+        for($d = 0; $d < $datesize; $d++){
+         //1 nouveau jour unique
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
-
+                
                             while($row = mysqli_fetch_array($result)){ 
                                 $temp[] = $row['temp'];   
                             }
                             echo bcdiv(array_sum($temp) / count($temp), 1, 2);
+                            if($coma < 30){
+                                echo ',';
+                                $coma++;
+                            }
+                        }
+                    }
+                    $temp = [];  
+         }
+         echo "] ";
+        
+        }
+        $coma = 0;
+        echo "\n";
+        echo "humrawmonth   = [";
+        for($d = 0; $d < $datesize; $d++){
+         //1 nouveau jour unique
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                
+                            while($row = mysqli_fetch_array($result)){ 
+                                $hum[] = $row['hum'];   
+                            }
+                            echo bcdiv(array_sum($hum) / count($hum), 1, 2);
                             if($coma < 31){
                                 echo ',';
                                 $coma++;
                             }
                         }
                     }
-                    $temp = $hum = [];            
-                }
-            }
-
-
-        }
-        echo "] ";
+                    $hum = [];  
+         }
+         echo "] ";
+        
         echo "</script>";
         $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = 0;
     }
     
    
 }
-function echoMonthTemp($paramMonthTemp){
 
-}
 month();
 ?>
 
