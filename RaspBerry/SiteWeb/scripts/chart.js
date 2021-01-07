@@ -376,7 +376,7 @@ $("#month").on("click", function() {
 
 $("#minus").on("click", function() { 
   if(checkminus(6)){
-    url = '?param=' + (parseInt(param)+ 6) + '&show=' + parseInt(show)
+    url = '?param=' + (parseInt(param)+ 6) + '&show=' + parseInt(show) + '#anchor'
     window.location.href = url;
   }
 });
@@ -386,7 +386,7 @@ if(param -6 <= -1){
   alert("Les valeurs affichées sont les plus récentes !")
 }
 else{
-  url = '?param=' + (parseInt(param) - 6 )+ '&show=' + parseInt(show)
+  url = '?param=' + (parseInt(param) - 6 )+ '&show=' + parseInt(show) + '#anchor'
   window.location.href = url;
 
 }
@@ -394,7 +394,7 @@ else{
 
 
 $("#plusday").on("click", function() { 
-url = '?param=' + (parseInt(param) -144)+ '&show=' + parseInt(show)
+url = '?param=' + (parseInt(param) -144)+ '&show=' + parseInt(show) + '#anchor'
 if(param -144 <= -1){
   alert("Les valeurs affichées sont les plus récentes !")
 }
@@ -402,7 +402,7 @@ else window.location.href = url;
 });
 $("#minusday").on("click", function() { 
 if(checkminus(144)){
-  url = '?param=' + (parseInt(param) + 144)+ '&show=' + parseInt(show)
+  url = '?param=' + (parseInt(param) + 144)+ '&show=' + parseInt(show) + '#anchor'
   window.location.href = url;
 }
 
@@ -411,7 +411,7 @@ if(checkminus(144)){
 
 
 $("#plusmonth").on("click", function() { 
-url = '?param=' + (parseInt(param) - 4464)+ '&show=' + parseInt(show)
+url = '?param=' + (parseInt(param) - 4464)+ '&show=' + parseInt(show) + '#anchor'
 if(param - 4464 <= -1){
   alert("Les valeurs affichées sont les plus récentes !")
 }
@@ -419,7 +419,7 @@ else window.location.href = url;
 });
 $("#minusmonth").on("click", function() { 
   if(checkminus(4464)){
-  url = '?param=' + (parseInt(param) + 4464)+ '&show=' + parseInt(show)
+  url = '?param=' + (parseInt(param) + 4464)+ '&show=' + parseInt(show) + '#anchor'
   window.location.href = url; 
   }
 });
@@ -427,7 +427,7 @@ $("#minusmonth").on("click", function() {
 
 $("#minusminute").on("click", function() { 
   if(checkminus(1)){
-  url = '?param=' + (parseInt(param)+ 1) + '&show=' + parseInt(show)
+  url = '?param=' + (parseInt(param)+ 1) + '&show=' + parseInt(show) + '#anchor'
   window.location.href = url;
   }
 });
@@ -436,7 +436,7 @@ if(param -1 <= -1){
   alert("Les valeurs affichées sont les plus récentes !")
 }
 else{
-  url = '?param=' + (parseInt(param) - 1 )+ '&show=' + parseInt(show)
+  url = '?param=' + (parseInt(param) - 1 )+ '&show=' + parseInt(show) + '#anchor'
   window.location.href = url;
 }
 });

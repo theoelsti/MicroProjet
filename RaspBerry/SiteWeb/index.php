@@ -9,14 +9,16 @@
 <meta charset="utf-8"                                  />
 
 <!--    Feuilles de style-->
-<link rel="stylesheet" href="./styles/sidebar.css"     />
-<link href="./styles/style.css" rel="stylesheet"       />
-<link rel="stylesheet" href="./styles/notifs.css"      />
-<link href="./styles/sun.css" rel="stylesheet"         />
-<link rel="stylesheet" href="./styles/topnav.css"      />
+<link rel="stylesheet" href="./styles/sidebar.css"      />
+<link href="./styles/style.css" rel="stylesheet"        />
+<link rel="stylesheet" href="./styles/notifs.css"       />
+<link href="./styles/sun.css" rel="stylesheet"          />
+<link rel="stylesheet" href="./styles/topnav.css"       />
+<link href="./styles/time.css" rel="stylesheet"         />
+<link rel="stylesheet" href="./styles/utils.css"       />
 <!--    Scripts     -->
 <script src="./scripts/clock.js">               </script>
-
+<script src="./scripts/showTime.js">            </script>
 <script src="./scripts/sidemenu.js">            </script>
 
 <!--    Essential    -->
@@ -39,12 +41,17 @@
 
     -->
 </head>
-<link rel="shortcut icon" href="./images/sun.ico"      />
-<body style="background-color: #261447;" onLoad="initClock()">
+<link rel="shortcut icon" href="./images/sun.ico"   />
+<body style="background-color: #261447;" 
+onLoad="initClock()"
+unselectable="on"
+onselectstart="return false;" 
+onmousedown="return false;"
+>
 
 
 <div style=" width:100%; height: 50px; display: flex;justify-content: center; text-align: center"> 
-    <a href="./accueil.html">
+    <a href="./accueil.html" name='top'>
     <div class="menubutton" >
         <img src="./images/home.png" style="width: 40px">
     </div>
@@ -54,7 +61,7 @@
         <img src="./images/chart.png" style="width: 40px">
     </div>
     </a>
-    <a href="median.php">
+    <a href="median.html">
         <div class="menubutton">
             <img src="./images/eye.png" style="width: 40px">
         </div>
@@ -62,7 +69,7 @@
 </div>
 
 
-<div class="top">
+<div class="top" >
     <div class="sun"></div>
     <!--        
         o         o                                                    
@@ -135,12 +142,8 @@
         </div>
 </div>
 <div style="display:flex; justify-content:center">
-<div id="main">
+<div class="selectors">
   <button class="openbtn" onclick="openNav()">Affichage            </button>
-</div>
-<div id="main">
-  <button class="openbtn jaugebutton" onclick="lastValues()">Jauges</button>
-</div>
 </div>
 <!--
   o__ __o                               o                                        
@@ -156,17 +159,27 @@
                                                                                  
                                                                                  
 -->
-<div class="buttons">
-    <input name="minusmonth" type="submit" id="minusmonth" class="buttonl" value="-1 M" /> 
-    <input name="plusday" type="submit" id="minusday" class="buttonl" value="-1 J"      /> 
-    <input name="minus" type="submit" id="minus" class="buttonl" value="-1 H"           /> 
-    <input name="minusminute" type="submit" id="minusminute" class="buttonl" value="-10 M"     /> 
-    <input name="plusminute" type="submit" id="plusminute" class="buttonl" value="+10 M"      /> 
-    <input name="plus" type="submit" id="plus" class="buttonl" value="+1 H"             /> 
-    <input name="plusday" type="submit" id="plusday" class="buttonl" value="+1 J"       /> 
-    <input name="plusmonth" type="submit" id="plusmonth" class="buttonl" value="+1 M"   /> 
+<div class='selectors'>
+  <button class="openbtn jaugebutton" onclick="lastValues()">Jauges</button>
 </div>
 
+</div>
+<div id="main" class="opentime">
+  <button class="timebtn timebutton" onclick="showTime()">+ / - </button>
+</div>
+
+<div class="openbuttons">
+    <div class="buttons">
+        <input name="minusmonth" type="submit" id="minusmonth" class="buttonl" value="-1 M" /> 
+        <input name="plusday" type="submit" id="minusday" class="buttonl" value="-1 J"      /> 
+        <input name="minus" type="submit" id="minus" class="buttonl" value="-1 H"           /> 
+        <input name="minusminute" type="submit" id="minusminute" class="buttonl" value="-10 M"     /> 
+        <input name="plusminute" type="submit" id="plusminute" class="buttonl" value="+10 M"      /> 
+        <input name="plus" type="submit" id="plus" class="buttonl" value="+1 H"             /> 
+        <input name="plusday" type="submit" id="plusday" class="buttonl" value="+1 J"       /> 
+        <input name="plusmonth" type="submit" id="plusmonth" class="buttonl" value="+1 M"   /> 
+    </div>
+</div>
 <div style="width: 70%; margin-left: 15%;">
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -177,8 +190,11 @@
             <div class="buttons"><input type="submit" id="10" class="button" value="10 last" /> </div>
         </div>
     </div>
+    <div style="text-align: center;">
+    Scripts js qui affiche le jour selectionné
+    </div>
     <canvas id="meteoChart"></canvas>
-
+    <button onclick="topFunction()" id="scrollBtn" title="Go to top">⬆️</button>
 </div>
 
 <!--
@@ -719,5 +735,6 @@ week()
 <script src="./scripts/jauges.js">              </script>
 <script src="./scripts/connectionchecker.js">   </script>
 <script src="./scripts/notifs.js">              </script>
+<script src="./scripts/goToTop.js">            </script>
 </body>
 </html>

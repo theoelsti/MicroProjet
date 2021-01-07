@@ -1,4 +1,3 @@
-
 ✅	Affichage graphique en « temps réel » du taux d’humidité, de la température et de la température ressentie dans une interface web (toutes les xx minutes) 
 ✅	Affichage graphique (courbes, histogrammes...) de l’historique par jour (en option par semaine, mois) des données.
 ✅	Pourvoir avoir le choix du jour à afficher dans l’historique l’interface web
@@ -8,8 +7,9 @@
 ⏳ Page des moyennes (very epic)
 
 Bonus :
-❌  Psassage en paramètre du délai de mesure (relou) (jle fais pas enorme flemme)
+❌  Passage en paramètre du délai de mesure (relou) (jle fais pas enorme flemme)
+⏳  Bulle d'informations sur la date naviguée
 ✅  Bouton de refresh
 ✅  Infos de connexion
 ✅  Sidebar pour les echelles
-✅ Choix Valeurs numeriques / jauge
+✅  Choix Valeurs numeriques / jauge
