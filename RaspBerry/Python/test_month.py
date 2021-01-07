@@ -1,25 +1,27 @@
 import mysql.connector
-DB_SERVER ='127.0.0.1' 
-DB_USER='root'     
-DB_PWD='root'          
-DB_BASE='releves'  
+oldTime = ""
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="root",
+  database="releves"
+)
 
-def query_db(sql):
-    try:
-        db = mysql.connector.connect(
-            host = DB_SERVER, 
-            user = DB_USER, 
-            password = DB_PWD, 
-            database = DB_BASE) #Connexion
-        cursor = db.cursor() #Curseur
-        cursor.execute(sql) #On envoie la requete et on ferme
-        db.commit()
-        db.close()
-    except:
-        print("SQL query error")
+mycursor = mydb.cursor()
 
+mycursor.execute("SELECT date FROM pimeteo")
 
-def all():
-    print(query_db("SELECT * FROM pimeteo;"))
-if __name__ == "__main__":
-    all()
+myresult = mycursor.fetchall()
+dates = [] 
+for x in myresult:
+    for d in x:
+        if(oldTime != str(d)[0:10]):
+            tempshum = mycursor.execute("SELECT temp, hum FROM pimeteo where date like \"%" + str(d)[0:10] + "%\";")
+            tempshum = mycursor.fetchall()
+           
+            for d in tempshum:
+                print(d[0])
+
+            dates.append(str(d)[0:10])
+        oldTime = str(d)[0:10]
+print(len(dates))
