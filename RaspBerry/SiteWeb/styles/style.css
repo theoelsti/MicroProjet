@@ -107,6 +107,7 @@ Style pour la date
 }
 .buttonre:hover{
 	background-color: #FF436544;
+	border: none;
 }
 
 /*
@@ -133,6 +134,5 @@ stroke-width: 10;
 	stroke-dasharray: none;
 	stroke-width: 13;
 }
-
 
 
