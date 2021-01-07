@@ -95,7 +95,7 @@ Style pour la date
 .buttonre{
 	margin: 10px;
 	background-color: #0B6B0E;
-	border: 2px solid #0A6A0E ;
+	border: solid #0A6A0E 1px;
 	border-radius: 5px;
 	width: 50px;
 	height: 50px;
@@ -103,12 +103,10 @@ Style pour la date
 	cursor: pointer;
 }
 .buttonl:hover{
-	background-color: #40237544;
-	border: 0px;
+	background-color: #40237522;
 }
 .buttonre:hover{
 	background-color: #FF436544;
-	border: 0px;
 }
 
 /*
