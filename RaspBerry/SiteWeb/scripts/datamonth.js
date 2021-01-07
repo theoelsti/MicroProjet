@@ -8,4 +8,3 @@ var tempmonth  = tempmonth
 var timeScalemonth  = timeScalemonth;
 let timeScaleweekdays = []
   }
-    
