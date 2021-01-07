@@ -3,7 +3,7 @@
     var hummonth = humrawmonth
     var tempmonth = temprawmonth 
     var timeScalemonth  = timeScalerawmonth 
-    var hummonth  = hummonth.reverse();
-    var tempmonth  = tempmonth .reverse();
-    var timeScalemonth  = timeScalemonth .reverse();
+    var hummonth  = hummonth
+    var tempmonth  = tempmonth 
+    var timeScalemonth  = timeScalemonth;
     let timeScaleweekdays = []

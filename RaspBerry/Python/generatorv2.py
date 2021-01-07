@@ -1,12 +1,11 @@
 from datetime import datetime, timedelta
 import random
 
-sdate = datetime(2019, 1, 1, 00, 0, 00)
-edate = datetime(2020, 12, 22,00 , 0 , 00) 
+sdate = datetime(2020, 9, 1, 00, 0, 00)
+edate = datetime(2021, 1,20 , 15, 10, 00) 
 tempint = 20.00
 humint = 50.00
-delta = edate - sdate     
-
+delta = edate - sdate  
 def temp(): 
     way = random.randint(0, 1)
     if way:
@@ -26,7 +25,7 @@ def write(query):
     sql_file = open('RaspBerry/SQL/longrandom.sql','a')
     sql_file.write(query)
 def daterange(start_date, end_date):
-    delta = timedelta(hours=1)
+    delta = timedelta(minutes=10)
     while start_date < end_date:
         yield start_date
         start_date += delta
