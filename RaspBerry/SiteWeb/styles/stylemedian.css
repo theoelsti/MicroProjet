@@ -226,4 +226,28 @@ Style pour la date
     font-family: cursive;
     font-size: 20px;
     color: #da5757;
-    }
+	}
+	
+.texte3{
+	height: 5vh;
+		size: cover;
+		position: center;
+	margin-bottom: 15px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+   	font-family: cursive;
+   	font-size: 35px;
+   	color: #da5757;
+	}
+	
+.line3{
+	align-items: center;
+	height: 5px;
+	color: #a5dde3;
+	width: 100%;
+	}
