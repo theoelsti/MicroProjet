@@ -206,8 +206,8 @@
 
 function updateSQL(){
     $param = $_GET['param'];
-    $show = $_GET['show'];
-    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
+    $show = $_GET['show'];  
+    $link = mysqli_connect("localhost:3306", "root", "", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
@@ -486,7 +486,9 @@ function updateSQL(){
 }
 updateSQL();
 function month(){
-    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
+    $param = $_GET['param'];
+    $show = $_GET['show'];  
+    $link = mysqli_connect("localhost:3306", "root", "", "releves");
     if ($link->connect_errno) {
         echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
@@ -494,7 +496,8 @@ function month(){
         
         $query = "SELECT * FROM pimeteo;";
         $sql =  $query ;
-        
+    $temp = [];
+    $hum = [];
     if($result = mysqli_query($link, $sql)){
 
         if(mysqli_num_rows($result) > 0){
@@ -503,43 +506,48 @@ function month(){
             }
         
         $i = 0;
+        $coma = 0;
         $oldstamp = "";
-        for($d = 0; $d < sizeof($date); $d++){
+        echo "<script>";
+        
+        echo "temprawMonth = [";
+        for($d = sizeof($date)-1; $d > sizeof($date)-4464; $d--){
            
             
-            if($oldstamp == substr($date[$d], 0, -9)){
-               $oldstamp = substr($date[$d], 0, -9);
+            if($oldstamp == substr($date[$d-$param], 0, -9)){
+               $oldstamp = substr($date[$d-$param], 0, -9);
             }
-            else{
-                echo "</br> jour" . $i . "</br>";
-                $i++;
-                    $oldstamp = substr($date[$d], 0, -9);
-                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . substr($date[$d], 0, -9) . "%\";";
+            else{ //1 nouveau jour unique
+                    $oldstamp = substr($date[$d-$param], 0, -9); // Nouvelle date
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . substr($date[$d-$param], 0, -9) . "%\";";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
 
-                            while($row = mysqli_fetch_array($result)){
-                                $dateday[] = $row['date']; 
-                                $temp[] = $row['temp'];
-                                $hum[]  =  $row['hum'];
-                            }   
+                            while($row = mysqli_fetch_array($result)){ 
+                                $temp[] = $row['temp'];   
+                            }
+                            echo bcdiv(array_sum($temp) / count($temp), 1, 2);
+                            if($coma < 31){
+                                echo ',';
+                                $coma++;
+                            }
                         }
                     }
-                        
+                    $temp = $hum = [];            
                 }
-            
-
-
             }
 
-            #echo bcdiv(array_sum($temp) / count($temp), 1, 2);
-            #echo "\n";
 
         }
+        echo "] ";
+        echo "</script>";
         $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = 0;
     }
     
    
+}
+function echoMonthTemp($paramMonthTemp){
+
 }
 month();
 ?>
