@@ -167,7 +167,8 @@ Style pour la date
 	display: flex;
 	text-size-adjust: 69%;
 	text-align: center;	
-	margin-left: 30%;
+	justify-content: center;
+	align-items: center;
 }
 
 .buttonY{
@@ -175,17 +176,20 @@ Style pour la date
 	display: flex;
 	text-size-adjust: 69%;
 	text-align: center;	
-	margin-left: 30%;
+	justify-content: center;
+	align-items: center;
 }
 
-.buttonX--collapsed {
-	width: 200px;
-	height: 60px;
+.buttonXpos{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.buttonY--collapsed {
-	width: 200px;
-	height: 60px;
+.buttonYpos{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .buttonl{
@@ -206,3 +210,20 @@ Style pour la date
 .notbutton{
 	text-align: center;	
 }
+
+.titlemeteo{
+	height: 5vh;
+		size: cover;
+		position: center;
+	margin-bottom: 15px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+    font-family: cursive;
+    font-size: 20px;
+    color: #da5757;
+    }
