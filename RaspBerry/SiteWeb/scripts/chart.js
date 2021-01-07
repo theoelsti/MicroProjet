@@ -53,7 +53,7 @@ var dataweek = {
         data: humweek.reverse()
     }]}
 var datamonth = {
-labels: timeScalemonth.reverse(),
+labels: timeScalerawmonth.reverse(),
 datasets: [{
     label:'Température moyenne',
     backgroundColor: '#D4007810',
@@ -258,12 +258,14 @@ case 2:
   chartmeteo.destroy()
   var context3 = document.getElementById('meteoChart').getContext('2d');
   chartmeteo = new Chart(context3, configweek);
+  hideMinutesButtons()
   break;
 case 3:
   chartmeteo.destroy()
   var context3 = document.getElementById('meteoChart').getContext('2d');
   chartmeteo = new Chart(context3, configmonth);
   hideHoursButtons()
+  hideMinutesButtons()
 
   break
 default:
@@ -273,23 +275,28 @@ $("#10").on("click", function() {
   chartmeteo.destroy()
   var context1 = document.getElementById('meteoChart').getContext('2d');
   showHoursButtons()
+  showMinutesButtons()
   show = 0;
   chartmeteo = new Chart(context1, config);});
 $("#day").on("click", function() {
   chartmeteo.destroy()
   showHoursButtons()
+  showMinutesButtons()
   var context2 = document.getElementById('meteoChart').getContext('2d');
+  hideMinutesButtons()
   show = 1;
   chartmeteo = new Chart(context2, config1);});
 $("#week").on("click", function() {
   chartmeteo.destroy()
   hideHoursButtons()
+  hideMinutesButtons()
   var context3 = document.getElementById('meteoChart').getContext('2d');
   show = 2;
   chartmeteo = new Chart(context3, configweek);});
 $("#month").on("click", function() {
   chartmeteo.destroy()
   hideHoursButtons()
+  hideMinutesButtons()
   var context3 = document.getElementById('meteoChart').getContext('2d');
   show = 3;
   chartmeteo = new Chart(context3, configmonth);});
@@ -353,8 +360,18 @@ window.location.href = '?param=0'+ '&show=' + parseInt(show);
 function showHoursButtons(){
 document.getElementById("plus").style.display = "block";
 document.getElementById("minus").style.display = "block";
+
 }
 function hideHoursButtons(){
 document.getElementById("plus").style.display = "none";
 document.getElementById("minus").style.display = "none";
+}
+
+function hideMinutesButtons(){
+  document.getElementById("plusminute").style.display = "none";
+  document.getElementById("minusminute").style.display = "none";
+}
+function showMinutesButtons(){
+  document.getElementById("plusminute").style.display = "block";
+  document.getElementById("minusminute").style.display = "block";
 }
