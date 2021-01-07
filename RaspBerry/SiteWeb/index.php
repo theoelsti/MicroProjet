@@ -16,8 +16,7 @@
 <link rel="stylesheet" href="./styles/topnav.css"      />
 <!--    Scripts     -->
 <script src="./scripts/clock.js">               </script>
-<script src="./scripts/notifs.js"></script>
-<script src="./scripts/connectionchecker.js">   </script>
+
 <script src="./scripts/sidemenu.js">            </script>
 
 <!--    Essential    -->
@@ -331,81 +330,81 @@ function updateSQL(){
                 }
                 echo "];\n";
 
-    // Valeurs de la semaine (moyennes)
-        // Echo de l'heure sur la semaine
-            $tempsize = sizeof($time)-1;
-            echo "var timeScalerawweek  = [" ;
-            $ok = TRUE;
-            $tab = 0;
-            $day = 144;
-            $k = 0;
-            while($ok){
-                for($i = $timesize; $i>$timesize-(1008); $i-=144){
-                    $timeday1[$tab] = substr($time[$i-$param], 0, -8);
-                    $tab++;
-                }
-                echo "'" . $timeday1[$k] . "'";
-                $k++;
-                $day += 144;
+    // // Valeurs de la semaine (moyennes)
+    //     // Echo de l'heure sur la semaine
+    //         $tempsize = sizeof($time)-1;
+    //         echo "var timeScalerawweek  = [" ;
+    //         $ok = TRUE;
+    //         $tab = 0;
+    //         $day = 144;
+    //         $k = 0;
+    //         while($ok){
+    //             for($i = $timesize; $i>$timesize-(1008); $i-=144){
+    //                 $timeday1[$tab] = substr($time[$i-$param], 0, -8);
+    //                 $tab++;
+    //             }
+    //             echo "'" . $timeday1[$k] . "'";
+    //             $k++;
+    //             $day += 144;
                 
-                if($day > 1008){
-                    $ok = !$ok;
-                }
-                else{
-                    echo ",";
-                }
+    //             if($day > 1008){
+    //                 $ok = !$ok;
+    //             }
+    //             else{
+    //                 echo ",";
+    //             }
                 
-            }
-            echo "];\n";
+    //         }
+    //         echo "];\n";
         
-        // Echo de l'humidité sur la semaine
-            $humsize = sizeof($hum)-1;
-            echo "var humrawweek  = [" ;
-            $ok = TRUE;
-            $tab = 0;
-            $day = 24;
-            $humday1 = [];
-            while($ok){
-                for($i = $humsize; $i>$humsize-$day; $i-=24){
-                    array_push($humday1,$hum[$i-$param]);
-                    $tab++;
-                }
-                echo bcdiv(array_sum($humday1) / count($humday1), 1, 2);
-                $day += 24;
+    //     // Echo de l'humidité sur la semaine
+    //         $humsize = sizeof($hum)-1;
+    //         echo "var humrawweek  = [" ;
+    //         $ok = TRUE;
+    //         $tab = 0;
+    //         $day = 24;
+    //         $humday1 = [];
+    //         while($ok){
+    //             for($i = $humsize; $i>$humsize-$day; $i-=24){
+    //                 array_push($humday1,$hum[$i-$param]);
+    //                 $tab++;
+    //             }
+    //             echo bcdiv(array_sum($humday1) / count($humday1), 1, 2);
+    //             $day += 24;
                 
-                if($day > 168){
-                    $ok = !$ok;
-                }
-                else{
-                    echo ",";
-                }
+    //             if($day > 168){
+    //                 $ok = !$ok;
+    //             }
+    //             else{
+    //                 echo ",";
+    //             }
                 
-            }
-            echo "];\n";
+    //         }
+    //         echo "];\n";
             
-        // Echo de la temperature sur la semaine
-            $tempsize = sizeof($temp)-1;
-            echo "var temprawweek  = [" ;
-            $ok = TRUE;
-            $tab = 0;
-            $day = 144;
-            while($ok){
-                for($i = $tempsize; $i>$tempsize-$day; $i-=144){
-                    $tempday1[$tab] = $temp[$i-$param];
-                    $tab++;
-                }
-                echo bcdiv(array_sum($tempday1) / count($tempday1), 1, 2);
-                $day += 144;
+    //     // Echo de la temperature sur la semaine
+    //         $tempsize = sizeof($temp)-1;
+    //         echo "var temprawweek  = [" ;
+    //         $ok = TRUE;
+    //         $tab = 0;
+    //         $day = 144;
+    //         while($ok){
+    //             for($i = $tempsize; $i>$tempsize-$day; $i-=144){
+    //                 $tempday1[$tab] = $temp[$i-$param];
+    //                 $tab++;
+    //             }
+    //             echo bcdiv(array_sum($tempday1) / count($tempday1), 1, 2);
+    //             $day += 144;
 
-                if($day > 1008){
-                    $ok = !$ok;
-                }
-                else{
-                    echo ",";
-                }
+    //             if($day > 1008){
+    //                 $ok = !$ok;
+    //             }
+    //             else{
+    //                 echo ",";
+    //             }
                 
-            }
-            echo "];\n";
+    //         }
+    //         echo "];\n";
     // Valeurs du mois
         // Echo de l'heure sur le mois
             $tempsize = sizeof($time)-1;
@@ -499,7 +498,6 @@ function updateSQL(){
        
 }
 updateSQL();
-
 function month(){
     $param = $_GET['param'];
     $show = $_GET['show'];  
@@ -552,7 +550,7 @@ function month(){
         $coma = 0;
         echo "\n";
         echo "temprawmonth   = [";
-        for($d = 0; $d < $datesize; $d++){
+        for($d = $datesize; $d > $datesize-31; $d--){
          //1 nouveau jour unique
                     $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
                     if($result = mysqli_query($link, $sql)){
@@ -576,7 +574,7 @@ function month(){
         $coma = 0;
         echo "\n";
         echo "humrawmonth   = [";
-        for($d = 0; $d < $datesize; $d++){
+        for($d = $datesize; $d > $datesize-31; $d--){
          //1 nouveau jour unique
                     $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
                     if($result = mysqli_query($link, $sql)){
@@ -607,15 +605,119 @@ if($param + 4464 < getTotalValues()-2 - 4464){
     month();
 }
 
+function week(){
+    $param = $_GET['param'];
+    $show = $_GET['show'];  
+    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
+    if ($link->connect_errno) {
+        echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    
+        
+        $query = "SELECT * FROM pimeteo;";
+        $sql =  $query ;
+    $temp = [];
+    $hum = [];
+    if($result = mysqli_query($link, $sql)){
+
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+                $date[] = $row['date']; 
+            }
+        
+        $i = 0;
+        $coma = 0;
+        $oldstamp = "";
+        $datesok = [];
+       
+        for($d = sizeof($date)-1; $d > sizeof($date)-1008; $d--){
+            if($oldstamp == substr($date[$d-$param], 0, -9)){
+                $oldstamp = substr($date[$d-$param], 0, -9);
+            }
+            else{
+                $oldstamp = substr($date[$d-$param], 0, -9); // Nouvelle date
+                array_push($datesok, $oldstamp);
+            }
+        }
+        $datesize = sizeof($datesok)-1;
+        echo "<script>";
+        echo "timeScalerawweek = ["; 
+        for($da = $datesize; $da > 0; $da--){
+            echo '"';
+            echo $datesok[$da];
+            echo '"';
+            $coma++;
+            if($coma < 7){
+                echo ",";
+            }
+            
+
+        }
+        echo "]";
+        $coma = 0;
+        echo "\n";
+        echo "temprawweek   = [";
+        for($d = $datesize; $d > $datesize-7; $d--){
+         //1 nouveau jour unique
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                
+                            while($row = mysqli_fetch_array($result)){ 
+                                $temp[] = $row['temp'];   
+                            }
+                            echo bcdiv(array_sum($temp) / count($temp), 1, 2);
+                            if($coma < 7){
+                                echo ',';
+                                $coma++;
+                            }
+                        }
+                    }
+                    $temp = [];  
+         }
+         echo "] ";
+        
+        }
+        $coma = 0;
+        echo "\n";
+        echo "humrawweek   = [";
+        for($d = $datesize; $d > $datesize-7; $d--){
+         //1 nouveau jour unique
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                
+                            while($row = mysqli_fetch_array($result)){ 
+                                $hum[] = $row['hum'];   
+                            }
+                            echo bcdiv(array_sum($hum) / count($hum), 1, 2);
+                            if($coma < 8){
+                                echo ',';
+                                $coma++;
+                            }
+                        }
+                    }
+                    $hum = [];  
+         }
+         echo "] ";
+        
+        echo "</script>";
+        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = 0;
+    }
+    
+   
+}
+week()
 ?>
 
-<script src="./scripts/data_processing.js"></script>
-<script src="./scripts/dataweek.js">       </script>
-<script src="./scripts/datamonth.js">      </script>
-<script src="./scripts/chart.js">          </script>
-<script src="./scripts/counter.js">        </script>
-<script src="./scripts/gauge.js">          </script>
-<script src="./scripts/jauges.js">         </script>
-
+<script src="./scripts/data_processing.js">     </script>
+<script src="./scripts/dataweek.js">            </script>
+<script src="./scripts/datamonth.js">           </script>
+<script src="./scripts/chart.js">               </script>
+<script src="./scripts/counter.js">             </script>
+<script src="./scripts/gauge.js">               </script>
+<script src="./scripts/jauges.js">              </script>
+<script src="./scripts/connectionchecker.js">   </script>
+<script src="./scripts/notifs.js">              </script>
 </body>
 </html>

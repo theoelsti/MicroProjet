@@ -46,21 +46,21 @@ var dataday = {
         data: humday
     }]}
 var dataweek = {
-    labels: timeScaleweek.reverse(),
+    labels: timeScaleweek,
     datasets: [{
         label:'Température moyenne',
         backgroundColor: '#D4007810',
         borderColor: '#D40078',
         pointStrokeColor: "#F6019D",
         pointHighlightFill: "#000000",
-        data: tempweek.reverse()
+        data: tempweek
     },
     {
         label:'Humidité moyenne',
         color:'#FFFFFF',
         backgroundColor: '#2DE2E610',
         borderColor: '#2DE2E6',
-        data: humweek.reverse()
+        data: humweek
     }]}
 if(param + 4464 < ((totalvalues-2) - 4464)){
 var datamonth = {
@@ -71,14 +71,14 @@ datasets: [{
     borderColor: '#D40078',
     pointStrokeColor: "#F6019D",
     pointHighlightFill: "#000000",
-    data: tempmonth.reverse()
+    data: tempmonth
 },
 {
     label:'Humidité moyenne',
     color:'#FFFFFF',
     backgroundColor: '#2DE2E610',
     borderColor: '#2DE2E6',
-    data: hummonth.reverse()
+    data: hummonth
 }]}
 }
 /*
