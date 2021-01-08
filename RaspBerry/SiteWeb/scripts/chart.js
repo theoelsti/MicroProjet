@@ -99,7 +99,7 @@ var options = {
     title:{
         display:true,
         text:'Température et Humidité des 10 derniers relevés',
-        fontSize:25,
+        fontSize:40,
         fontColor:'#FFFFFF',
         fontFamily:'robot'
     },
@@ -139,7 +139,7 @@ var optionsdays = {
 title:{
     display:true,
     text:'Température et Humidité sur 24 heure',
-    fontSize:25,
+    fontSize:40,
     fontColor:'#FFFFFF',
     fontFamily:'robot'
 },
@@ -179,7 +179,7 @@ var optionsweek = {
 title:{
   display:true,
   text:'Température et Humidité moyenne sur 1 semaine',
-  fontSize:25,
+  fontSize:40,
   fontColor:'#FFFFFF',
   fontFamily:'robot'
 },
@@ -219,7 +219,7 @@ var optionsmonth = {
 title:{
   display:true,
   text:'Température et Humidité moyenne sur 31 jours',
-  fontSize:25,
+  fontSize:40,
   fontColor:'#FFFFFF',
   fontFamily:'robot'
 },
@@ -293,14 +293,54 @@ case 1:
   chartmeteo.destroy()
   var context2 = document.getElementById('meteoChart').getContext('2d');
   chartmeteo = new Chart(context2, config1);
+
+  new ToasterBox({
+    msg: `Tranche Horaire séléctionnée : </Br> ${timeScaleday[0]} ➡️ ${timeScaleday[24]}`,
+    html: true,
+    time: 10000,
+    className: null,
+    closeButton: false,
+    maxWidth: 350,
+    autoOpen: true,
+    position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+    backgroundColor: "#288CC0",
+    closeIcon: false
+  })
   break;
 case 2:
   chartmeteo.destroy()
   var context3 = document.getElementById('meteoChart').getContext('2d');
   chartmeteo = new Chart(context3, configweek);
+  new ToasterBox({
+    msg: `Tranche Horaire séléctionnée : </Br> ${timeScaleweek[0]} ➡️ ${timeScaleweek[6]}`,
+    html: true,
+    time: 10000,
+    className: null,
+    closeButton: false,
+    maxWidth: 220,
+    autoOpen: true,
+    position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+    backgroundColor: "#288CC0",
+    closeIcon: false
+  })
   hideMinutesButtons()
+  
   break;
 case 3:
+  if(param + 4464 < ((totalvalues-2) - 4464)){
+  new ToasterBox({
+    msg: `${timeScalerawmonth[0]} ➡️ ${timeScalerawmonth[30]}`,
+    html: true,
+    time: 10000,
+    className: null,
+    closeButton: false,
+    maxWidth: 180,
+    autoOpen: true,
+    position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+    backgroundColor: "#288CC0",
+    closeIcon: false
+  })
+  }  
   chartmeteo.destroy()
   var context3 = document.getElementById('meteoChart').getContext('2d');
   chartmeteo = new Chart(context3, configmonth);

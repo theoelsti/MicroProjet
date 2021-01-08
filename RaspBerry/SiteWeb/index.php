@@ -22,8 +22,7 @@
 <script src="./scripts/sidemenu.js">            </script>
 
 <!--    Essential    -->
-<script src="./scripts/chartjs.js">             </script>
-<script src="./scripts/jquery-3.5.1.js">        </script>
+
 
 <!--
   o__ __o                         o              
@@ -190,11 +189,11 @@ onmousedown="return false;"
             <div class="buttons"><input type="submit" id="10" class="button" value="10 last" /> </div>
         </div>
     </div>
-    <div style="text-align: center;">
-    Scripts js qui affiche le jour selectionné
+    <div id="currentdate" style="text-align: center;">
     </div>
     <canvas id="meteoChart"></canvas>
     <button onclick="topFunction()" id="scrollBtn" title="Go to top">⬆️</button>
+    <div id="anchor"></div>
 </div>
 
 <!--
@@ -243,7 +242,7 @@ function updateSQL(){
     if($result = mysqli_query($link, $sql)){
         if(mysqli_num_rows($result) > 0){
             echo "<script language=\"javascript\" type=\"text/javascript\"> \n";
-            echo "// Variables essentielles au fonctionnement des moyennes etc\n";
+            echo "// Variables essentielles au fonctionnement des données\n";
             if($param){echo 'let param ='  . $param . "\n";}
             else{echo "let param = 0 \n"; }
             echo "let show = " . $show . ";\n";
@@ -725,7 +724,9 @@ function week(){
 }
 week()
 ?>
-
+<script src="./scripts/notifs.js">              </script>
+<script src="./scripts/chartjs.js">             </script>
+<script src="./scripts/jquery-3.5.1.js">        </script>
 <script src="./scripts/data_processing.js">     </script>
 <script src="./scripts/dataweek.js">            </script>
 <script src="./scripts/datamonth.js">           </script>
@@ -734,7 +735,7 @@ week()
 <script src="./scripts/gauge.js">               </script>
 <script src="./scripts/jauges.js">              </script>
 <script src="./scripts/connectionchecker.js">   </script>
-<script src="./scripts/notifs.js">              </script>
+
 <script src="./scripts/goToTop.js">            </script>
 </body>
 </html>

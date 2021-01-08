@@ -7,7 +7,7 @@
 ⏳ Page des moyennes (very epic)
 
 Bonus :
-❌  Passage en paramètre du délai de mesure (relou) (jle fais pas enorme flemme)
+⛔  Passage en paramètre du délai de mesure (relou) (jle fais pas enorme flemme)
 ⏳  Bulle d'informations sur la date naviguée
 ✅  Bouton de refresh
 ✅  Infos de connexion
