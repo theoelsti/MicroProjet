@@ -295,7 +295,7 @@ case 1:
   chartmeteo = new Chart(context2, config1);
 
   new ToasterBox({
-    msg: `Tranche Horaire séléctionnée : </Br> ${timeScaleday[0]} ➡️ ${timeScaleday[24]}`,
+    msg: `Tranche Horaire séléctionnée : </Br> ${timeScaleday[0]} ➡️ ${timeScaleday[23]}`,
     html: true,
     time: 10000,
     className: null,
@@ -312,7 +312,7 @@ case 2:
   var context3 = document.getElementById('meteoChart').getContext('2d');
   chartmeteo = new Chart(context3, configweek);
   new ToasterBox({
-    msg: `Tranche Horaire séléctionnée : </Br> ${timeScaleweek[0]} ➡️ ${timeScaleweek[6]}`,
+    msg: `Tranche Horaire séléctionnée : </Br> ${timeScaleweek[0]} ➡️ ${timeScaleweek[5]}`,
     html: true,
     time: 10000,
     className: null,

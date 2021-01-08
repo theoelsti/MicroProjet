@@ -295,206 +295,6 @@ function updateSQL(){
                     
                 }
                 echo "];\n";
-    // Valeurs de la journée
-        // Echo de l'heure sur la journée
-            $tempsize = sizeof($time)-1;
-                echo "var timeScalerawday  = [" ;
-                $ok = TRUE;
-                $tab = 0;
-                $day = 6;
-                $k = 0;
-                while($ok){
-                    for($i = $timesize; $i>$timesize-150; $i-=6){
-                        $timeday1[$tab] = $time[$i-$param];
-                        $tab++;
-                    }
-                    echo "'" . $timeday1[$k] . "'";
-                    $k++;
-                    $day += 6;
-                    
-                    if($day > 150){
-                        $ok = !$ok;
-                    }
-                    else{
-                        echo ",";
-                    }
-                    
-                }
-                echo "];\n";
-
-        // Echo de l'humidité sur la journée
-            $humsize = sizeof($hum)-1;
-            echo "var humrawday  = [" ;
-            for($i = $humsize; $i>$humsize-150; $i-=6){
-                echo $hum[$i-$param];
-                if($i>$tempsize-150){
-                    echo ',';  
-                }
-                
-            }
-            echo "];\n";
-        // Echo de la temperature sur la journée
-            $tempsize = sizeof($hum)-1;
-                echo "var temprawday  = [" ;
-                for($i = $tempsize; $i>$tempsize-150; $i-=6){
-                    echo $temp[$i-$param];
-                    if($i>$tempsize-150){
-                        echo ',';  
-                    }
-                    
-                }
-                echo "];\n";
-
-    // // Valeurs de la semaine (moyennes)
-    //     // Echo de l'heure sur la semaine
-    //         $tempsize = sizeof($time)-1;
-    //         echo "var timeScalerawweek  = [" ;
-    //         $ok = TRUE;
-    //         $tab = 0;
-    //         $day = 144;
-    //         $k = 0;
-    //         while($ok){
-    //             for($i = $timesize; $i>$timesize-(1008); $i-=144){
-    //                 $timeday1[$tab] = substr($time[$i-$param], 0, -8);
-    //                 $tab++;
-    //             }
-    //             echo "'" . $timeday1[$k] . "'";
-    //             $k++;
-    //             $day += 144;
-                
-    //             if($day > 1008){
-    //                 $ok = !$ok;
-    //             }
-    //             else{
-    //                 echo ",";
-    //             }
-                
-    //         }
-    //         echo "];\n";
-        
-    //     // Echo de l'humidité sur la semaine
-    //         $humsize = sizeof($hum)-1;
-    //         echo "var humrawweek  = [" ;
-    //         $ok = TRUE;
-    //         $tab = 0;
-    //         $day = 24;
-    //         $humday1 = [];
-    //         while($ok){
-    //             for($i = $humsize; $i>$humsize-$day; $i-=24){
-    //                 array_push($humday1,$hum[$i-$param]);
-    //                 $tab++;
-    //             }
-    //             echo bcdiv(array_sum($humday1) / count($humday1), 1, 2);
-    //             $day += 24;
-                
-    //             if($day > 168){
-    //                 $ok = !$ok;
-    //             }
-    //             else{
-    //                 echo ",";
-    //             }
-                
-    //         }
-    //         echo "];\n";
-            
-    //     // Echo de la temperature sur la semaine
-    //         $tempsize = sizeof($temp)-1;
-    //         echo "var temprawweek  = [" ;
-    //         $ok = TRUE;
-    //         $tab = 0;
-    //         $day = 144;
-    //         while($ok){
-    //             for($i = $tempsize; $i>$tempsize-$day; $i-=144){
-    //                 $tempday1[$tab] = $temp[$i-$param];
-    //                 $tab++;
-    //             }
-    //             echo bcdiv(array_sum($tempday1) / count($tempday1), 1, 2);
-    //             $day += 144;
-
-    //             if($day > 1008){
-    //                 $ok = !$ok;
-    //             }
-    //             else{
-    //                 echo ",";
-    //             }
-                
-    //         }
-    //         echo "];\n";
-    // Valeurs du mois
-        // Echo de l'heure sur le mois
-            $tempsize = sizeof($time)-1;
-            echo "var timeScalerawmonthtest  = [" ;
-            $ok = TRUE;
-            $tab = 0;   
-            $day = 144;
-            $k = 0;
-            while($ok){
-                for($i = $timesize; $i>$timesize-4464; $i-=144){
-                    $timeday1[$tab] = substr($time[$i-$param], 0, -8);
-                    $tab++;
-                }
-                echo "'" . $timeday1[$k] . "'";
-                $k++;
-                $day += 144;
-                
-                if($day > 4464){
-                    $ok = !$ok;
-                }
-                else{
-                    echo ",";
-                }
-                
-            }
-            echo "];\n";
-        // Echo de l'humidité sur le mois
-            $humsize = sizeof($hum)-1;
-            echo "var humrawmonth  = [" ;
-            $ok = TRUE;
-            $tab = 0;
-            $day = 144;
-            $humday1 = [];
-            while($ok){
-                for($i = $humsize; $i>$humsize- $day; $i-=144){
-                    array_push($humday1,$hum[$i-$param]);
-                    $tab++;
-                }
-                echo bcdiv(array_sum($humday1) / count($humday1), 1, 2);
-                $day += 144;
-                
-                if($day > 4464){
-                    $ok = !$ok;
-                }
-                else{
-                    echo ",";
-                }
-                
-            }
-            echo "];\n";
-        
-        // Echo de la temperature sur le mois
-            $tempsize = sizeof($temp)-1;
-            echo "var temprawmonthtest  = [" ;
-            $ok = TRUE;
-            $tab = 0;
-            $day = 48;
-            while($ok){
-                for($i = $tempsize; $i>$tempsize-$day; $i--){
-                    $tempday1[$tab] = $temp[$i];
-                    $tab++;
-                }
-                echo bcdiv(array_sum($tempday1) / count($tempday1), 1, 2);
-                $day += 48;
-                
-                if($day > 745.5){
-                    echo $day;
-                    $ok = !$ok;
-                }
-                else{
-                    echo ",";
-                }
-                
-            }
-            echo "];\n";
             
                 echo "\n</script>";
             mysqli_free_result($result);
@@ -506,11 +306,6 @@ function updateSQL(){
         
     }
 
-    
-    
-   
-
-       
 }
 updateSQL();
 function month(){
@@ -619,7 +414,6 @@ $param = $_GET['param'];
 if($param + 4464 < getTotalValues()-2 - 4464){
     month();
 }
-
 function week(){
     $param = $_GET['param'];
     $show = $_GET['show'];  
@@ -682,7 +476,7 @@ function week(){
                                 $temp[] = $row['temp'];   
                             }
                             echo bcdiv(array_sum($temp) / count($temp), 1, 2);
-                            if($coma < 7){
+                            if($coma <  6){
                                 echo ',';
                                 $coma++;
                             }
@@ -706,7 +500,7 @@ function week(){
                                 $hum[] = $row['hum'];   
                             }
                             echo bcdiv(array_sum($hum) / count($hum), 1, 2);
-                            if($coma < 8){
+                            if($coma < 6){
                                 echo ',';
                                 $coma++;
                             }
@@ -722,7 +516,111 @@ function week(){
     
    
 }
-week()
+week();
+function day(){
+    $param = $_GET['param'];
+    $show = $_GET['show'];  
+    $link = mysqli_connect("localhost:3306", "root", "root", "releves");
+    if ($link->connect_errno) {
+        echo "Echec lors de la connexion à mysqli : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    
+        
+        $query = "SELECT * FROM pimeteo;";
+        $sql =  $query ;
+    $temp = [];
+    $hum = [];
+    if($result = mysqli_query($link, $sql)){
+
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_array($result)){
+                $date[] = $row['date']; 
+            }
+        
+        $i = 0;
+        $coma = 0;
+        $oldstamp = "";
+        $datesok = [];
+       
+        for($d = sizeof($date)-1; $d > sizeof($date)-144; $d--){
+            if($oldstamp == substr($date[$d-$param], 0, -6)){
+                $oldstamp = substr($date[$d-$param], 0, -6);
+            }
+            else{
+                $oldstamp = substr($date[$d-$param], 0, -6); // Nouvelle date
+                array_push($datesok, $oldstamp);
+            }
+        }
+        $datesize = sizeof($datesok)-1;
+        echo "\n";
+        echo "<script>";
+        echo "timeScalerawday = ["; 
+        for($da = $datesize; $da > 0; $da--){
+            echo '"';
+            echo $datesok[$da] . ":00";
+            echo '"';
+            $coma++;
+            if($coma < 24){
+                echo ",";
+            }
+            
+
+        }
+        echo "]";
+        $coma = 0;
+        echo "\n";
+        echo "temprawday   = [";
+        for($d = $datesize; $d > $datesize-24; $d--){
+         //1 nouveau jour unique
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                
+                            while($row = mysqli_fetch_array($result)){ 
+                                $temp[] = $row['temp'];   
+                            }
+                            echo bcdiv(array_sum($temp) / count($temp), 1, 2);
+                            if($coma < 23){
+                                echo ',';
+                                $coma++;
+                            }
+                        }
+                    }
+                    $temp = [];  
+         }
+         echo "] ";
+        
+        }
+        $coma = 0;
+        echo "\n";
+        echo "humrawday   = [";
+        for($d = $datesize; $d > $datesize-24; $d--){
+         //1 nouveau jour unique
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                
+                            while($row = mysqli_fetch_array($result)){ 
+                                $hum[] = $row['hum'];   
+                            }
+                            echo bcdiv(array_sum($hum) / count($hum), 1, 2);
+                            if($coma < 23){
+                                echo ',';
+                                $coma++;
+                            }
+                        }
+                    }
+                    $hum = [];  
+         }
+         echo "] ";
+        
+        echo "</script>";
+        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = 0;
+    }
+    
+   
+}
+day();
 ?>
 <script src="./scripts/notifs.js">              </script>
 <script src="./scripts/chartjs.js">             </script>

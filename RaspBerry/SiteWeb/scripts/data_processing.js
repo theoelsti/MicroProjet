@@ -2,9 +2,9 @@
 var hum = humraw
 var temp = tempraw
 var timeScale = timeScaleraw
-var humday = humrawday
-var tempday = temprawday
-var timeScaleday = timeScalerawday
+var humday = humrawday.reverse()
+var tempday = temprawday.reverse()
+var timeScaleday = timeScalerawday.reverse()
 
 // if the day is the same we only show the date on the first value
 if(
