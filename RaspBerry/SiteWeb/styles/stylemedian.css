@@ -267,16 +267,3 @@ Style pour la date
 
 }
 
-html, body {
-	height: 100%;
-	margin: 0;
-  }
-  .wrapper {
-	min-height: 100%;
-  
-	margin-bottom: -50px;
-  }
-  .footer,
-  .push {
-	height: 50px;
-  }
