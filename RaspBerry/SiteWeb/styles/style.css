@@ -19,6 +19,9 @@
 html{
 	scroll-behavior: smooth;
 }
+* {
+	outline: none;
+}
 /*
 Style pour la date
 */
@@ -81,17 +84,9 @@ Style pour la date
 	height: 50px;
 	font-size: 130%;
 	cursor: pointer;
+	
 }
-.buttonl{
-	margin: 10px;
-	background-color: #40237588;
-	border: solid #650D89 1px;
-	border-radius: 5px;
-	width:70px;
-	height: 40px;
-	font-size: 130%;
-	cursor: pointer;
-}
+
 .buttonre{
 	margin: 10px;
 	background-color: #0B6B0E;
@@ -107,6 +102,7 @@ Style pour la date
 }
 .buttonre:hover{
 	background-color: #FF436544;
+	border: none;
 }
 
 /*
@@ -134,5 +130,6 @@ stroke-width: 10;
 	stroke-width: 13;
 }
 
-
-
+/*
+// 0xFadeath Copyrigthed this //
+*/

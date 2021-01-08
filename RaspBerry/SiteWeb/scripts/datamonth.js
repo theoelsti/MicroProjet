@@ -1,9 +1,11 @@
-
-    // Moyenne / jour
-    var hummonth = humrawmonth
-    var tempmonth = temprawmonth 
-    var timeScalemonth  = timeScalerawmonth 
-    var hummonth  = hummonth.reverse();
-    var tempmonth  = tempmonth .reverse();
-    var timeScalemonth  = timeScalemonth .reverse();
-    let timeScaleweekdays = []
+if(param + 4464 < ((totalvalues-2) - 4464)){
+// Moyenne / jour
+var hummonth = humrawmonth
+var tempmonth = temprawmonth 
+var timeScalemonth  = timeScalerawmonth.reverse() 
+var hummonth  = hummonth
+var tempmonth  = tempmonth 
+var timeScalemonth  = timeScalemonth;
+let timeScaleweekdays = []
+  }
+  // 0xFadeath Copyrigthed this

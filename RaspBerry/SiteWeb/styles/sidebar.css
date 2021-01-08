@@ -47,11 +47,13 @@ margin-left: 50px;
     transform: rotate(360deg) scale(1);
 }
 .buttonre:hover .refreshico {
-    transform: rotate(520deg) scale(1);
+    transform: rotate(520deg) scale(1.5);
 }
+
 .buttonre .refreshico {
 	width: 45%;
-    transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	transform: rotate(1040deg) scale(1);
 }
 .openbtn {
 	font-size: 20px;
@@ -78,3 +80,7 @@ text-align: center;
 .sidebar {padding-top: 15px;}
 .sidebar a {font-size: 18px;}
 }
+
+/*
+// 0xFadeath Copyrigthed this //
+*/

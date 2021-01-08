@@ -13,3 +13,4 @@ setInterval(function(){
         return
     }
 },5)
+// 0xFadeath Copyrigthed this

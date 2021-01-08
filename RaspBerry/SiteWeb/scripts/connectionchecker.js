@@ -15,7 +15,7 @@ function doesConnectionExist() {
           if(lastState == 0){
             lastState = 1
             // document.getElementById("location").innerHTML = `Connecté à ${window.location.hostname} sur le port ${window.location.port}`;
-            if(window.location.hostname == "localhost") msg = `<b>Connecté</b> au localhost `
+            if(window.location.hostname == "localhost") msg = `🌐<b>Connecté</b> au localhost `
             else `<b>Connecté</b> à ${window.location.hostname}`
             new ToasterBox({
               msg: msg,
@@ -23,23 +23,23 @@ function doesConnectionExist() {
               time: 5000,
               className: null,
               closeButton: false,
-              maxWidth: 300,
+              maxWidth: 180,
               autoOpen: true,
               position: 'top-right', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
               backgroundColor: "#338204",
               closeIcon: null
               })
-            
+              
           } 
         }else{
           if(lastState){
             new ToasterBox({
-              msg: `<b>Déconnecté</b> du serveur`,
+              msg: `🔌<b>Déconnecté</b> du serveur`,
               html: true,
               time: 5000,
               className: null,
               closeButton: false,
-              maxWidth: 350,
+              maxWidth: 200,
               autoOpen: true,
               position: 'top-right', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
               backgroundColor: null,
@@ -55,3 +55,4 @@ function doesConnectionExist() {
 }
 doesConnectionExist()
 setInterval(doesConnectionExist, 10000)
+// 0xFadeath Copyrigthed this

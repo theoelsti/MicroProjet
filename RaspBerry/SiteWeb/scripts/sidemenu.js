@@ -11,3 +11,4 @@ function closeNav() {
 document.getElementById("mySidebar").style.width = "0";
 opened = false
 }
+// 0xFadeath Copyrigthed this
