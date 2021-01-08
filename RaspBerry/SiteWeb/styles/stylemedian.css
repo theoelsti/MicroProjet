@@ -266,3 +266,12 @@ Style pour la date
 	opacity: 25%;
 
 }
+
+.footer {
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	height: 90px;
+	background-color: #D0DAEE;
+  }
