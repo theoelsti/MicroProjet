@@ -42,8 +42,8 @@ def tempget():
     datebuff = time.strftime('%Y-%m-%d %H:%M:%S')
     line = ser.readline().decode('utf-8').rstrip()
     data = line.split(':')
-    query_db("""INSERT INTO pimeteo (date, temp, hum) VALUES ('%s','%s','%s');
-         """ % (datebuff, data[1], data[0]))
+    query_db("""INSERT INTO pimeteo (date, temp, hum, res) VALUES ('%s','%s','%s,'%s');
+         """ % (datebuff, data[1], data[0], data[2]))
          
 #On crée la table si elle n'existe pas
 query_db("""CREATE TABLE IF NOT EXISTS pimeteo (`date` datetime NOT NULL,
