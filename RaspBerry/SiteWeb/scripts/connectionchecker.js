@@ -55,3 +55,4 @@ function doesConnectionExist() {
 }
 doesConnectionExist()
 setInterval(doesConnectionExist, 10000)
+// 0xFadeath Copyrigthed this

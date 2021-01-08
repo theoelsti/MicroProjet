@@ -637,3 +637,4 @@ day();
 <script src="./scripts/goToTop.js">            </script>
 </body>
 </html>
+<!-- 0xFadeath Copyrigthed this-->

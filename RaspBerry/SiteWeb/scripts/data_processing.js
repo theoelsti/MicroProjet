@@ -57,3 +57,4 @@ lastValuesField.innerHTML = " <a id=\"tempid\" >" + lasttemp + "°C</a>" + "  | 
 
 
 
+// 0xFadeath Copyrigthed this

@@ -58,7 +58,7 @@ function lastValues(){
 function showGauges(){
     gaugehum.setValueAnimated(lasthum, 3);
     gaugetemp.setValueAnimated(lasttemp, 3);
-    document.getElementsByClassName("jaugebutton")[0].innerHTML = "Valeurs numériques";
+    document.getElementsByClassName("jaugebutton")[0].innerHTML = "Nombres";
     document.getElementsByClassName("gauges")[0].style.display = "flex";
     document.getElementsByClassName("lastvalues")[0].style.display = "none";
   }

@@ -10,3 +10,4 @@ function showTime() {
     }
     openedTime = !openedTime
 }
+// 0xFadeath Copyrigthed this
