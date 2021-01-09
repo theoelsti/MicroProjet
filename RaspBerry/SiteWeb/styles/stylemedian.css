@@ -267,3 +267,10 @@ Style pour la date
 
 }
 
+.footer{
+	background: #202020;
+	color:#fbfbfb;
+	height: 200px;
+}
+
+.footer .footer-things
