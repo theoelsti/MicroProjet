@@ -1,10 +1,14 @@
 let i = 0
+
+
+var intervalListener = self.setInterval(function () {countForTotal()}, 6);
 var lastValuesField = document.getElementsByClassName("lastvalues")[0];
 let t = 0.0;
 let h = 0.0;
 let r = 0.0;
 let humdone = false;
-setInterval(function(){
+
+function countForTotal(){  
     if(h <= lasthum){
         if(r < lastres)r+=0.1
         if(t < lasttemp) t += 0.1;
@@ -12,7 +16,7 @@ setInterval(function(){
         lastValuesField.innerHTML = " <span title='Température brute' id=\"tempid\" >" + t.toFixed(1) + "°C</span>" + "  |  <span title='Humidité' id=\"humid\" >"+  h.toFixed(1) + "% </span> | <span title='Temperature ressentie' id=\"resid\">"+  r.toFixed(1) + "°C</span>" ;
     i++;}
     else{
-        return
+        window.clearInterval(intervalListener);
     }
-},6)
+}
 // 0xFadeath Copyrigthed this
