@@ -1,7 +1,11 @@
  /*
 Style pour le soleil
 */
+.sun-container{
+	position:relative;
+}
 .sun {
+	position:absolute;
     width: 100px;
 	float: left;
 	height: 100px;

@@ -6,6 +6,7 @@
 
 <title>Station meteo</title>
 <link rel="shortcut icon" href="./images/sun.ico">
+
 <meta charset="utf-8">
 <link href="./styles/stylemedian.css" rel="stylesheet"/>
 <script src="./scripts/clock.js"></script>
@@ -43,8 +44,10 @@
 </div>
 
 <div class="top">
-<div class="sun"></div>
-
+    <div class="sun-container">
+        <div class="sun"></div>
+    </div>
+    
     <div class="title">
         Valeurs et données
     </div> 
