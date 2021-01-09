@@ -374,6 +374,7 @@ function month(){
 
         }
         echo "]";
+
         $coma = 0;
         echo "\n";
         echo "temprawmonth   = [";
@@ -397,6 +398,29 @@ function month(){
          }
          echo "] ";
         
+
+         $coma = 0;
+        echo "\n";
+        echo "resrawmonth   = [";
+        for($d = $datesize; $d > $datesize-31; $d--){
+         //1 nouveau jour unique
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                
+                            while($row = mysqli_fetch_array($result)){ 
+                                $res[] = $row['res'];   
+                            }
+                            echo bcdiv(array_sum($res) / count($res), 1, 2);
+                            if($coma < 30){
+                                echo ',';
+                                $coma++;
+                            }
+                        }
+                    }
+                    $res = [];  
+         }
+         echo "] ";
         }
         $coma = 0;
         echo "\n";
@@ -422,7 +446,7 @@ function month(){
          echo "] ";
         
         echo "</script>";
-        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = 0;
+        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = $res= 0;
     }
     
    
@@ -480,6 +504,7 @@ function week(){
 
         }
         echo "]";
+
         $coma = 0;
         echo "\n";
         echo "temprawweek   = [";
@@ -500,6 +525,29 @@ function week(){
                         }
                     }
                     $temp = [];  
+         }
+         echo "] ";
+        
+        $coma = 0;
+        echo "\n";
+        echo "resrawweek   = [";
+        for($d = $datesize; $d > $datesize-7; $d--){
+         //1 nouveau jour unique
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                
+                            while($row = mysqli_fetch_array($result)){ 
+                                $res[] = $row['res'];   
+                            }
+                            echo bcdiv(array_sum($res) / count($res), 1, 2);
+                            if($coma <  6){
+                                echo ',';
+                                $coma++;
+                            }
+                        }
+                    }
+                    $res = [];  
          }
          echo "] ";
         
@@ -528,7 +576,7 @@ function week(){
          echo "] ";
         
         echo "</script>";
-        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = 0;
+        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = $res =  0;
     }
     
    

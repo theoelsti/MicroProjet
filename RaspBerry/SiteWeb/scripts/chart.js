@@ -78,7 +78,17 @@ var dataweek = {
         backgroundColor: '#2DE2E610',
         borderColor: '#2DE2E6',
         data: humweek
-    }]}
+    },
+    {
+      label:'Température ressentie',
+      color:'#FFFFFF',
+      backgroundColor: '#2DE2E600',
+      borderColor: '#ffac11',
+      data: resweek
+  }
+  
+  
+  ]}
 if(param + 4464 < ((totalvalues-2) - 4464)){
 var datamonth = {
 labels: timeScalerawmonth.reverse(),
@@ -96,7 +106,18 @@ datasets: [{
     backgroundColor: '#2DE2E610',
     borderColor: '#2DE2E6',
     data: hummonth
-}]}
+},
+{
+  label:'Température ressentie',
+  color:'#FFFFFF',
+  backgroundColor: '#2DE2E600',
+  borderColor: '#ffac11',
+  data: resmonth
+}
+
+
+
+]}
 }
 /*
       o__ __o                   o        o                                      

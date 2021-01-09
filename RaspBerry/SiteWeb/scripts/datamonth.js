@@ -1,11 +1,8 @@
 if(param + 4464 < ((totalvalues-2) - 4464)){
 // Moyenne / jour
-var hummonth = humrawmonth
+var hummonth  = humrawmonth
 var tempmonth = temprawmonth 
+var resmonth  = resrawmonth 
 var timeScalemonth  = timeScalerawmonth.reverse() 
-var hummonth  = hummonth
-var tempmonth  = tempmonth 
-var timeScalemonth  = timeScalemonth;
-let timeScaleweekdays = []
   }
   // 0xFadeath Copyrigthed this
