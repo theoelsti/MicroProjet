@@ -2,6 +2,9 @@
 var hum = humraw
 var temp = tempraw
 var timeScale = timeScaleraw
+var res = resraw
+
+var resday = resrawday
 var humday = humrawday.reverse()
 var tempday = temprawday.reverse()
 var timeScaleday = timeScalerawday.reverse()

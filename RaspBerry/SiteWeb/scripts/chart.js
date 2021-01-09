@@ -15,10 +15,8 @@ var data = {
     labels: timeScale,
     datasets: [{
         label:'Température',
-        backgroundColor: '#D4007810',
-        borderColor: '#D40078',
-        pointStrokeColor: "#F6019D",
-        pointHighlightFill: "#F6019D",
+        backgroundColor: '#FF6C1110',
+        borderColor: '#FF3a11',
         data: temp
     },
     {
@@ -27,7 +25,16 @@ var data = {
         backgroundColor: '#2DE2E610',
         borderColor: '#2DE2E6',
         data: hum
-    }]}
+    },
+    {
+      label:'Température ressentie',
+      color:'#FFFFFF',
+      backgroundColor: '#2DE2E600',
+      borderColor: '#ffac11',
+      data: res
+  }
+  
+  ]}
 var dataday = {
     labels: timeScaleday,
     datasets: [{
@@ -44,7 +51,17 @@ var dataday = {
         backgroundColor: '#2DE2E610',
         borderColor: '#2DE2E6',
         data: humday
-    }]}
+    },
+    {
+      label:'Température ressentie',
+      color:'#FFFFFF',
+      backgroundColor: '#2DE2E600',
+      borderColor: '#ffac11',
+      data: resday
+  }
+  
+  
+  ]}
 var dataweek = {
     labels: timeScaleweek,
     datasets: [{
@@ -372,6 +389,7 @@ $("#10").on("click", function() {
   showMinutesButtons()
   show = 0;
   chartmeteo = new Chart(context1, config);});
+
 $("#day").on("click", function() {
   chartmeteo.destroy()
   showHoursButtons()
@@ -380,6 +398,7 @@ $("#day").on("click", function() {
   hideMinutesButtons()
   show = 1;
   chartmeteo = new Chart(context2, config1);});
+
 $("#week").on("click", function() {
   chartmeteo.destroy()
   hideHoursButtons()
@@ -387,6 +406,7 @@ $("#week").on("click", function() {
   var context3 = document.getElementById('meteoChart').getContext('2d');
   show = 2;
   chartmeteo = new Chart(context3, configweek);});
+
 $("#month").on("click", function() {
   if((document.getElementById("month").style.cursor != "not-allowed")){
     chartmeteo.destroy()
@@ -440,6 +460,7 @@ if(param -144 <= -1){
 }
 else window.location.href = url;
 });
+
 $("#minusday").on("click", function() { 
 if(checkminus(144)){
   url = '?param=' + (parseInt(param) + 144)+ '&show=' + parseInt(show) + '#anchor'
@@ -447,7 +468,6 @@ if(checkminus(144)){
 }
 
 });
-
 
 
 $("#plusmonth").on("click", function() { 
