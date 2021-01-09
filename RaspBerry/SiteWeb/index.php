@@ -251,11 +251,13 @@ function updateSQL(){
                     $time[] = $row['date'];
                     $temp[] = $row['temp'];
                     $hum[] = $row['hum'];
+                    $res[] = $row['res'];
             }
             echo 'let totalvalues = ' . sizeof($time) . "; \n";
             $totalvalues = sizeof($time);
             echo 'let mostRecentDate = "' . $time[sizeof($time)-1] . '"; ' . "\n";
         // 10 Dernieres valeurs
+                echo 'let lastres = ' . $res[sizeof($res)-1] . "\n";
                 echo 'let lasttemp = ' . $temp[sizeof($temp)-1] . "\n";
                 echo 'let lasthum = ' . $hum[sizeof($hum)-1] . "\n";
                 //echo des temperature

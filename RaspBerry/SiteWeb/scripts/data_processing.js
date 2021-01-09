@@ -53,7 +53,7 @@ var lastField =  document.getElementsByClassName("dataText")[0];
 var lastValuesField = document.getElementsByClassName("lastvalues")[0];
 
 lastField.innerHTML = "les dernières valeurs relevées sont :"
-lastValuesField.innerHTML = " <a id=\"tempid\" >" + lasttemp + "°C</a>" + "  |  <a id=\"humid\" >"+  lasthum + "% </a>"
+lastValuesField.innerHTML = " <a id=\"tempid\" >" + lasttemp + "°C</a>" + "  |  <a id=\"humid\" >"+  lasthum + "% </a> | cc  "
 
 
 

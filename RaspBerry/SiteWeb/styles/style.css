@@ -63,6 +63,12 @@ Style pour la date
 	color:#2067d1 ;
 	font-family: robot;
 }
+#resid{
+	font-size: 40px;
+	text-align: center;
+	color:#ffac11 ;
+	font-family: robot;
+}
 
 .lastvalues{
 	font-size: 45px;
