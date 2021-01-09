@@ -5,4 +5,4 @@ var tempmonth = temprawmonth
 var resmonth  = resrawmonth 
 var timeScalemonth  = timeScalerawmonth.reverse() 
   }
-  // 0xFadeath Copyrigthed this
+// 0xFadeath Copyrigthed this

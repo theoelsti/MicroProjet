@@ -133,7 +133,7 @@ datasets: [{
                      |                                                          
                     / \                                                         
 */
-var options = {
+var options = { 
     title:{
         display:true,
         text:'Température et Humidité des 10 derniers relevés',
@@ -325,70 +325,79 @@ data: datamonth,
 options: optionsmonth}
 
 let chartmeteo = new Chart(ctx, config);
-
-switch(show){
-case 1:
-  chartmeteo.destroy()
-  var context2 = document.getElementById('meteoChart').getContext('2d');
-  chartmeteo = new Chart(context2, config1);
-
-  new ToasterBox({
-    msg: `Tranche Horaire séléctionnée : </Br> ${timeScaleday[0]} ➡️ ${timeScaleday[23]}`,
-    html: true,
-    time: 10000,
-    className: null,
-    closeButton: false,
-    maxWidth: 350,
-    autoOpen: true,
-    position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
-    backgroundColor: "#288CC0",
-    closeIcon: false
-  })
-  break;
-case 2:
-  chartmeteo.destroy()
-  var context3 = document.getElementById('meteoChart').getContext('2d');
-  chartmeteo = new Chart(context3, configweek);
-  new ToasterBox({
-    msg: `Tranche Horaire séléctionnée : </Br> ${timeScaleweek[0]} ➡️ ${timeScaleweek[5]}`,
-    html: true,
-    time: 10000,
-    className: null,
-    closeButton: false,
-    maxWidth: 220,
-    autoOpen: true,
-    position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
-    backgroundColor: "#288CC0",
-    closeIcon: false
-  })
-  hideMinutesButtons()
+function switchShow(){
+  if(document.getElementsByClassName(('toaster-container')).length){
+    var elements = document.getElementsByClassName(('toaster-container'))
+    elements[0].parentNode.removeChild(elements[0])
+  }
+    
   
-  break;
-case 3:
-  if(param + 4464 < ((totalvalues-2) - 4464)){
-  new ToasterBox({
-    msg: `${timeScalerawmonth[0]} ➡️ ${timeScalerawmonth[30]}`,
-    html: true,
-    time: 10000,
-    className: null,
-    closeButton: false,
-    maxWidth: 180,
-    autoOpen: true,
-    position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
-    backgroundColor: "#288CC0",
-    closeIcon: false
-  })
-  }  
-  chartmeteo.destroy()
-  var context3 = document.getElementById('meteoChart').getContext('2d');
-  chartmeteo = new Chart(context3, configmonth);
-  hideHoursButtons()
-  hideMinutesButtons()
+ 
+  switch(show){
+  case 1:
+    chartmeteo.destroy()
+    var context2 = document.getElementById('meteoChart').getContext('2d');
+    chartmeteo = new Chart(context2, config1);
 
-  break
-default:
-  break
+    new ToasterBox({
+      msg: ` ${timeScaleday[0]} ➡️ ${timeScaleday[22]}`,
+      html: true,
+      time: 10000,
+      className: null,
+      closeButton: false,
+      maxWidth: 350,
+      autoOpen: true,
+      position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+      backgroundColor: "#288CC0",
+      closeIcon: false
+    })
+    break;
+  case 2:
+    chartmeteo.destroy()
+    var context3 = document.getElementById('meteoChart').getContext('2d');
+    chartmeteo = new Chart(context3, configweek);
+    new ToasterBox({
+      msg: `${timeScaleweek[0]} ➡️ ${timeScaleweek[5]}`,
+      html: true,
+      time: 10000,
+      className: null,
+      closeButton: false,
+      maxWidth: 200,
+      autoOpen: true,
+      position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+      backgroundColor: "#288CC0",
+      closeIcon: false
+    })
+    hideMinutesButtons()
+    
+    break;
+  case 3:
+    if(param + 4464 < ((totalvalues-2) - 4464)){
+    new ToasterBox({
+      msg: `${timeScalerawmonth[0]} ➡️ ${timeScalerawmonth[30]}`,
+      html: true,
+      time: 10000,
+      className: null,
+      closeButton: false,
+      maxWidth: 180,
+      autoOpen: true,
+      position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+      backgroundColor: "#288CC0",
+      closeIcon: false
+    })
+    }  
+    chartmeteo.destroy()
+    var context3 = document.getElementById('meteoChart').getContext('2d');
+    chartmeteo = new Chart(context3, configmonth);
+    hideHoursButtons()
+    hideMinutesButtons()
+
+    break
+  default:
+    break
+  }
 }
+switchShow()
 /*
          o            o__ __o      o__ __o      o                o                                               
         <|>          /v     v\    /v     v\   _<|>_             <|>                                              
@@ -406,9 +415,11 @@ default:
 $("#10").on("click", function() {
   chartmeteo.destroy()
   var context1 = document.getElementById('meteoChart').getContext('2d');
+  
   showHoursButtons()
   showMinutesButtons()
   show = 0;
+  switchShow()
   chartmeteo = new Chart(context1, config);});
 
 $("#day").on("click", function() {
@@ -418,6 +429,7 @@ $("#day").on("click", function() {
   var context2 = document.getElementById('meteoChart').getContext('2d');
   hideMinutesButtons()
   show = 1;
+  switchShow()
   chartmeteo = new Chart(context2, config1);});
 
 $("#week").on("click", function() {
@@ -426,6 +438,7 @@ $("#week").on("click", function() {
   hideMinutesButtons()
   var context3 = document.getElementById('meteoChart').getContext('2d');
   show = 2;
+  switchShow()
   chartmeteo = new Chart(context3, configweek);});
 
 $("#month").on("click", function() {
@@ -435,6 +448,7 @@ $("#month").on("click", function() {
     hideMinutesButtons()
     var context3 = document.getElementById('meteoChart').getContext('2d');
     show = 3;
+    switchShow()
     chartmeteo = new Chart(context3, configmonth)
   }
   else{
