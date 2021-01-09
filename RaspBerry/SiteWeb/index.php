@@ -139,6 +139,10 @@ onmousedown="return false;"
         <div title="Humidité" class="display">
             <div id="gaugehum" class="gauge-container two">        </div>
         </div>
+
+        <div title="Température ressentie" class="display">
+            <div id="gaugeres" class="gauge-container two">        </div>
+        </div>
 </div>
 <div style="display:flex; justify-content:center">
 <div class="selectors">
