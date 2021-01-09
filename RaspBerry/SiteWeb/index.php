@@ -139,6 +139,10 @@ onmousedown="return false;"
         <div title="Humidité" class="display">
             <div id="gaugehum" class="gauge-container two">        </div>
         </div>
+
+        <div title="Température ressentie" class="display">
+            <div id="gaugeres" class="gauge-container two">        </div>
+        </div>
 </div>
 <div style="display:flex; justify-content:center">
 <div class="selectors">
@@ -277,7 +281,18 @@ function updateSQL(){
                 echo "var humraw  = [" ;
                 for($i = $humsize; $i>$humsize-10; $i--){
                     echo $hum[$i-$param];
-                    if($i>$tempsize-9){
+                    if($i>$humsize-9){
+                        echo ',';  
+                    }
+                    
+                }
+                // Echo de la temperature ressentie
+                echo "];\n";
+                $ressize = sizeof($res)-1;
+                echo "var resraw  = [" ;
+                for($i = $ressize; $i>$ressize-10; $i--){
+                    echo $res[$i-$param];
+                    if($i>$ressize-9){
                         echo ',';  
                     }
                     
@@ -359,6 +374,7 @@ function month(){
 
         }
         echo "]";
+
         $coma = 0;
         echo "\n";
         echo "temprawmonth   = [";
@@ -382,6 +398,29 @@ function month(){
          }
          echo "] ";
         
+
+         $coma = 0;
+        echo "\n";
+        echo "resrawmonth   = [";
+        for($d = $datesize; $d > $datesize-31; $d--){
+         //1 nouveau jour unique
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                
+                            while($row = mysqli_fetch_array($result)){ 
+                                $res[] = $row['res'];   
+                            }
+                            echo bcdiv(array_sum($res) / count($res), 1, 2);
+                            if($coma < 30){
+                                echo ',';
+                                $coma++;
+                            }
+                        }
+                    }
+                    $res = [];  
+         }
+         echo "] ";
         }
         $coma = 0;
         echo "\n";
@@ -407,7 +446,7 @@ function month(){
          echo "] ";
         
         echo "</script>";
-        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = 0;
+        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = $res= 0;
     }
     
    
@@ -465,6 +504,7 @@ function week(){
 
         }
         echo "]";
+
         $coma = 0;
         echo "\n";
         echo "temprawweek   = [";
@@ -485,6 +525,29 @@ function week(){
                         }
                     }
                     $temp = [];  
+         }
+         echo "] ";
+        
+        $coma = 0;
+        echo "\n";
+        echo "resrawweek   = [";
+        for($d = $datesize; $d > $datesize-7; $d--){
+         //1 nouveau jour unique
+                    $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                
+                            while($row = mysqli_fetch_array($result)){ 
+                                $res[] = $row['res'];   
+                            }
+                            echo bcdiv(array_sum($res) / count($res), 1, 2);
+                            if($coma <  6){
+                                echo ',';
+                                $coma++;
+                            }
+                        }
+                    }
+                    $res = [];  
          }
          echo "] ";
         
@@ -513,7 +576,7 @@ function week(){
          echo "] ";
         
         echo "</script>";
-        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = 0;
+        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = $res =  0;
     }
     
    
@@ -615,9 +678,32 @@ function day(){
                     $hum = [];  
          }
          echo "] ";
-        
+
+
+         $coma = 0;
+         echo "\n";
+         echo "resrawday   = [";
+         for($d = $datesize; $d > $datesize-24; $d--){
+          //1 nouveau jour unique
+                     $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
+                     if($result = mysqli_query($link, $sql)){
+                         if(mysqli_num_rows($result) > 0){
+                 
+                             while($row = mysqli_fetch_array($result)){ 
+                                 $res[] = $row['res'];   
+                             }
+                             echo bcdiv(array_sum($res) / count($res), 1, 2);
+                             if($coma < 23){
+                                 echo ',';
+                                 $coma++;
+                             }
+                         }
+                     }
+                     $res = [];  
+          }
+          echo "] ";
         echo "</script>";
-        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = 0;
+        $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = $res = 0;
     }
     
    
