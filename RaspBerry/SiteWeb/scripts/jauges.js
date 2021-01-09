@@ -72,7 +72,7 @@ var gaugehum = Gauge(
         else {
             return "#ef4655";
         }
-        }
+        }   
     }
     );
 
