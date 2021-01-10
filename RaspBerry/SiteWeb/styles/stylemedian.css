@@ -124,6 +124,15 @@ Style pour la date
 	align-items: center;
 }
 
+.buttonZ	{
+	position: center;
+	display: flex;
+	text-size-adjust: 69%;
+	text-align: center;	
+	justify-content: center;
+	align-items: center;
+}
+
 .buttonXpos{
 	display: flex;
 	justify-content: center;
@@ -217,20 +226,20 @@ Background des divs valeurs
 
 .values-container{
 	justify-content: center;
-	margin: 20px;
+	margin: 15px;
 	color: #ffffff;
-    border-radius: 40px;
+    border-radius: 35px;
     width:350px;
     height: 100px;
 	font-family: robot;
-	font-size: 30px;
+	font-size: 25px;
 	text-align: center;
 	
 	
 }
 .number-container{
 	text-align: center;
-	font-size: 40px;
+	font-size: 25px;
 	margin-top: 4px; 
 }
 #total{
@@ -279,7 +288,7 @@ Background des divs valeurs
 }
 .humidity{
 	text-align: center;
-	font-size: 20px;
+	
 
 	background: linear-gradient(270deg, #5329d5, #9029d5, #d429d5);
     background-size: 600% 600%;

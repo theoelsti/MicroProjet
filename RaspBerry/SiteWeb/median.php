@@ -99,11 +99,17 @@
 <br>
 <div class="buttonW"> 
     <div class ="buttonYpos">
+        <div  id="tempweek" class="values-container temperature"> Temperature ressenti</div>
+        <div  id="humweek"  class="values-container humidity" > Temperature ressenti</div>
+    </div>
+</div>  
+<br>
+<div class="buttonZ"> 
+    <div class ="buttonYpos">
         <div  id="tempweek" class="values-container temperature"> Humidite</div>
         <div  id="humweek"  class="values-container humidity" > Humidite</div>
     </div>
-</div>  
-
+</div>
 
 
 <br><br><br>
@@ -243,6 +249,7 @@ function day(){
 day();
 getTotalValues()
 ?>
+
 
     </script>
 
