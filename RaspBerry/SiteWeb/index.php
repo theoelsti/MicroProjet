@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html style="background: rgb(252,227,69);
+background: linear-gradient(140deg, rgba(252,227,69,1) 0%, rgba(38,17,71,1) 10%, rgba(63,31,113,1) 20%, rgba(76,20,176,1) 81%, rgba(87,21,207,1) 97%);">
 
 <head>
 
@@ -41,8 +42,7 @@
     -->
 </head>
 <link rel="shortcut icon" href="./images/sun.ico"   />
-<body style="background: rgb(252,227,69);
-background: linear-gradient(140deg, rgba(252,227,69,1) 0%, rgba(38,17,71,1) 10%, rgba(63,31,113,1) 20%, rgba(76,20,176,1) 81%, rgba(87,21,207,1) 97%);" 
+<body 
 onLoad="initClock()"
 unselectable="on"
 onselectstart="return false;" 
@@ -724,8 +724,9 @@ day();
 <script src="./scripts/gauge.js">               </script>
 <script src="./scripts/jauges.js">              </script>
 <script src="./scripts/connectionchecker.js">   </script>
+<script src="./scripts/goToTop.js">            </script>    
 
-<script src="./scripts/goToTop.js">            </script>
+
 </body>
 </html>
 <!-- 0xFadeath Copyrigthed this-->
