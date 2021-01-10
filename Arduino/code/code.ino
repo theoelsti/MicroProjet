@@ -1,4 +1,4 @@
-#include <DHT.h>;
+#include <DHT.h>
 DHT dht(A0, DHT22);
 float hum;  
 float temp;
@@ -15,7 +15,7 @@ void loop()
     hum = dht.readHumidity();
     temp = dht.readTemperature();  
     tempRessentie = dht.computeHeatIndex(temp, hum, false); 
-    String payload = String(hum)+":"+String(temp)+":"+String(tempRessentie)"\n";
+    String payload = String(hum)+":"+String(temp)+":"+String(tempRessentie)+"\n";
     Serial.print(payload);
     delay(2000); 
 }

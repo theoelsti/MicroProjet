@@ -7,7 +7,8 @@ ser.flush()
 empty="TRUNCATE TABLE `pimeteo`;"
 #--------------------------#
 #----Gestion Base Mysql----#
-DB_SERVER ='127.0.0.1' 
+#--------------------------#
+DB_SERVER ='localhost' 
 DB_USER='root'     
 DB_PWD='root'          
 DB_BASE='releves'     
