@@ -69,7 +69,9 @@ onmousedown="return false;"
 
 
 <div class="top" >
+<div class="sun-container">
     <div class="sun"></div>
+</div>
     <!--        
         o         o                                                    
     <|>       <|>                                                   
@@ -101,7 +103,7 @@ onmousedown="return false;"
     <hr>
 
 
-    <div class="toolsbuttons">
+<div class="toolsbuttons">
 
     <button type = "submit" name="refresh"class="buttonre" id="refresh">
         <img src="./images/refresh.png" class="refreshico"/>

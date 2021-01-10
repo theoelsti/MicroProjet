@@ -120,6 +120,12 @@ Cartes
 	font-size: 100px;
 	color: #F9C80E;
 	}
+  .presentation{
+	text-align: center;
+	font-family: robot;
+	font-size: 30px;
+	color: whitesmoke;	
+	}
   .container {
 	display: grid;
 	grid-template-columns: 300px 300px 300px;
