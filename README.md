@@ -1,6 +1,6 @@
 # MicroProjet | Mini station météo
 
-###### tags: `ecole` `hardware` `web` `mysql` `python` `arduino`
+###### tags: `ecole` `hardware` `web` `mysql` `python` `arduino` `raspberry`
 
 ## Introduction
 
@@ -61,7 +61,7 @@ En fonction de votre choix, une notification persistance vous informera égaleme
 
 ![Plage horaire](https://i.imgur.com/khYrv7K.png)
 
-##### Performances
+##### 🏃‍♀️Performances
 
 Pour son fonctionnement, cette page effectue plusieurs requetes sql et stock les résultats sous forme de tableau JavaScript.
 Nous pensions au début que celle ci allait mettre beaucoup de temps à se charger, mais après 1 soirée d'optimisations, nous l'avons rendu ultra légère !
@@ -78,5 +78,23 @@ Cette page est déstinée à consulter les moyennes des valeurs. Vous y trouvere
 - Le Nombre total de valeurs relevées
 - La date du premier relevé
 - Des moyennes par semaine et par mois
+
+### Mise en fonctionnement
+
+#### Page web
+
+Afin d'acceder aux pages web, il suffit de lancer un serveur php dans le dossier du site
+
+```sh=1
+cd Raspberry/SiteWeb/
+```
+
+```sh=1  
+php -S <ip>:4000
+```
+
+Il ne vous reste plus qu'à vous rendre sur votre navigateur favori et d'acceder à la page d'accueil via cette adresse :
+
+**ip:4000/accueil.html**
 
 #### Fadeath
