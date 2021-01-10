@@ -112,6 +112,7 @@
     <hr/>
 
     <script>
+
 <?php
 function getTotalValues(){
     $link = mysqli_connect("localhost:3306", "root", "root", "releves");
@@ -247,6 +248,16 @@ getTotalValues()
 
 
 <div class="footer">
+    <a href="url">discord</a>
+    <br>
+    <a href="url">liens</a>
+    <br>
+    <a href="url">repository</a>
+    <br>
+    <a href="url">accueil</a>
+    <br>
+    <a href="url">station meteo</a>
+    <br>
     <div class="footer-inside">
         <div class="footer-about-us"></div>
         <div class="footer-link-us"></div>
@@ -256,6 +267,7 @@ getTotalValues()
     </div>
 
     <div class="footer-bottom">
+  
     </div>
 </div>
 <script src="./scripts/medianjs.js">   </script>

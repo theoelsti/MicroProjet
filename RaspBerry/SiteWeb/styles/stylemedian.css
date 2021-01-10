@@ -166,12 +166,26 @@ Style pour la date
 
 .footer{
 	color:#fbfbfb;
-	height: 350px;
+	height: 195px;
 	position: relative;
 	width: 100%;
 	background: #000000;
+	text-align: center;
+	color: #000000;
+	font-size: 25px;
+
+	background: rgb(159,48,152);
+	background: linear-gradient(90deg, rgba(159,48,152,1) 0%, rgba(96,31,125,1) 35%, rgba(14,65,168,1) 100%);
+	
+	border: 3px solid #ffffff;
 	
 }
+
+
+
+
+
+
 
 .footer .footer-things{
 	text-align: center;
@@ -180,25 +194,10 @@ Style pour la date
 	height: 50px;
 	width: 100%;
 	font-size: 23px;
-	border: 3px #ffffff;
-	position: center;
-	padding-top: 20px;
+	position: absolute;
+	padding-bottom: 0px;
 }
 
-.footer .footer-inside {
-	border: 1px solid #ffffff;
-	height: 300px;
-
-}
-
-.footer .footer-about-us{
-	background: #d001ca;
-	border: solid #000000 5px;
-	border: 3px #ffffff;
-	height: 280px;
-	width: 33.3%;
-	margin-left: 33.3%;
-}
 
 .scale{
 		display: flex;
@@ -218,13 +217,15 @@ Background des divs valeurs
 
 .values-container{
 	justify-content: center;
-	margin: 15px;
+	margin: 20px;
 	color: #ffffff;
-    border-radius: 35px;
-    width:250px;
+    border-radius: 40px;
+    width:350px;
     height: 100px;
-	font-size: 130%;
 	font-family: robot;
+	font-size: 30px;
+	text-align: center;
+	
 	
 }
 .number-container{
@@ -233,13 +234,13 @@ Background des divs valeurs
 	margin-top: 4px; 
 }
 #total{
-	background: #0a0a8e;
+	background: rgba(159,48,152,1);
 	border: solid #000000 3px;
 
 
 }
 #startdate{
-	background:  #4d077e ;
+	background: rgba(14,65,168,1)  ;
 	border: solid #000000 3px;
 }
 .temperature{
