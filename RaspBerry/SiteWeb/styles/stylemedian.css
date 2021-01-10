@@ -39,11 +39,11 @@ Style pour le soleil
 	background-color: #250097;
 	border-radius: 50%;
 	box-shadow:
-		0 0 0 20px #872060,
-		0 0 0 40px #fc328b,
-		0 0 0 60px #fe5a7d,
-		0 0 0 80px #f5656e,
-		0 0 0 100px #fc9057,
+		0 0 0 20px #4d88c3,
+		0 0 0 40px #59d6dd,
+		0 0 0 60px #e974ea,
+		0 0 0 80px #d429d5,
+		0 0 0 100px #893abf,
 		0 0 40px 100px #ffffff;
 	animation:
 		sunrise 2s infinite linear forwards,
@@ -57,20 +57,20 @@ Style pour le soleil
 @keyframes rays {
 	0% {
 		box-shadow: 
-		0 0 0 0#872060,
-		0 0 0 20px #fc328b,
-		0 0 0 40px #fe5a7d,
-		0 0 0 60px #f5656e,
-		0 0 0 80px #fc9057,
+		0 0 0 0#4d88c3,
+		0 0 0 20px #59d6dd,
+		0 0 0 40px #e974ea,
+		0 0 0 60px #d429d5,
+		0 0 0 80px #893abf,
 		0 0 40px 100px #ffffff;
 	}
 	100% {
 		box-shadow: 
-		0 0 0 20px #872060,
-		0 0 0 40px #fc328b,
-		0 0 0 60px #fe5a7d,
-		0 0 0 80px #f5656e,
-		0 0 0 100px #fc9057,
+		0 0 0 20px #4d88c3,
+		0 0 0 40px #59d6dd,
+		0 0 0 60px #e974ea,
+		0 0 0 80px #d429d5,
+		0 0 0 100px #893abf,
 		0 0 40px 100px #ffffff;
 	}
 }
