@@ -41,7 +41,8 @@
     -->
 </head>
 <link rel="shortcut icon" href="./images/sun.ico"   />
-<body style="background-color: #261447;" 
+<body style="background: rgb(252,227,69);
+background: linear-gradient(140deg, rgba(252,227,69,1) 0%, rgba(38,17,71,1) 10%, rgba(63,31,113,1) 20%, rgba(76,20,176,1) 81%, rgba(87,21,207,1) 97%);" 
 onLoad="initClock()"
 unselectable="on"
 onselectstart="return false;" 
@@ -60,7 +61,7 @@ onmousedown="return false;"
         <img src="./images/chart.png" style="width: 40px">
     </div>
     </a>
-    <a href="median.html">
+    <a href="median.php">
         <div class="menubutton">
             <img src="./images/eye.png" style="width: 40px">
         </div>
