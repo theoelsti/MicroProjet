@@ -16,7 +16,7 @@ function doesConnectionExist() {
             lastState = 1
             // document.getElementById("location").innerHTML = `Connecté à ${window.location.hostname} sur le port ${window.location.port}`;
             if(window.location.hostname == "localhost") msg = `🌐<b>Connecté</b> au localhost `
-            else msg= `<b>Connecté</b> à ${window.location.hostname}`
+            else msg= `🌐<b>Connecté</b> à ${window.location.hostname}`
             new ToasterBox({
               msg: msg,
               html: true,
