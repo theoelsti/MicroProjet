@@ -6,10 +6,10 @@ let humdone = false;
 
 var totalFunction = self.setInterval(function () {countForTotal()}, 4);
 function countForTotal(){    
-    if(t <= totalvalues-1){
+    if(t <= totalValues-1){
         
-        if(t+121 > totalvalues-1){
-            if(t+10 > totalvalues-1) t += 1;
+        if(t+121 > totalValues-1){
+            if(t+10 > totalValues-1) t += 1;
             else t += 10;
         }
         else t += 121;
@@ -20,7 +20,7 @@ function countForTotal(){
         window.clearInterval(totalFunction);
     }
 }
-
+// Compte jusqu'a la premiere date
 let t1 = 0
 let t2 = 0
 let t3 = 0
@@ -47,7 +47,7 @@ function countDate(){
         window.clearInterval(dateFunction);
     }
 }
-
+// Calcule la moyenne des tableaux
 
 
 // 0xFadeath Copyrigthed this

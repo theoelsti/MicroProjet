@@ -52,7 +52,9 @@
         Valeurs et données
     </div> 
     
-<body>
+<body unselectable="on"
+onselectstart="return false;" 
+onmousedown="return false;">
 
    
 <hr>
@@ -118,7 +120,6 @@
     <hr/>
 
     <script>
-
 <?php
 function getTotalValues(){
     $link = mysqli_connect("localhost:3306", "root", "root", "releves");
@@ -135,7 +136,7 @@ function getTotalValues(){
         echo 'let mostoldDate = "' . $time[0] . '"; ' . "\n";
     }}
     
-    echo "let totalvalues  =" . sizeof($time);
+    echo "let totalValues  = " . sizeof($time);
 }
 function day(){
     $link = mysqli_connect("localhost:3306", "root", "root", "releves");
@@ -154,8 +155,8 @@ function day(){
                 $date[] = $row['date']; 
             }
         
-        $i = 0;
-        $coma = 0;
+        
+        
         $oldstamp = "";
         $datesok = [];
         
@@ -171,9 +172,10 @@ function day(){
         
         $datesize = sizeof($datesok)-1;
         
-        $coma = 0;
+        
+        $temptab = [];
         echo "\n";
-        echo "temprawday   = [";
+        echo "temprawday   = ";
         for($d = $datesize; $d > $datesize-24; $d--){
             //1 nouveau jour unique
                     $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
@@ -183,21 +185,19 @@ function day(){
                             while($row = mysqli_fetch_array($result)){ 
                                 $temp[] = $row['temp'];   
                             }
-                            echo bcdiv(array_sum($temp) / count($temp), 1, 2);
-                            if($coma < 23){
-                                echo ',';
-                                $coma++;
-                            }
+                            array_push($temptab, bcdiv(array_sum($temp) / count($temp), 1, 2));
                         }
                     }
                     $temp = [];  
             }
-            echo "] ";
+            echo bcdiv(array_sum($temptab) / count($temptab), 1, 2);
+            echo "; ";
         
         }
-        $coma = 0;
+        
         echo "\n";
-        echo "humrawday   = [";
+        $humtab = [];
+        echo "humrawday  = ";
         for($d = $datesize; $d > $datesize-24; $d--){
             //1 nouveau jour unique
                     $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
@@ -207,21 +207,20 @@ function day(){
                             while($row = mysqli_fetch_array($result)){ 
                                 $hum[] = $row['hum'];   
                             }
-                            echo bcdiv(array_sum($hum) / count($hum), 1, 2);
-                            if($coma < 23){
-                                echo ',';
-                                $coma++;
-                            }
+                            array_push($humtab,bcdiv(array_sum($hum) / count($hum), 1, 2));
+                            
                         }
                     }
                     $hum = [];  
             }
-            echo "] ";
+            echo bcdiv(array_sum($humtab) / count($humtab), 1, 2);
+            echo ";";
 
 
-            $coma = 0;
+            
             echo "\n";
-            echo "resrawday   = [";
+            $restab = [];
+            echo "resrawday   = ";
             for($d = $datesize; $d > $datesize-24; $d--){
             //1 nouveau jour unique
                         $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
@@ -231,16 +230,14 @@ function day(){
                                 while($row = mysqli_fetch_array($result)){ 
                                     $res[] = $row['res'];   
                                 }
-                                echo bcdiv(array_sum($res) / count($res), 1, 2);
-                                if($coma < 23){
-                                    echo ',';
-                                    $coma++;
-                                }
+                                array_push($restab,bcdiv(array_sum($res) / count($res), 1, 2));
+                                
                             }
                         }
                         $res = [];  
             }
-            echo "] ";
+            echo(bcdiv(array_sum($restab) / count($restab), 1, 2));
+            echo "; ";
         $time = $temp  =$hum = $row = $tempsize = $humsize  = $timesize = $res = 0;
     }
     
