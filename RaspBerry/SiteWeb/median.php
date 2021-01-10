@@ -52,7 +52,9 @@
         Valeurs et données
     </div> 
     
-<body>
+<body unselectable="on"
+onselectstart="return false;" 
+onmousedown="return false;">
 
    
 <hr>
