@@ -9,6 +9,7 @@
 
 <meta charset="utf-8">
 <link href="./styles/stylemedian.css" rel="stylesheet"/>
+<link href="./styles/footer.css" rel="stylesheet"/>
 <script src="./scripts/clock.js"></script>
 <link rel="stylesheet" href="./styles/topnav.css"      />
 
@@ -37,7 +38,7 @@
     </div>
     </a>
     <a href="#">
-        <div class="menubutton">
+        <div class="menubutton active">
             <img src="./images/eye.png" style="width: 40px">
         </div>
     </a>
@@ -365,27 +366,20 @@ getTotalValues()
 
 
 <div class="footer">
-    <a href="url">discord</a>
-    <br>
-    <a href="url">liens</a>
-    <br>
-    <a href="url">repository</a>
-    <br>
-    <a href="url">accueil</a>
-    <br>
-    <a href="url">station meteo</a>
-    <br>
-    <div class="footer-inside">
-        <div class="footer-about-us"></div>
-        <div class="footer-link-us"></div>
-        <div class="footer-things">
-            © 2021 Copyright - 7x Météo
-        </div>
+    <a href="https://discord.gg/JcWXQjXfUX" target="_blank" class="link">Discord</a>
+
+    <a href="https://github.com/theoelsti/MicroProjet" target="_blank" class="link">Code Source</a>
+
+    <a href="accueil.html"class="link">Accueil</a>
+
+    <a href="index.php?param=0&show=0" class="link">Graphiques</a>
+    </br>
+    </br>
+    </br>
+    <div>
+        © 2021 Copyright - 7x Météo
     </div>
 
-    <div class="footer-bottom">
-  
-    </div>
 </div>
 <script src="./scripts/medianjs.js">   </script>
 </body>

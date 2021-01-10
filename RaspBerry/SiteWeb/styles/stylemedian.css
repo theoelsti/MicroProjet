@@ -173,41 +173,6 @@ Style pour la date
     border-radius: 15px;
 }
 
-.footer{
-	color:#fbfbfb;
-	height: 195px;
-	position: relative;
-	width: 100%;
-	background: #000000;
-	text-align: center;
-	color: #000000;
-	font-size: 25px;
-
-	background: rgb(159,48,152);
-	background: linear-gradient(90deg, rgba(159,48,152,1) 0%, rgba(96,31,125,1) 35%, rgba(14,65,168,1) 100%);
-	
-	border: 3px solid #ffffff;
-	
-}
-
-
-
-
-
-
-
-.footer .footer-things{
-	text-align: center;
-	background: #1e0829;
-	color: #ffffff;
-	height: 50px;
-	width: 100%;
-	font-size: 23px;
-	position: absolute;
-	padding-bottom: 0px;
-}
-
-
 .scale{
 		display: flex;
 		justify-content: center;

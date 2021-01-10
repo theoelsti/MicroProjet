@@ -10,6 +10,7 @@ background: linear-gradient(140deg, rgba(252,227,69,1) 0%, rgba(38,17,71,1) 10%,
 <meta charset="utf-8"                                  />
 
 <!--    Feuilles de style-->
+<link href="./styles/footer.css" rel="stylesheet"/>
 <link rel="stylesheet" href="./styles/sidebar.css"      />
 <link href="./styles/style.css" rel="stylesheet"        />
 <link rel="stylesheet" href="./styles/notifs.css"       />
@@ -726,7 +727,23 @@ day();
 <script src="./scripts/connectionchecker.js">   </script>
 <script src="./scripts/goToTop.js">            </script>    
 
+<hr/>
+<div class="footer">
+    <a href="https://discord.gg/JcWXQjXfUX" target="_blank" class="link">Discord</a>
 
+    <a href="https://github.com/theoelsti/MicroProjet" target="_blank" class="link">Code Source</a>
+
+    <a href="accueil.html"class="link">Accueil</a>
+
+    <a href="url" class="link">Graphiques</a>
+    </br>
+    </br>
+    </br>
+    <div>
+        © 2021 Copyright - 7x Météo
+    </div>
+
+</div>
 </body>
 </html>
 <!-- 0xFadeath Copyrigthed this-->
