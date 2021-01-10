@@ -223,7 +223,9 @@ Style pour la date
 /*
 Background des divs valeurs
 */
-
+.totalvalues{
+	font-size: 50px;
+}
 .values-container{
 	justify-content: center;
 	margin: 15px;
@@ -234,9 +236,8 @@ Background des divs valeurs
 	font-family: robot;
 	font-size: 25px;
 	text-align: center;
-	
-	
 }
+
 .number-container{
 	text-align: center;
 	font-size: 25px;
