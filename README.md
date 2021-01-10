@@ -97,4 +97,53 @@ Il ne vous reste plus qu'à vous rendre sur votre navigateur favori et d'acceder
 
 **ip:4000/accueil.html**
 
-#### Fadeath
+Votre serveur **Web** est désormais prêt.
+
+##### Base de données
+
+Il ne vous reste plus qu'à choisir :
+Obtenir des valeurs réelles ou simulées pour avoir un acces à tous les graphiques immédiatement
+
+###### Choix 1: Simulation
+
+Pour faire cela, vous aurez besoin de 2 éléments !
+
+- 1 serveur Mysql/Mariadb
+- Le script "[`generateur.py`](https://github.com/theoelsti/MicroProjet/blob/master/RaspBerry/Python/generateur.py)"
+
+1) Commencez par créer dans votre serveur une base nommées "relevés".
+2) Modifiez le script avec vos identifiants (lignes 7-8)
+
+```py=5
+[...]
+DB_SERVER ='localhost'
+DB_USER='root'  #Votre identifiant   
+DB_PWD='root'   #Votre mot de passe
+[...]
+```
+
+vous n'avez plus qu'à executer le script
+
+```sh=1
+python3 generateur.sql
+```
+
+Et voilà
+
+###### Choix 2 : Données réelles
+
+Cette étape nécéssite:
+
+- Une carte arduino
+- 1 capteur [DHT22](https://wiki.seeedstudio.com/Grove-Temperature_and_Humidity_Sensor_Pro/)
+
+1) Apres avoir branché votre capteur sur le port 10, téléversez [code.ino](https://github.com/theoelsti/MicroProjet/blob/master/Arduino/code/code.ino) sur votre arduino
+2) Coté raspberry, executez le script[receiveSerial.py](https://github.com/theoelsti/MicroProjet/blob/master/RaspBerry/Python/receiveSerial.py)
+
+Le script va s'occuper de créer la table, ainsi que de la vider si déja existante
+
+## Conclusion
+
+Et voilà, vous êtes fin prêt à utiliser cette super station météo ! Pour plus de confort, nous allons améliorer le coté Automatisé, et effectuer tout le processur au lancement de la Raspberry !
+
+#### Fadeath | StormBreaker | Ztix
