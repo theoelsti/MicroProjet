@@ -160,7 +160,7 @@ function day(){
         $oldstamp = "";
         $datesok = [];
         
-        for($d = sizeof($date)-1; $d > sizeof($date)-1008; $d--){
+        for($d = sizeof($date)-1; $d > sizeof($date)-168; $d--){
             if($oldstamp == substr($date[$d], 0, -6)){
                 $oldstamp = substr($date[$d], 0, -6);
             }
@@ -178,7 +178,7 @@ function day(){
         
         echo "\n";
         echo "tempMedian   = ";
-        for($d = $datesize; $d >0; $d--){
+        for($d = $datesize; $d > $datesize-24; $d--){
             //1 nouveau jour unique
                     $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
                     if($result = mysqli_query($link, $sql)){
@@ -200,7 +200,7 @@ function day(){
         echo "\n";
         $humtab = [];
         echo "humMedian  = ";
-        for($d = $datesize; $d > 0; $d--){
+        for($d = $datesize; $d > $datesize-24; $d--){
             //1 nouveau jour unique
                     $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
                     if($result = mysqli_query($link, $sql)){
@@ -223,7 +223,7 @@ function day(){
             echo "\n";
             $restab = [];
             echo "resMedian   = ";
-            for($d = $datesize; $d > 0; $d--){
+            for($d = $datesize; $d > $datesize-24; $d--){
             //1 nouveau jour unique
                         $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
                         if($result = mysqli_query($link, $sql)){
@@ -245,7 +245,7 @@ function day(){
     
     
 }
-day();
+
 
 function week(){
     $link = mysqli_connect("localhost:3306", "root", "root", "releves");
@@ -269,7 +269,7 @@ function week(){
         $oldstamp = "";
         $datesok = [];
         
-        for($d = sizeof($date)-1; $d > 4464; $d--){
+        for($d = sizeof($date)-1; $d > 744; $d--){
             if($oldstamp == substr($date[$d], 0, -6)){
                 $oldstamp = substr($date[$d], 0, -6);
             }
@@ -286,7 +286,7 @@ function week(){
         $temptab = [];
         echo "\n";
         echo "tempMonthMedian   = ";
-        for($d = $datesize; $d > 0; $d--){
+        for($d = $datesize; $d > $datesize-24; $d--){
             //1 nouveau jour unique
                     $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
                     if($result = mysqli_query($link, $sql)){
@@ -308,7 +308,7 @@ function week(){
         echo "\n";
         $humtab = [];
         echo "humMonthMedian  = ";
-        for($d = $datesize; $d > 0; $d--){
+        for($d = $datesize; $d > $datesize-24; $d--){
             //1 nouveau jour unique
                     $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
                     if($result = mysqli_query($link, $sql)){
@@ -331,7 +331,7 @@ function week(){
             echo "\n";
             $restab = [];
             echo "resMonthMedian   = ";
-            for($d = $datesize; $d > 0; $d--){
+            for($d = $datesize; $d >$datesize-24; $d--){
             //1 nouveau jour unique
                         $sql = "SELECT * FROM pimeteo " . "where date like \"%" . $datesok[$d] . "%\";";
                         if($result = mysqli_query($link, $sql)){
@@ -354,6 +354,8 @@ function week(){
     
 }
 week();
+day();
+
 
 getTotalValues()
 ?>
