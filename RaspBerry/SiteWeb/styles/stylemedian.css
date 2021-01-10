@@ -20,14 +20,14 @@ html{
 }
 .title{
 	height: 10vh;
-	margin-top: 5%;
+	margin-top: 0%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 
-    font-family: cloudy;
+    font-family: robot;
     font-size: 100px;
     color: #ffffff;
     }
@@ -204,6 +204,7 @@ Style pour la date
 .scale{
 		display: flex;
 		justify-content: center;
+		text-align: center;
 		color: #ffffff;
 		border-radius: 35px;
 		width:250px;
