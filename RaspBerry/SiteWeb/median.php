@@ -57,6 +57,7 @@
    
 <hr>
 
+<br><br>
 
 </div>
 <div class="buttonX">
@@ -72,30 +73,34 @@
     </div>
 </div>
 
+<br><br>
 
 <div class="texte3">
     Moyennes des valeurs sur...
 </div>
 
+<br>
 
-<div class="scale">7 jours</div>
-
-<div class="buttonY">
-    <div class ="buttonYpos">
-        <div id="tempday" class="values-container temperature" >
-            
-            <div class="number-container">21°C </div>
+<div class="buttonX">
+    <div class ="buttonXpos">
         </div> 
-        <div id="humday"  class="values-container humidity" > </div>
-        <div id="resday"  class="values-container feel" > </div>
+        <div id="humday"  class="values-container temperature" > 7 jours</div>
+        <div id="resday"  class="values-container humidity" > 31 jours</div>
     </div>
 </div>  
 <br>
-<div class="buttonW">
+<div class="buttonY">
     <div class ="buttonYpos">
-        <div  id="tempweek" class="values-container temperature"> </div>
-        <div  id="humweek"  class="values-container humidity" > </div>
-        <div  id="resweek"  class="values-container feel" > </div>
+        </div> 
+        <div id="humday"  class="values-container temperature" > Temperature</div>
+        <div id="resday"  class="values-container humidity" > Temperature</div>
+    </div>
+</div>  
+<br>
+<div class="buttonW"> 
+    <div class ="buttonYpos">
+        <div  id="tempweek" class="values-container temperature"> Humidite</div>
+        <div  id="humweek"  class="values-container humidity" > Humidite</div>
     </div>
 </div>  
 
@@ -237,6 +242,7 @@ function day(){
 day();
 getTotalValues()
 ?>
+
     </script>
 
 
@@ -256,14 +262,3 @@ getTotalValues()
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
