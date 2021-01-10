@@ -347,7 +347,7 @@ function switchShow(){
       closeButton: false,
       maxWidth: 350,
       autoOpen: true,
-      position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+      position: 'bottom-left', 
       backgroundColor: "#288CC0",
       closeIcon: false
     })
@@ -364,7 +364,7 @@ function switchShow(){
       closeButton: false,
       maxWidth: 200,
       autoOpen: true,
-      position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+      position: 'bottom-left', 
       backgroundColor: "#288CC0",
       closeIcon: false
     })
@@ -381,7 +381,7 @@ function switchShow(){
       closeButton: false,
       maxWidth: 180,
       autoOpen: true,
-      position: 'bottom-left', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+      position: 'bottom-left', 
       backgroundColor: "#288CC0",
       closeIcon: false
     })
@@ -597,7 +597,7 @@ function forbidAction(){
     closeButton: false,
     maxWidth: 350,
     autoOpen: true,
-    position: 'top-right', //'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 
+    position: 'top-right', 
     backgroundColor: null,
     closeIcon: null
   })
