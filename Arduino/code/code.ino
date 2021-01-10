@@ -11,11 +11,10 @@ void setup()
 
 void loop()
 {
-    
     hum = dht.readHumidity();
     temp = dht.readTemperature();  
     tempRessentie = dht.computeHeatIndex(temp, hum, false); 
-    String payload = String(hum)+":"+String(temp)+":"+String(tempRessentie)+"\n";
+    String payload = String(temp)+":"+String(hum)+":"+String(tempRessentie)+"\n";
     Serial.print(payload);
     delay(2000); 
 }

@@ -44,11 +44,13 @@ def tempget():
     line = ser.readline().decode('utf-8').rstrip()
     data = line.split(':')
     query_db("""INSERT INTO pimeteo (date, temp, hum, res) VALUES ('%s','%s','%s,'%s');
-         """ % (datebuff, data[1], data[0], data[2]))
+         """ % (datebuff, data[0], data[1], data[2]))
          
 #On crée la table si elle n'existe pas
 query_db("""CREATE TABLE IF NOT EXISTS pimeteo (`date` datetime NOT NULL,
-              temp decimal(3,1) NOT NULL, hum decimal(3,1) NOT NULL) ;""")
+              temp decimal(3,1) NOT NULL, 
+              hum decimal(4,1) NOT NULL, 
+              res decimal(3,1) NOT NULL);""")
 empty_base()
 try:
  ok = True
