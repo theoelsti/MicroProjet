@@ -45,8 +45,38 @@ Cette page est le coeur du site. Elle comporte le graphique permettant de consul
 - 24 heures
 - 7 jours
 - 31 jours
-En plus de choisir l'échelle d'affichage, elle permet grâce à des boutons rangés dans un menu de
+En plus de choisir l'échelle d'affichage, elle permet grâce à des boutons rangés dans un menu de séléction, d'avancer et de reculer dans le temps. A chaque séléction, la page s'actualise et sauvegarde votre choix d'échelle. Vous êtes prévenu si vous ne pouvez pas plus avancer ou reculer dans le temps
 
-![Performances](https://i.imgur.com/T40d59z.png)
+Un petit bouton de retour à 0 est présent en haut a droite de la page. Il vous permet de retourner aux résultats les plus récents.
+
+Pour le confort des petits écrans, un bouton permettant de retourner en haut de la page apparaitera automatiquement lorsque l'utilisateur descendra sur la page.
+
+##### Information à l'utilisateur
+
+Une petite notification vous informe sur la connexion au serveur. Si vous êtes soudainement déconnecté, vous en serez averti sous 10 secondes
+
+![Alerte de déconnexion](https://i.imgur.com/EhahlDQ.png)
+
+En fonction de votre choix, une notification persistance vous informera également de la plage horaire des données affichées
+
+![Plage horaire](https://i.imgur.com/khYrv7K.png)
+
+##### Performances
+
+Pour son fonctionnement, cette page effectue plusieurs requetes sql et stock les résultats sous forme de tableau JavaScript.
+Nous pensions au début que celle ci allait mettre beaucoup de temps à se charger, mais après 1 soirée d'optimisations, nous l'avons rendu ultra légère !
+
+![Performances](https://i.imgur.com/klfOUAU.png)
+> Seulement 73mo de ram, presque la motié de la page avant optimisation !
+>
+> Pour information, cette page demande + de 15 scripts et + de 5 feuilles de style
+
+#### 🧮 Page des moyennes
+
+Cette page est déstinée à consulter les moyennes des valeurs. Vous y trouverez :
+
+- Le Nombre total de valeurs relevées
+- La date du premier relevé
+- Des moyennes par semaine et par mois
 
 #### Fadeath
