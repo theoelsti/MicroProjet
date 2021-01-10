@@ -118,7 +118,6 @@ let resm = 0.0
     var humMonthFunction = self.setInterval(function () {countForhumMonth()}, 4);
     function countForhumMonth(){    
         if(hm <= humMonthMedian){
-
             hm += 0.1;
             humMonthField.innerHTML = " <span title='Humidité moyenne de la semaine' class=\"totalvalues\" >" + hm.toFixed(1) +" % </span>" ;
 
@@ -130,7 +129,6 @@ let resm = 0.0
     var resMonthFunction = self.setInterval(function () {countForresMonth()}, 4);
     function countForresMonth(){    
         if(resm <= resMonthMedian){
-
             resm += 0.1;
             resMonthField.innerHTML = " <span title='Humidité moyenne de la semaine' class=\"totalvalues\" >" + resm.toFixed(1) +" °C </span>" ;
 
