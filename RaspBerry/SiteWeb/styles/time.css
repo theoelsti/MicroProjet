@@ -1,0 +1,39 @@
+.timebtn {
+	font-size: 20px;
+	cursor: pointer;
+	background-color: #2E2157;
+	color: white;
+	padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+}
+ 
+.timebtn:hover {
+background-color: #444;
+}
+.buttonl{
+	margin: 10px;
+	background-color: #40237588;
+	border: solid #650D89 1px;
+	border-radius: 5px;
+	width:70px;
+	height: 40px;
+	font-size: 130%;
+	cursor: pointer;
+}
+.openbuttons{
+	opacity: 0;
+	transition: opacity 0.6s linear;
+}
+.opentime{
+	transition: opacity 0.6s linear;
+}
+.date0{
+	color: green;
+}
+.date1{
+	color: red;
+}
+/*
+// 0xFadeath Copyrigthed this //
+*/

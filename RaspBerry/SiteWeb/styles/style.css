@@ -1,0 +1,147 @@
+@font-face {
+    font-family: "cloudy";
+    src: url(../fonts/FluffyClouds-K11y.ttf) format("truetype");
+}
+@font-face {
+    font-family: "coolvetica";
+    src: url(../fonts/coolvetica\ rg.ttf) format("truetype");
+}
+@font-face {
+    font-family: "robot";
+    src: url(../fonts/Roboto-Thin.ttf) format("truetype");
+}
+.title{
+	font-family: cloudy;
+	color: #F9C80E;
+    text-align: center;
+    font-size: 100px;
+    
+}
+html{
+	scroll-behavior: smooth;
+}
+* {
+	outline: none;
+}
+/*
+Style pour la date
+*/
+#timedate {
+    font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    text-align:center;
+
+    color:#fff;
+  }
+#mi{
+    opacity: 0;
+}
+
+.mainHello{
+		font-size: 50px;
+		text-align: center;
+		color:#F6019D ;
+}
+.state{
+	font-size: 20px;
+	text-align: right;
+	color:#0cd463 ;
+}
+.dataText{
+	font-size: 45px;
+	text-align: center;
+	color:#8712b6 ;
+	font-family: robot;
+}
+#tempid{
+	font-size: 40px;
+	text-align: center;
+	color:#FF6C11 ;
+	font-family: robot;
+}
+#humid{
+	font-size: 40px;
+	text-align: center;
+	color:#2067d1 ;
+	font-family: robot;
+}
+#resid{
+	font-size: 40px;
+	text-align: center;
+	color:#ffac11 ;
+	font-family: robot;
+}
+
+.lastvalues{
+	font-size: 45px;
+	text-align: center;
+	font-family: robot;
+}
+.buttons{
+	display: flex;
+	justify-content: center;
+	
+
+}
+.button{
+	margin: 10px;
+	background-color: #402375;
+	border: solid #650D89 1px;
+	border-radius: 5px;
+	width:100px;
+	height: 50px;
+	font-size: 130%;
+	cursor: pointer;
+	
+}
+.toolsbuttons{
+	position:relative;
+	padding-right: 100px;
+}
+.buttonre{
+	position:absolute;
+	margin: 10px;
+	background-color: #0B6B0E;
+	border: solid #0A6A0E 1px;
+	border-radius: 5px;
+	width: 50px;
+	height: 50px;
+	font-size: 130%;
+	cursor: pointer;
+}
+
+.buttonl:hover{
+	background-color: #40237522;
+}
+.buttonre:hover{
+	background-color: #FF436544;
+	border: none;
+}
+
+/*
+gauges
+*/
+.gauges{
+display: flex;
+justify-content: center;
+}
+.gauge-container {
+	width: 150px;
+	height: 50px;
+
+  }
+.gauge-container.two {
+    height: auto;
+
+}
+.gauge-container.two > .gauge > .dial {
+stroke: #334455;
+stroke-width: 10;
+}
+.gauge-container.two > .gauge > .value {
+	stroke-dasharray: none;
+	stroke-width: 13;
+}
+
+/*
+// 0xFadeath Copyrigthed this //
+*/

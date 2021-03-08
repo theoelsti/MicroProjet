@@ -1,0 +1,6 @@
+node_modules
+.vscode
+RaspBerry/SQL/longrandom.sql
+profile.sh
+profile.txt
+arduino.json

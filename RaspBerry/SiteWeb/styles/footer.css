@@ -1,0 +1,33 @@
+
+.footer{
+	color:#fbfbfb;
+	height: 250px;
+	position: relative;
+	width: 100%;
+	text-align: center;
+	color: #000000;
+	font-size: 25px;
+
+	
+	
+	
+}
+
+.footer .footer-things{
+	text-align: center;
+	color: #ffffff;
+	height: 50px;
+	width: 100%;
+	font-size: 23px;
+	position: absolute;
+	padding-bottom: 0px;
+}
+
+.link{
+	outline: none; 
+	text-decoration: none;
+	padding: 30px;
+	margin-bottom: 30px;
+	font-family: coolvetica;
+	color: whitesmoke;
+}

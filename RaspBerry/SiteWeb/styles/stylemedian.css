@@ -1,0 +1,294 @@
+@font-face {
+    font-family: "cloudy";
+    src: url(../fonts/FluffyClouds-K11y.ttf) format("truetype");
+}
+@font-face {
+    font-family: "coolvetica";
+    src: url(../fonts/coolvetica\ rg.ttf) format("truetype");
+}
+@font-face {
+    font-family: "robot";
+    src: url(../fonts/Roboto-Thin.ttf) format("truetype");
+}
+
+
+* {
+	outline: none;
+}
+html{
+	scroll-behavior: smooth;
+}
+.title{
+	height: 15vh;
+	margin-top: 0%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+
+    font-family: robot;
+    font-size: 100px;
+    color: #ffffff;
+    }
+ /*
+Style pour le soleil
+*/
+.sun {
+    width: 100px;
+    float: right;
+	height: 100px;
+	background-color: #250097;
+	border-radius: 50%;
+	box-shadow:
+		0 0 0 20px #4d88c3,
+		0 0 0 40px #59d6dd,
+		0 0 0 60px #e974ea,
+		0 0 0 80px #d429d5,
+		0 0 0 100px #893abf,
+		0 0 40px 100px #ffffff;
+	animation:
+		sunrise 2s infinite linear forwards,
+		rays 2s 2s infinite linear;
+}
+@keyframes sunrise {
+	0% {
+		box-shadow: none;
+	}
+}
+@keyframes rays {
+	0% {
+		box-shadow: 
+		0 0 0 0#4d88c3,
+		0 0 0 20px #59d6dd,
+		0 0 0 40px #e974ea,
+		0 0 0 60px #d429d5,
+		0 0 0 80px #893abf,
+		0 0 40px 100px #ffffff;
+	}
+	100% {
+		box-shadow: 
+		0 0 0 20px #4d88c3,
+		0 0 0 40px #59d6dd,
+		0 0 0 60px #e974ea,
+		0 0 0 80px #d429d5,
+		0 0 0 100px #893abf,
+		0 0 40px 100px #ffffff;
+	}
+}
+/*
+Style pour le fond d'ecran
+*/
+
+
+/*
+Style pour la date
+*/
+#timedate {
+	text-align: center;
+    font: small-caps lighter 35px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    color :#3afefc;
+  }
+#mi{
+    opacity: 0;
+}
+
+.moyenne{
+	font-size: 45px;
+	text-align: center;
+	color:#8712b6 ;
+	font-family: robot;
+}
+.buttonX{
+	position: center;
+	display: flex;
+	text-size-adjust: 69%;
+	text-align: center;	
+	justify-content: center;
+	align-items: center;
+}
+
+.buttonY{
+	position: center;
+	display: flex;
+	text-size-adjust: 69%;
+	text-align: center;	
+	justify-content: center;
+	align-items: center;
+}
+
+.buttonW{
+	position: center;
+	display: flex;
+	text-size-adjust: 69%;
+	text-align: center;	
+	justify-content: center;
+	align-items: center;
+}
+
+.buttonZ	{
+	position: center;
+	display: flex;
+	text-size-adjust: 69%;
+	text-align: center;	
+	justify-content: center;
+	align-items: center;
+}
+
+.buttonXpos{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.buttonYpos{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.buttonWpos{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+.texte3{
+
+	position: center;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+   	font-family: robot;
+   	font-size: 25px;
+   	color: #ffffff;
+	}
+	
+
+
+.menubutton{
+	background-color: #000000;
+	border: solid #bb04ae 2px;
+	color: white;
+    border-radius: 15px;
+}
+
+.scale{
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		color: #ffffff;
+		border-radius: 35px;
+		width:250px;
+		height: 100px;
+		font-size: 130%;
+		font-family: robot;
+}
+
+/*
+Background des divs valeurs
+*/
+.totalvalues{
+	font-size: 50px;
+}
+#firstdate{
+	font-size: 50px;
+}
+.values-container{
+	justify-content: center;
+	margin: 15px;
+	color: #ffffff;
+    border-radius: 35px;
+    width:350px;
+    height: 100px;
+	font-family: robot;
+	font-size: 25px;
+	text-align: center;
+}
+
+.number-container{
+	text-align: center;
+	font-size: 25px;
+	margin-top: 4px; 
+}
+#total{
+	background: rgba(159,48,152,1);
+	border: solid #000000 3px;
+
+
+}
+#startdate{
+	background: rgba(14,65,168,1)  ;
+	border: solid #000000 3px;
+}
+.temperature{
+
+	text-align: center;
+
+	background-size: 600% 600%;
+    -webkit-animation: AnimationName 4s ease infinite;
+	animation: AnimationName 30s ease infinite;
+
+	border: solid #000000 3px;
+	
+	background: linear-gradient(270deg, #29ccd5, #2962d5, #5329d5);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 59s ease infinite;
+    -moz-animation: AnimationName 59s ease infinite;
+    animation: AnimationName 59s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+
+}
+.humidity{
+	text-align: center;
+	
+
+	background: linear-gradient(270deg, #5329d5, #9029d5, #d429d5);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 59s ease infinite;
+    -moz-animation: AnimationName 59s ease infinite;
+	animation: AnimationName 59s ease infinite;
+	
+	border: solid #000000 3px;
+
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+
+}
+.feel{
+	text-align: center;
+	font-size: 20px;
+	
+}
+
